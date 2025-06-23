@@ -214,15 +214,22 @@ export default function Portfolio() {
       </section>
 
       {/* Business & Community Section */}
-      <section id="business" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section id="business" className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30"></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-32 right-20 w-48 h-48 bg-gradient-to-r from-purple-400/20 to-pink-500/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-r from-indigo-400/15 to-cyan-500/15 rounded-full blur-lg animate-pulse" style={{animationDelay: '2s'}}></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Business & Community
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
-              <CardContent className="p-8">
+            <Card className="group hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-cyan-50/30 dark:from-blue-950/20 dark:via-slate-900/50 dark:to-cyan-950/10 backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-cyan-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardContent className="p-8 relative z-10">
                 <div className="mb-6">
                   <Image
                     src="/Luminous Core.png"
@@ -250,8 +257,9 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
-              <CardContent className="p-8">
+            <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/90 via-purple-50/50 to-pink-50/30 dark:from-purple-950/20 dark:via-slate-900/50 dark:to-pink-950/10 backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-rose-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardContent className="p-8 relative z-10">
                 <div className="mb-6">
                   <Image
                     src="/StuDXIA.jpg"
@@ -283,8 +291,22 @@ export default function Portfolio() {
       </section>
 
       {/* More about me Section */}
-      <section id="about" className="py-20">
-        <div className="container mx-auto px-4">
+      <section id="about" className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-gray-50 to-zinc-50 dark:from-slate-900/50 dark:via-gray-900/50 dark:to-zinc-900/50"></div>
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              transparent,
+              transparent 2px,
+              rgba(59, 130, 246, 0.05) 2px,
+              rgba(59, 130, 246, 0.05) 4px
+            )`,
+          }}></div>
+          <div className="absolute top-10 right-10 w-64 h-64 bg-gradient-to-br from-blue-400/10 to-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-tl from-cyan-400/10 to-teal-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             More about me
           </h2>
@@ -333,15 +355,28 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section id="projects" className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-indigo-50 via-white to-purple-50 dark:from-indigo-950/20 dark:via-gray-900/50 dark:to-purple-950/20"></div>
+        <div className="absolute inset-0">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%)`,
+          }}></div>
+          <div className="absolute top-16 left-16 w-6 h-6 bg-blue-400/30 rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
+          <div className="absolute top-32 right-32 w-4 h-4 bg-purple-400/30 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-32 left-1/4 w-8 h-8 bg-cyan-400/30 rounded-full animate-bounce" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-16 right-16 w-5 h-5 bg-pink-400/30 rounded-full animate-bounce" style={{animationDelay: '3s'}}></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Projects & Activities
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
-              <CardContent className="p-6">
+            <Card className="group hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-indigo-50/30 dark:from-blue-950/20 dark:via-slate-900/40 dark:to-indigo-950/10 backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-indigo-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardContent className="p-6 relative z-10">
                 <Image
                   src="/system.png"
                   alt="AI Development"
@@ -354,8 +389,9 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
-              <CardContent className="p-6">
+            <Card className="group hover:shadow-2xl hover:shadow-green-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/90 via-green-50/50 to-emerald-50/30 dark:from-green-950/20 dark:via-slate-900/40 dark:to-emerald-950/10 backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardContent className="p-6 relative z-10">
                 <Image
                   src="/SNS.png"
                   alt="SNS Growth"
@@ -368,8 +404,9 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
-              <CardContent className="p-6">
+            <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/90 via-purple-50/50 to-violet-50/30 dark:from-purple-950/20 dark:via-slate-900/40 dark:to-violet-950/10 backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-violet-500/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardContent className="p-6 relative z-10">
                 <Image
                   src="/game.png"
                   alt="Game Development"
@@ -383,8 +420,9 @@ export default function Portfolio() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
-              <CardContent className="p-6">
+            <Card className="group hover:shadow-2xl hover:shadow-pink-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/90 via-pink-50/50 to-rose-50/30 dark:from-pink-950/20 dark:via-slate-900/40 dark:to-rose-950/10 backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-rose-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardContent className="p-6 relative z-10">
                 <Image
                   src="/model.png"
                   alt="Model & Cosplay"
@@ -405,8 +443,21 @@ export default function Portfolio() {
       </section>
 
       {/* Creative & SNS Section */}
-      <section id="sns" className="py-20">
-        <div className="container mx-auto px-4">
+      <section id="sns" className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-pink-50 to-orange-50 dark:from-rose-950/30 dark:via-pink-950/30 dark:to-orange-950/30"></div>
+        <div className="absolute inset-0">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `conic-gradient(from 0deg at 50% 50%, 
+                             rgba(236, 72, 153, 0.1) 0deg,
+                             rgba(251, 146, 60, 0.1) 90deg,
+                             rgba(168, 85, 247, 0.1) 180deg,
+                             rgba(59, 130, 246, 0.1) 270deg,
+                             rgba(236, 72, 153, 0.1) 360deg)`,
+          }}></div>
+          <div className="absolute top-20 left-1/4 w-40 h-40 bg-gradient-to-br from-pink-400/20 to-rose-500/20 rounded-full blur-2xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-1/4 w-56 h-56 bg-gradient-to-tl from-orange-400/20 to-pink-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Creative & SNS
           </h2>
@@ -448,8 +499,9 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-background border-t py-12">
-        <div className="container mx-auto px-4">
+      <footer className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-900 dark:to-gray-900 border-t border-gray-200/50 dark:border-gray-700/50 py-12 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center space-y-6">
             <div className="flex justify-center space-x-6">
               <Link
