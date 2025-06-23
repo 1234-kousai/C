@@ -14,6 +14,20 @@ export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [mounted, setMounted] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const aboutMeImages = [
+    "/more about me1.JPG",
+    "/more about me2.JPG", 
+    "/more about me3.jpeg",
+    "/more about me4.JPG"
+  ]
+
+  const snsVideos = [
+    "/SNS1.mov",
+    "/SNS2.mov"
+  ]
 
   useEffect(() => {
     setMounted(true)
@@ -21,6 +35,26 @@ export default function Portfolio() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === aboutMeImages.length - 1 ? 0 : prevIndex + 1
+      )
+    }, 3000)
+    
+    return () => clearInterval(interval)
+  }, [aboutMeImages.length])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentVideoIndex((prevIndex) => 
+        prevIndex === snsVideos.length - 1 ? 0 : prevIndex + 1
+      )
+    }, 3000)
+    
+    return () => clearInterval(interval)
+  }, [snsVideos.length])
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
@@ -118,7 +152,7 @@ export default function Portfolio() {
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <div className="mb-8 animate-fade-in">
             <Image
-              src="/placeholder.svg?height=200&width=200"
+              src="/Kousai.png"
               alt="山本公才"
               width={200}
               height={200}
@@ -160,7 +194,7 @@ export default function Portfolio() {
               <CardContent className="p-8">
                 <div className="mb-6">
                   <Image
-                    src="/placeholder.svg?height=300&width=400"
+                    src="/Luminous Core.png"
                     alt="Luminous Core"
                     width={400}
                     height={300}
@@ -189,7 +223,7 @@ export default function Portfolio() {
               <CardContent className="p-8">
                 <div className="mb-6">
                   <Image
-                    src="/placeholder.svg?height=300&width=400"
+                    src="/StuDXIA.png"
                     alt="StuDXIA"
                     width={400}
                     height={300}
@@ -226,14 +260,21 @@ export default function Portfolio() {
 
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <Image
-                  src="/placeholder.svg?height=500&width=400"
-                  alt="山本公才 プロフィール"
-                  width={400}
-                  height={500}
-                  className="rounded-lg shadow-2xl w-full object-cover"
-                />
+              <div className="relative">
+                <div className="relative w-full h-[500px] overflow-hidden rounded-lg shadow-2xl">
+                  {aboutMeImages.map((image, index) => (
+                    <Image
+                      key={index}
+                      src={image}
+                      alt={`山本公才 プロフィール ${index + 1}`}
+                      width={400}
+                      height={500}
+                      className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                        index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
 
               <div className="space-y-6 text-lg leading-relaxed">
@@ -271,7 +312,7 @@ export default function Portfolio() {
             <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
               <CardContent className="p-6">
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="/system.png"
                   alt="AI Development"
                   width={300}
                   height={200}
@@ -285,7 +326,7 @@ export default function Portfolio() {
             <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
               <CardContent className="p-6">
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="/SNS.png"
                   alt="SNS Growth"
                   width={300}
                   height={200}
@@ -299,7 +340,7 @@ export default function Portfolio() {
             <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
               <CardContent className="p-6">
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="/game.png"
                   alt="Game Development"
                   width={300}
                   height={200}
@@ -314,7 +355,7 @@ export default function Portfolio() {
             <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
               <CardContent className="p-6">
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="/model.png"
                   alt="Model & Cosplay"
                   width={300}
                   height={200}
@@ -341,13 +382,20 @@ export default function Portfolio() {
 
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
-              <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="Creative Work"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-2xl mx-auto mb-8"
-              />
+              <div className="relative w-full max-w-2xl mx-auto h-[400px] overflow-hidden rounded-lg shadow-2xl">
+                {snsVideos.map((video, index) => (
+                  <video
+                    key={index}
+                    src={video}
+                    autoPlay
+                    muted
+                    loop
+                    className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                      index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
 
             <div className="space-y-6">
