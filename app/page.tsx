@@ -237,7 +237,7 @@ export default function Portfolio() {
                   <ExternalLink className="ml-3 h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </h3>
                 <Badge className="mb-6 text-lg px-4 py-2">グローステック・カンパニー</Badge>
-                <p className="text-lg md:text-xl leading-relaxed mb-6">
+                <p className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 dark:text-gray-300 tracking-wide">
                   当社は『AI技術』と『グロース戦略』を掛け合わせ、SNSを起点としたクライアントの事業成果を最大化するグローステック・カンパニーです。AIを活用したSNS運用代行から、オーダーメイドのシステム・ツール開発まで一貫して支援。
                 </p>
                 <Link
