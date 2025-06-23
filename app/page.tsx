@@ -472,12 +472,6 @@ export default function Portfolio() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
               <div className="relative w-full max-w-2xl mx-auto h-[400px] overflow-hidden rounded-lg shadow-2xl">
-                <div className="absolute inset-0" style={{
-                  backgroundImage: `url('/大理石.jpg')`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}></div>
-                <div className="absolute inset-0 bg-white/20 dark:bg-gray-900/20"></div>
                 {snsVideos.map((video, index) => (
                   <video
                     key={index}
