@@ -183,15 +183,23 @@ export default function Portfolio() {
             />
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-slide-up tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-slide-up tracking-tight drop-shadow-2xl">
             山本 公才
           </h1>
 
-          <div className="text-lg md:text-xl text-muted-foreground mb-8 space-y-2 animate-slide-up-delay">
-            <p>Luminous Core 株式会社 代表取締役CEO</p>
-            <p>学生団体 StuDXIA 代表</p>
-            <p>慶應義塾大学 経済学部 在学</p>
-            <p>Faith United 所属モデル</p>
+          <div className="text-lg md:text-xl mb-8 space-y-3 animate-slide-up-delay">
+            <div className="bg-black/40 backdrop-blur-sm rounded-2xl px-6 py-4 mx-auto max-w-2xl border border-white/10">
+              <p className="text-white font-semibold text-shadow-lg">Luminous Core 株式会社 代表取締役CEO</p>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm rounded-2xl px-6 py-4 mx-auto max-w-2xl border border-white/10">
+              <p className="text-white font-semibold text-shadow-lg">学生団体 StuDXIA 代表</p>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm rounded-2xl px-6 py-4 mx-auto max-w-2xl border border-white/10">
+              <p className="text-white font-semibold text-shadow-lg">慶應義塾大学 経済学部 在学</p>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm rounded-2xl px-6 py-4 mx-auto max-w-2xl border border-white/10">
+              <p className="text-white font-semibold text-shadow-lg">Faith United 所属モデル</p>
+            </div>
           </div>
 
           <Button
