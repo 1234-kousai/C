@@ -363,8 +363,14 @@ export default function Portfolio() {
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <Card className="group hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-indigo-50/30 dark:from-blue-950/20 dark:via-slate-900/40 dark:to-indigo-950/10 backdrop-blur-sm relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-indigo-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <Card className="group hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 relative overflow-hidden">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `url('/大理石.jpg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}></div>
+              <div className="absolute inset-0 bg-white/85 dark:bg-gray-900/85"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <CardContent className="p-6 relative z-10">
                 <Image
                   src="/system.png"
@@ -378,8 +384,14 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-2xl hover:shadow-green-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/90 via-green-50/50 to-emerald-50/30 dark:from-green-950/20 dark:via-slate-900/40 dark:to-emerald-950/10 backdrop-blur-sm relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <Card className="group hover:shadow-2xl hover:shadow-green-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 relative overflow-hidden">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `url('/大理石.jpg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}></div>
+              <div className="absolute inset-0 bg-white/85 dark:bg-gray-900/85"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-emerald-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <CardContent className="p-6 relative z-10">
                 <Image
                   src="/SNS.png"
@@ -393,8 +405,14 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/90 via-purple-50/50 to-violet-50/30 dark:from-purple-950/20 dark:via-slate-900/40 dark:to-violet-950/10 backdrop-blur-sm relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-violet-500/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <Card className="group hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 relative overflow-hidden">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `url('/大理石.jpg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}></div>
+              <div className="absolute inset-0 bg-white/85 dark:bg-gray-900/85"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-violet-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <CardContent className="p-6 relative z-10">
                 <Image
                   src="/game.png"
@@ -409,8 +427,14 @@ export default function Portfolio() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="group hover:shadow-2xl hover:shadow-pink-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 bg-gradient-to-br from-white/90 via-pink-50/50 to-rose-50/30 dark:from-pink-950/20 dark:via-slate-900/40 dark:to-rose-950/10 backdrop-blur-sm relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-rose-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <Card className="group hover:shadow-2xl hover:shadow-pink-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 relative overflow-hidden">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `url('/大理石.jpg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}></div>
+              <div className="absolute inset-0 bg-white/85 dark:bg-gray-900/85"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-rose-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <CardContent className="p-6 relative z-10">
                 <Image
                   src="/model.png"
@@ -448,6 +472,12 @@ export default function Portfolio() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
               <div className="relative w-full max-w-2xl mx-auto h-[400px] overflow-hidden rounded-lg shadow-2xl">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: `url('/大理石.jpg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}></div>
+                <div className="absolute inset-0 bg-white/20 dark:bg-gray-900/20"></div>
                 {snsVideos.map((video, index) => (
                   <video
                     key={index}
@@ -457,7 +487,7 @@ export default function Portfolio() {
                     loop
                     className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
                       index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    } relative z-10`}
                   />
                 ))}
               </div>
