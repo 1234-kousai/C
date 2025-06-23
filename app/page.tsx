@@ -276,7 +276,7 @@ export default function Portfolio() {
                 </h3>
                 <Badge className="mb-6 text-lg px-4 py-2">デジタル人材育成団体</Badge>
                 <p className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 dark:text-gray-300 tracking-wide">
-                  未来のデジタルリーダーを育成する、最高峰大学連合のイノベーションハブ。🎆<span className="font-semibold text-blue-600 dark:text-blue-400">慶應・東大・早稲田・一橋</span>のエリート学生から、革新的起業家、専門技術者まで、各界のトップタレントが結集。🚀上場企業・テックジャイアントとの戦略パートナーシップで、業界を変革する次世代タレントを育成。
+                  未来のデジタルリーダーを育成する、最高峰大学連合のイノベーションハブ。<span className="font-semibold text-blue-600 dark:text-blue-400">慶應・東大・早稲田・一橋</span>のエリート学生から、革新的起業家、専門技術者まで、各界のトップタレントが結集。上場企業・テックジャイアントとの戦略パートナーシップで、業界を変革する次世代タレントを育成。
                 </p>
                 <Link
                   href="https://www.studxia.com"
