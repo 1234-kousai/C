@@ -16,17 +16,23 @@ export default function Portfolio() {
   const [mounted, setMounted] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const [currentBgImageIndex, setCurrentBgImageIndex] = useState(0)
 
   const aboutMeImages = [
     "/more about me1.JPG",
     "/more about me2.JPG", 
     "/more about me3.jpeg",
-    "/more about me4.JPG"
+    "/IMG_8019.JPG"
   ]
 
   const snsVideos = [
     "/SNS1.mov",
     "/SNS2.mov"
+  ]
+
+  const backgroundImages = [
+    "/Luminous Core.png",
+    "/StuDXIA.jpg"
   ]
 
   useEffect(() => {
@@ -55,6 +61,16 @@ export default function Portfolio() {
     
     return () => clearInterval(interval)
   }, [snsVideos.length])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBgImageIndex((prevIndex) => 
+        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
+      )
+    }, 2000)
+    
+    return () => clearInterval(interval)
+  }, [backgroundImages.length])
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
@@ -139,15 +155,22 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-purple-900/40 to-pink-900/30 dark:from-cyan-900/50 dark:via-purple-900/60 dark:to-pink-900/50" />
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `url('/placeholder.svg?height=1080&width=1920')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            transform: `translateY(${scrollY * 0.5}px)`,
-          }}
-        />
+        <div className="absolute inset-0 opacity-30">
+          {backgroundImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentBgImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{
+                backgroundImage: `url('${image}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                transform: `translateY(${scrollY * 0.5}px)`,
+              }}
+            />
+          ))}
+        </div>
 
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <div className="mb-8 animate-fade-in">
@@ -223,7 +246,7 @@ export default function Portfolio() {
               <CardContent className="p-8">
                 <div className="mb-6">
                   <Image
-                    src="/StuDXIA.png"
+                    src="/StuDXIA.jpg"
                     alt="StuDXIA"
                     width={400}
                     height={300}
