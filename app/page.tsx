@@ -232,20 +232,20 @@ export default function Portfolio() {
                     className="rounded-lg w-full object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 flex items-center">
+                <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
                   株式会社Luminous Core
-                  <ExternalLink className="ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ExternalLink className="ml-3 h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </h3>
-                <Badge className="mb-4">グローステック・カンパニー</Badge>
-                <p className="text-muted-foreground mb-4">
+                <Badge className="mb-6 text-lg px-4 py-2">グローステック・カンパニー</Badge>
+                <p className="text-lg md:text-xl leading-relaxed mb-6">
                   当社は『AI技術』と『グロース戦略』を掛け合わせ、SNSを起点としたクライアントの事業成果を最大化するグローステック・カンパニーです。AIを活用したSNS運用代行から、オーダーメイドのシステム・ツール開発まで一貫して支援。
                 </p>
                 <Link
                   href="https://agi.safe.ai"
                   target="_blank"
-                  className="text-primary hover:underline flex items-center"
+                  className="text-primary hover:underline flex items-center text-lg font-semibold"
                 >
-                  ウェブサイトを見る <ExternalLink className="ml-1 h-4 w-4" />
+                  ウェブサイトを見る <ExternalLink className="ml-2 h-5 w-5" />
                 </Link>
               </CardContent>
             </Card>
@@ -261,20 +261,20 @@ export default function Portfolio() {
                     className="rounded-lg w-full object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 flex items-center">
+                <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
                   StuDXIA - 学生団体
-                  <ExternalLink className="ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ExternalLink className="ml-3 h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </h3>
-                <Badge className="mb-4">デジタル人材育成団体</Badge>
-                <p className="text-muted-foreground mb-4">
+                <Badge className="mb-6 text-lg px-4 py-2">デジタル人材育成団体</Badge>
+                <p className="text-lg md:text-xl leading-relaxed mb-6">
                   創設から1ヶ月で慶應・東大・早稲田・一橋に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体。上場企業やテック企業とも連携し、次世代のデジタル人材を育成しています。
                 </p>
                 <Link
                   href="https://www.studxia.com"
                   target="_blank"
-                  className="text-primary hover:underline flex items-center"
+                  className="text-primary hover:underline flex items-center text-lg font-semibold"
                 >
-                  ウェブサイトを見る <ExternalLink className="ml-1 h-4 w-4" />
+                  ウェブサイトを見る <ExternalLink className="ml-2 h-5 w-5" />
                 </Link>
               </CardContent>
             </Card>
@@ -308,7 +308,7 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              <div className="space-y-6 text-lg leading-relaxed">
+              <div className="space-y-8 text-xl md:text-2xl leading-relaxed">
                 <p>
                   慶應義塾大学経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で慶應・東大・早稲田・一橋に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体"StuDXIA"を立ち上げ、上場企業やテック企業とも連携。JDLA認定AIジェネラリスト資格と簿記資格を保有。
                 </p>
@@ -320,11 +320,11 @@ export default function Portfolio() {
 
                 <p>趣味でゲーム開発、モデル活動・コスプレ、そしてAIに関するSNS発信も行っています。</p>
 
-                <div className="flex flex-wrap gap-2 mt-6">
-                  <Badge variant="secondary">JDLA認定AIジェネラリスト</Badge>
-                  <Badge variant="secondary">簿記資格</Badge>
-                  <Badge variant="secondary">ゲーム開発</Badge>
-                  <Badge variant="secondary">モデル活動</Badge>
+                <div className="flex flex-wrap gap-3 mt-8">
+                  <Badge variant="secondary" className="text-base px-4 py-2">JDLA認定AIジェネラリスト</Badge>
+                  <Badge variant="secondary" className="text-base px-4 py-2">簿記資格</Badge>
+                  <Badge variant="secondary" className="text-base px-4 py-2">ゲーム開発</Badge>
+                  <Badge variant="secondary" className="text-base px-4 py-2">モデル活動</Badge>
                 </div>
               </div>
             </div>
@@ -349,8 +349,8 @@ export default function Portfolio() {
                   height={200}
                   className="rounded-lg w-full object-cover mb-4"
                 />
-                <h3 className="text-xl font-bold mb-2">AI システム開発</h3>
-                <p className="text-muted-foreground">クライアント向けのオーダーメイドAIシステム・ツールの開発</p>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">AI システム開発</h3>
+                <p className="text-lg md:text-xl leading-relaxed">クライアント向けのオーダーメイドAIシステム・ツールの開発</p>
               </CardContent>
             </Card>
 
@@ -363,8 +363,8 @@ export default function Portfolio() {
                   height={200}
                   className="rounded-lg w-full object-cover mb-4"
                 />
-                <h3 className="text-xl font-bold mb-2">SNS グロース戦略</h3>
-                <p className="text-muted-foreground">AIを活用したSNSアカウントの運用代行とグロース戦略</p>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">SNS グロース戦略</h3>
+                <p className="text-lg md:text-xl leading-relaxed">AIを活用したSNSアカウントの運用代行とグロース戦略</p>
               </CardContent>
             </Card>
 
@@ -377,8 +377,8 @@ export default function Portfolio() {
                   height={200}
                   className="rounded-lg w-full object-cover mb-4"
                 />
-                <h3 className="text-xl font-bold mb-2">ゲーム開発</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">ゲーム開発</h3>
+                <p className="text-lg md:text-xl leading-relaxed">
                   AIが物語を織りなす、新しいメタバース体験。最終ビジョン「アニメワールド」に向けた、最初の世界のMVPを開発しています。
                 </p>
               </CardContent>
@@ -392,8 +392,8 @@ export default function Portfolio() {
                   height={200}
                   className="rounded-lg w-full object-cover mb-4"
                 />
-                <h3 className="text-xl font-bold mb-2">表現活動：モデル / コスプレ</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">表現活動：モデル / コスプレ</h3>
+                <p className="text-lg md:text-xl leading-relaxed">
                   モデル・コスプレの活動もしています！
                   <br />
                   アニメ大好きです！！
@@ -429,9 +429,9 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="space-y-6">
-              <p className="text-xl">事業や協業のご相談はお気軽にDMください！</p>
-              <p className="text-2xl">↓　↓　↓</p>
+            <div className="space-y-8">
+              <p className="text-2xl md:text-3xl font-semibold">事業や協業のご相談はお気軽にDMください！</p>
+              <p className="text-3xl md:text-4xl">↓　↓　↓</p>
 
               <Link
                 href="https://www.instagram.com/kousai_ai_?igsh=bzBuNjFpODZjbWph&utm_source=qr"
