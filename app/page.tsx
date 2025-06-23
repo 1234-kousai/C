@@ -324,17 +324,16 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              <div className="space-y-8 text-xl md:text-2xl leading-relaxed">
-                <p>
-                  慶應義塾大学経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で慶應・東大・早稲田・一橋に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体"StuDXIA"を立ち上げ、上場企業やテック企業とも連携。JDLA認定AIジェネラリスト資格と簿記資格を保有。
+              <div className="space-y-8 text-xl md:text-2xl leading-loose font-light text-gray-800 dark:text-gray-200 tracking-wide">
+                <p className="font-light tracking-wide leading-loose">
+                  <span className="font-semibold text-blue-600 dark:text-blue-400">慶應義塾大学経済学部</span>在籍中、金融機関・税理士事務所での実務経験と独立起業による経理代行事業の成功を通じて、ビジネスの本質を体得。「数字の力学」と「成長の方程式」を深く理解し、デジタル変革の無限の可能性に確信を得る。AI・DX領域での徹底的な研究と実践により、創設からわずか1ヶ月で日本最高峰の学府（慶應・東大・早稲田・一橋）から選抜されたエリートと革新的起業家が融合する、次世代デジタルイノベーションプラットフォーム「StuDXIA」を構築。業界トップリーダーとの戦略的パートナーシップを通じて、時代を変革するタレントの創出に挑戦し続ける。専門資格：JDLA認定AIジェネラリスト、簿記資格保有。
                 </p>
 
-                <p>
-                  現在は、これまでの経験と、SNSにおける発信力やトレンドへの深い理解を基に、株式会社Luminous
-                  Coreを設立し、代表取締役CEOに就任しました。当社は『AI技術』と『グロース戦略』を掛け合わせ、SNSを起点としたクライアントの事業成果を最大化する、グローステック・カンパニーです。AIを活用したSNSアカウントの運用代行から、成果を最大化するためのシステム・ツールのオーダーメイド開発まで、一気通貫で手掛けています。
+                <p className="font-light tracking-wide leading-loose">
+                  これまでの実戦経験、SNSでの影響力構築、トレンド分析の深い洞察を統合し、デジタル時代の成長戦略を再定義する<span className="font-semibold text-blue-600 dark:text-blue-400">株式会社Luminous Core</span>を設立。CEOとして「革新的AIテクノロジー」と「戦略的グロースエンジニアリング」を融合した独自のメソドロジーにより、SNSエコシステムを基盤としたクライアント事業の指数関数的成長を実現。AI駆動のSNS戦略設計から、次世代カスタムシステム開発まで、包括的なデジタルトランスフォーメーションを提供。
                 </p>
 
-                <p>趣味でゲーム開発、モデル活動・コスプレ、そしてAIに関するSNS発信も行っています。</p>
+                <p className="font-light tracking-wide leading-loose">プライベートでは、<span className="font-semibold text-purple-600 dark:text-purple-400">ゲーム開発</span>による次世代エンターテイメントの創造、<span className="font-semibold text-pink-600 dark:text-pink-400">モデル・コスプレ活動</span>を通じたクリエイティブ表現の探求、<span className="font-semibold text-blue-600 dark:text-blue-400">AI技術の情報発信</span>による業界トレンドの先導など、多角的な視点から未来を形作る活動に情熱を注いでいる。</p>
 
                 <div className="flex flex-wrap gap-3 mt-8">
                   <Badge variant="secondary" className="text-base px-4 py-2">JDLA認定AIジェネラリスト</Badge>
