@@ -215,12 +215,13 @@ export default function Portfolio() {
 
       {/* Business & Community Section */}
       <section id="business" className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30"></div>
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-32 right-20 w-48 h-48 bg-gradient-to-r from-purple-400/20 to-pink-500/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-r from-indigo-400/15 to-cyan-500/15 rounded-full blur-lg animate-pulse" style={{animationDelay: '2s'}}></div>
-        </div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url('/大理石.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}></div>
+        <div className="absolute inset-0 bg-white/85 dark:bg-gray-900/85"></div>
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Business & Community
@@ -274,8 +275,8 @@ export default function Portfolio() {
                   <ExternalLink className="ml-3 h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </h3>
                 <Badge className="mb-6 text-lg px-4 py-2">デジタル人材育成団体</Badge>
-                <p className="text-lg md:text-xl leading-relaxed mb-6">
-                  創設から1ヶ月で慶應・東大・早稲田・一橋に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体。上場企業やテック企業とも連携し、次世代のデジタル人材を育成しています。
+                <p className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 dark:text-gray-300 tracking-wide">
+                  未来のデジタルリーダーを育成する、最高峰大学連合のイノベーションハブ。🎆<span className="font-semibold text-blue-600 dark:text-blue-400">慶應・東大・早稲田・一橋</span>のエリート学生から、革新的起業家、専門技術者まで、各界のトップタレントが結集。🚀上場企業・テックジャイアントとの戦略パートナーシップで、業界を変革する次世代タレントを育成。
                 </p>
                 <Link
                   href="https://www.studxia.com"
@@ -292,20 +293,13 @@ export default function Portfolio() {
 
       {/* More about me Section */}
       <section id="about" className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-gray-50 to-zinc-50 dark:from-slate-900/50 dark:via-gray-900/50 dark:to-zinc-900/50"></div>
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              transparent,
-              transparent 2px,
-              rgba(59, 130, 246, 0.05) 2px,
-              rgba(59, 130, 246, 0.05) 4px
-            )`,
-          }}></div>
-          <div className="absolute top-10 right-10 w-64 h-64 bg-gradient-to-br from-blue-400/10 to-purple-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-tl from-cyan-400/10 to-teal-500/10 rounded-full blur-3xl"></div>
-        </div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url('/大理石.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}></div>
+        <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80"></div>
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             More about me
@@ -356,18 +350,13 @@ export default function Portfolio() {
 
       {/* Projects Section */}
       <section id="projects" className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-indigo-50 via-white to-purple-50 dark:from-indigo-950/20 dark:via-gray-900/50 dark:to-purple-950/20"></div>
-        <div className="absolute inset-0">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                             radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
-                             radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%)`,
-          }}></div>
-          <div className="absolute top-16 left-16 w-6 h-6 bg-blue-400/30 rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
-          <div className="absolute top-32 right-32 w-4 h-4 bg-purple-400/30 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
-          <div className="absolute bottom-32 left-1/4 w-8 h-8 bg-cyan-400/30 rounded-full animate-bounce" style={{animationDelay: '2s'}}></div>
-          <div className="absolute bottom-16 right-16 w-5 h-5 bg-pink-400/30 rounded-full animate-bounce" style={{animationDelay: '3s'}}></div>
-        </div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url('/大理石.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}></div>
+        <div className="absolute inset-0 bg-white/85 dark:bg-gray-900/85"></div>
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Projects & Activities
@@ -444,19 +433,13 @@ export default function Portfolio() {
 
       {/* Creative & SNS Section */}
       <section id="sns" className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-pink-50 to-orange-50 dark:from-rose-950/30 dark:via-pink-950/30 dark:to-orange-950/30"></div>
-        <div className="absolute inset-0">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `conic-gradient(from 0deg at 50% 50%, 
-                             rgba(236, 72, 153, 0.1) 0deg,
-                             rgba(251, 146, 60, 0.1) 90deg,
-                             rgba(168, 85, 247, 0.1) 180deg,
-                             rgba(59, 130, 246, 0.1) 270deg,
-                             rgba(236, 72, 153, 0.1) 360deg)`,
-          }}></div>
-          <div className="absolute top-20 left-1/4 w-40 h-40 bg-gradient-to-br from-pink-400/20 to-rose-500/20 rounded-full blur-2xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-1/4 w-56 h-56 bg-gradient-to-tl from-orange-400/20 to-pink-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
-        </div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url('/大理石.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}></div>
+        <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80"></div>
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Creative & SNS
@@ -499,8 +482,14 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-900 dark:to-gray-900 border-t border-gray-200/50 dark:border-gray-700/50 py-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5"></div>
+      <footer className="py-12 relative overflow-hidden border-t border-gray-200/50 dark:border-gray-700/50">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url('/大理石.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}></div>
+        <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center space-y-6">
             <div className="flex justify-center space-x-6">
