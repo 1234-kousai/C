@@ -246,7 +246,7 @@ export default function Portfolio() {
                 </h3>
                 <Badge className="mb-6 text-lg px-4 py-2">グローステック・カンパニー</Badge>
                 <p className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 dark:text-gray-300 tracking-wide">
-                  当社は『AI技術』と『グロース戦略』を掛け合わせ、SNSを起点としたクライアントの事業成果を最大化するグローステック・カンパニーです。AIを活用したSNS運用代行から、オーダーメイドのシステム・ツール開発まで一貫して支援。
+                  デジタル変革の最前線で、ビジネスの常識を再定義する。<span className="font-semibold text-blue-600 dark:text-blue-400">最先端AI技術</span>と<span className="font-semibold text-purple-600 dark:text-purple-400">独創的グロース戦略</span>の融合により、SNSエコシステムを通じてクライアントの事業価値を劇的に向上させる。データドリブンなアプローチで、従来の枠組みを超越した成長を実現。
                 </p>
                 <Link
                   href="https://agi.safe.ai"
