@@ -63,6 +63,17 @@ export default function Portfolio() {
   }, [snsVideos.length])
 
   useEffect(() => {
+    const videos = document.querySelectorAll('video')
+    videos.forEach((video, index) => {
+      if (index === currentVideoIndex) {
+        video.play().catch(() => {})
+      } else {
+        video.pause()
+      }
+    })
+  }, [currentVideoIndex])
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBgImageIndex((prevIndex) => 
         prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
@@ -476,9 +487,10 @@ export default function Portfolio() {
                   <video
                     key={index}
                     src={video}
-                    autoPlay
+                    autoPlay={index === currentVideoIndex}
                     muted
                     loop
+                    playsInline
                     className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
                       index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
                     } relative z-10`}
