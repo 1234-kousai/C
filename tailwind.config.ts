@@ -10,6 +10,11 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['var(--font-noto-sans-jp)', 'var(--font-montserrat)', 'sans-serif'],
+  			montserrat: ['var(--font-montserrat)', 'sans-serif'],
+  			playfair: ['var(--font-playfair)', 'serif'],
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
