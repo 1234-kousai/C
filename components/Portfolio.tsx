@@ -554,7 +554,7 @@ export default function Portfolio() {
                       viewport={{ once: true }}
                       transition={{ type: "spring", delay: 0.3 }}
                     >
-                      <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 border-blue-600/20 text-blue-600 dark:text-blue-400">
+                      <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border-blue-600/30 text-blue-800 dark:text-blue-300 font-semibold backdrop-blur-sm">
                         <Zap className="w-4 h-4 mr-2 inline" />
                         グローステック・カンパニー
                       </Badge>
@@ -642,7 +642,7 @@ export default function Portfolio() {
                       viewport={{ once: true }}
                       transition={{ type: "spring", delay: 0.3 }}
                     >
-                      <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-purple-600/20 text-purple-600 dark:text-purple-400">
+                      <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-purple-600/20 to-pink-600/20 border-purple-600/30 text-purple-800 dark:text-purple-300 font-semibold backdrop-blur-sm">
                         <Rocket className="w-4 h-4 mr-2 inline" />
                         デジタル人材育成団体
                       </Badge>
