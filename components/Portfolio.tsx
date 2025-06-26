@@ -98,7 +98,7 @@ export default function Portfolio() {
       setCurrentBgImageIndex((prevIndex) => 
         prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
       )
-    }, 2000)
+    }, 8000)
     
     return () => clearInterval(interval)
   }, [backgroundImages.length])
@@ -263,10 +263,10 @@ export default function Portfolio() {
           {backgroundImages.map((image, index) => (
             <motion.div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000`}
+              className={`absolute inset-0 transition-opacity duration-2000`}
               initial={{ opacity: 0 }}
               animate={{ opacity: index === currentBgImageIndex ? 1 : 0 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 2 }}
               style={{
                 backgroundImage: `url('${image}')`,
                 backgroundSize: "cover",
@@ -518,7 +518,6 @@ export default function Portfolio() {
                 className="h-full"
               >
                 <Card className="group h-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-cyan-50/30 dark:from-blue-950/20 dark:via-slate-900/50 dark:to-cyan-950/10 backdrop-blur-sm relative overflow-hidden gradient-border">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-cyan-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <CardContent className="p-8 relative z-10">
                     <motion.div 
                       className="mb-6 overflow-hidden rounded-lg"
@@ -531,9 +530,6 @@ export default function Portfolio() {
                         width={400}
                         height={300}
                         className="rounded-lg w-full object-cover"
-                      />
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       />
                     </motion.div>
                     <motion.h3 
@@ -610,7 +606,6 @@ export default function Portfolio() {
                 className="h-full"
               >
                 <Card className="group h-full hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-purple-50/50 to-pink-50/30 dark:from-purple-950/20 dark:via-slate-900/50 dark:to-pink-950/10 backdrop-blur-sm relative overflow-hidden gradient-border">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-rose-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <CardContent className="p-8 relative z-10">
                     <motion.div 
                       className="mb-6 overflow-hidden rounded-lg"
@@ -623,9 +618,6 @@ export default function Portfolio() {
                         width={400}
                         height={300}
                         className="rounded-lg w-full object-cover"
-                      />
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       />
                     </motion.div>
                     <motion.h3 
