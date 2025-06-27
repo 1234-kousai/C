@@ -566,7 +566,7 @@ export default function Portfolio() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                      当社は『<span className="font-semibold text-blue-600 dark:text-blue-400">AI技術</span>』と『<span className="font-semibold text-cyan-600 dark:text-cyan-400">グロース戦略</span>』を掛け合わせ、SNSを起点としたクライアントの事業成果を最大化するグローステック・カンパニーです。AIを活用したSNS運用代行から、オーダーメイドのシステム・ツール開発まで一貫して支援。
+                      Luminous Coreは、<span className="font-semibold text-blue-600 dark:text-blue-400">デジタル戦略</span>を起点として、クライアントの事業成果を最大化するグローステック・カンパニーです。我々は、独自の<span className="font-semibold text-cyan-600 dark:text-cyan-400">AI技術と専門チーム</span>を駆使し、戦略的なSNSグロース、成果に繋がるウェブサイト制作、業務を効率化するカスタムツール開発を、ワンストップで提供します。
                     </motion.p>
                     <motion.div
                       whileHover={{ x: 10 }}
@@ -800,7 +800,7 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  現在は、これまでの経験と、SNSにおける発信力やトレンドへの深い理解を基に、<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">株式会社Luminous Core</span>を設立し、代表取締役CEOに就任しました。当社は『<span className="font-semibold text-blue-600 dark:text-blue-400">AI技術</span>』と『<span className="font-semibold text-cyan-600 dark:text-cyan-400">グロース戦略</span>』を掛け合わせ、SNSを起点としたクライアントの事業成果を最大化する、グローステック・カンパニーです。AIを活用したSNSアカウントの運用代行から、成果を最大化するためのシステム・ツールのオーダーメイド開発まで、一気通貫で手掛けています。
+                  現在は、これまでの経験と、SNSにおける発信力やトレンドへの深い理解を基に、<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">株式会社Luminous Core</span>を設立し、代表取締役CEOに就任しました。Luminous Coreは、<span className="font-semibold text-blue-600 dark:text-blue-400">デジタル戦略</span>を起点として、クライアントの事業成果を最大化するグローステック・カンパニーです。我々は、独自の<span className="font-semibold text-cyan-600 dark:text-cyan-400">AI技術と専門チーム</span>を駆使し、戦略的なSNSグロース、成果に繋がるウェブサイト制作、業務を効率化するカスタムツール開発を、ワンストップで提供します。
                 </motion.p>
 
                 <motion.p 
