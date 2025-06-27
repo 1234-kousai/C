@@ -304,7 +304,7 @@ export default function Portfolio() {
 
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <motion.div 
-            className="mb-8"
+            className="mb-6 md:mb-8"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
@@ -331,9 +331,9 @@ export default function Portfolio() {
                 <Image
                   src="/Kousai.png"
                   alt="山本公才"
-                  width={200}
-                  height={200}
-                  className="rounded-full mx-auto border-4 border-white/20 shadow-2xl relative z-10"
+                  width={160}
+                  height={160}
+                  className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 rounded-full mx-auto border-4 border-white/20 shadow-2xl relative z-10"
                 />
               </div>
             </Tilt>
