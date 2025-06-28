@@ -10,6 +10,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import Tilt from "react-parallax-tilt"
+import { throttle, rafThrottle } from "@/lib/performance"
 
 export default function Portfolio() {
   const { theme, setTheme } = useTheme()
@@ -19,7 +20,6 @@ export default function Portfolio() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
   const [currentBgImageIndex, setCurrentBgImageIndex] = useState(0)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   
   const { scrollYProgress } = useScroll()
   const parallaxY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
@@ -48,17 +48,12 @@ export default function Portfolio() {
 
   useEffect(() => {
     setMounted(true)
-    const handleScroll = () => setScrollY(window.scrollY)
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+    const handleScroll = throttle(() => setScrollY(window.scrollY), 16) // 60fps
     
-    window.addEventListener("scroll", handleScroll)
-    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     
     return () => {
       window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("mousemove", handleMouseMove)
     }
   }, [])
 
@@ -276,13 +271,13 @@ export default function Portfolio() {
           ))}
         </motion.div>
         
-        {/* Floating Particles */}
+        {/* Floating Particles - Reduced count and optimized */}
         {mounted && (
-          <div className="absolute inset-0">
-            {[...Array(20)].map((_, i) => (
+          <div className="absolute inset-0 pointer-events-none">
+            {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-2 h-2 bg-white/20 rounded-full"
+                className="absolute w-2 h-2 bg-white/10 rounded-full will-change-transform"
                 initial={{
                   x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
                   y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
@@ -292,10 +287,10 @@ export default function Portfolio() {
                   y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
                 }}
                 transition={{
-                  duration: Math.random() * 20 + 10,
+                  duration: Math.random() * 30 + 20,
                   repeat: Infinity,
                   repeatType: "reverse",
-                  ease: "linear",
+                  ease: "easeInOut",
                 }}
               />
             ))}
@@ -618,6 +613,9 @@ export default function Portfolio() {
                         width={400}
                         height={300}
                         className="rounded-lg w-full object-cover"
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                       />
                     </motion.div>
                     <motion.h3 

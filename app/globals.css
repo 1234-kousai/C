@@ -26,6 +26,23 @@
     --radius: 0.75rem;
   }
 
+  /* Performance optimizations */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Enable GPU acceleration for animations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Optimize scrolling performance */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -84,8 +101,9 @@
   }
 
   .animate-gradient {
-    animation: gradient 10s ease infinite;
+    animation: gradient 15s ease infinite;
     background-size: 400% 400%;
+    will-change: background-position;
   }
 
   .animate-pulse-slow {
