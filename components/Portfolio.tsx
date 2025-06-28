@@ -512,7 +512,7 @@ export default function Portfolio() {
                 transitionSpeed={1000}
                 className="h-full"
               >
-                <Card className="group h-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-cyan-50/30 dark:from-blue-950/20 dark:via-slate-900/50 dark:to-cyan-950/10 backdrop-blur-sm relative overflow-hidden gradient-border">
+                <Card className="group h-full hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-cyan-50/30 dark:from-blue-950/20 dark:via-slate-900/50 dark:to-cyan-950/10 hover:from-white/95 hover:via-blue-50/30 hover:to-cyan-50/20 dark:hover:from-blue-950/10 dark:hover:via-slate-900/30 dark:hover:to-cyan-950/5 backdrop-blur-sm relative overflow-hidden gradient-border">
                   <CardContent className="p-8 relative z-10">
                     <motion.div 
                       className="mb-6 overflow-hidden rounded-lg"
@@ -600,7 +600,7 @@ export default function Portfolio() {
                 transitionSpeed={1000}
                 className="h-full"
               >
-                <Card className="group h-full hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-purple-50/50 to-pink-50/30 dark:from-purple-950/20 dark:via-slate-900/50 dark:to-pink-950/10 backdrop-blur-sm relative overflow-hidden gradient-border">
+                <Card className="group h-full hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-purple-50/50 to-pink-50/30 dark:from-purple-950/20 dark:via-slate-900/50 dark:to-pink-950/10 hover:from-white/95 hover:via-purple-50/30 hover:to-pink-50/20 dark:hover:from-purple-950/10 dark:hover:via-slate-900/30 dark:hover:to-pink-950/5 backdrop-blur-sm relative overflow-hidden gradient-border">
                   <CardContent className="p-8 relative z-10">
                     <motion.div 
                       className="mb-6 overflow-hidden rounded-lg"
