@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Montserrat, Noto_Sans_JP, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import ErrorBoundary from "@/components/error-boundary"
 
 const montserrat = Montserrat({ 
   subsets: ["latin"],
@@ -37,9 +38,11 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={`${montserrat.variable} ${notoSansJP.variable} ${playfairDisplay.variable} font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+        <ErrorBoundary>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )
