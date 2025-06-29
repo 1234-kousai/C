@@ -118,20 +118,6 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Mouse Follower */}
-      <motion.div
-        className="fixed w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full pointer-events-none z-[100] mix-blend-screen"
-        animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
-        }}
-        transition={{
-          type: "spring",
-          damping: 30,
-          stiffness: 500,
-          mass: 0.5,
-        }}
-      />
       
       {/* Header */}
       <motion.header
