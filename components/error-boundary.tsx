@@ -40,10 +40,16 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
               >
                 ページを再読み込み
               </button>
-              {process.env.NODE_ENV === 'development' && this.state.error && (
-                <pre className="mt-4 p-4 bg-gray-100 rounded text-left text-sm overflow-auto">
-                  {this.state.error.toString()}
-                </pre>
+              {this.state.error && (
+                <details className="mt-4">
+                  <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
+                    エラー詳細を表示
+                  </summary>
+                  <pre className="mt-2 p-4 bg-gray-100 dark:bg-gray-800 rounded text-left text-xs overflow-auto max-w-2xl mx-auto">
+                    {this.state.error.toString()}
+                    {this.state.error.stack && '\n\nStack trace:\n' + this.state.error.stack}
+                  </pre>
+                </details>
               )}
             </div>
           </div>

@@ -20,6 +20,7 @@ export default function Portfolio() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
   const [currentBgImageIndex, setCurrentBgImageIndex] = useState(0)
+  const [particles, setParticles] = useState<Array<{id: number, initialX: number, initialY: number, targetX: number, targetY: number}>>([])
   
   const { scrollYProgress } = useScroll()
   const parallaxY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
@@ -51,6 +52,16 @@ export default function Portfolio() {
     const handleScroll = throttle(() => setScrollY(window.scrollY), 16) // 60fps
     
     window.addEventListener("scroll", handleScroll, { passive: true })
+    
+    // Initialize particles after mount
+    const newParticles = [...Array(8)].map((_, i) => ({
+      id: i,
+      initialX: Math.random() * window.innerWidth,
+      initialY: Math.random() * window.innerHeight,
+      targetX: Math.random() * window.innerWidth,
+      targetY: Math.random() * window.innerHeight
+    }))
+    setParticles(newParticles)
     
     return () => {
       window.removeEventListener("scroll", handleScroll)
@@ -276,22 +287,22 @@ export default function Portfolio() {
         </motion.div>
         
         {/* Floating Particles - Reduced count and optimized */}
-        {mounted && (
+        {mounted && particles.length > 0 && (
           <div className="absolute inset-0 pointer-events-none">
-            {[...Array(8)].map((_, i) => (
+            {particles.map((particle) => (
               <motion.div
-                key={i}
+                key={particle.id}
                 className="absolute w-2 h-2 bg-white/10 rounded-full will-change-transform"
                 initial={{
-                  x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
-                  y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+                  x: particle.initialX,
+                  y: particle.initialY,
                 }}
                 animate={{
-                  x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
-                  y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+                  x: particle.targetX,
+                  y: particle.targetY,
                 }}
                 transition={{
-                  duration: Math.random() * 30 + 20,
+                  duration: 30 + particle.id * 2,
                   repeat: Infinity,
                   repeatType: "reverse",
                   ease: "easeInOut",
