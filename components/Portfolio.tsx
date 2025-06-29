@@ -165,30 +165,34 @@ export default function Portfolio() {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onClick={() => mounted && setTheme(theme === "dark" ? "light" : "dark")}
                 className="relative overflow-hidden"
               >
                 <AnimatePresence mode="wait">
-                  {theme === "dark" ? (
-                    <motion.div
-                      key="sun"
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -20, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Sun className="h-5 w-5" />
-                    </motion.div>
+                  {mounted ? (
+                    theme === "dark" ? (
+                      <motion.div
+                        key="sun"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -20, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Sun className="h-5 w-5" />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="moon"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -20, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Moon className="h-5 w-5" />
+                      </motion.div>
+                    )
                   ) : (
-                    <motion.div
-                      key="moon"
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -20, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Moon className="h-5 w-5" />
-                    </motion.div>
+                    <div className="h-5 w-5" />
                   )}
                 </AnimatePresence>
               </Button>
@@ -197,8 +201,8 @@ export default function Portfolio() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
-            <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            <Button variant="ghost" size="icon" onClick={() => mounted && setTheme(theme === "dark" ? "light" : "dark")}>
+              {mounted ? (theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />) : <div className="h-5 w-5" />}
             </Button>
             <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
