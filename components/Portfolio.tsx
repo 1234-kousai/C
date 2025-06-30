@@ -467,7 +467,7 @@ export default function Portfolio() {
                       transition={{ type: "spring", stiffness: 150 }}
                     >
                       <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                        株式会社Luminous Core
+                        Luminous Core
                       </span>
                       <motion.div
                         initial={{ opacity: 0, x: -10 }}
@@ -485,7 +485,7 @@ export default function Portfolio() {
                     >
                       <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-blue-100 to-cyan-100 border-2 border-blue-600 text-blue-900 font-bold shadow-lg backdrop-blur-md">
                         <Zap className="w-4 h-4 mr-2 inline" />
-                        グローステック・カンパニー
+                        グローステック・パートナー
                       </Badge>
                     </motion.div>
                     <motion.p 
@@ -495,7 +495,7 @@ export default function Portfolio() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                      Luminous Coreは、<span className="font-semibold text-blue-600">デジタル戦略</span>を起点として、クライアントの事業成果を最大化するグローステック・カンパニーです。我々は、独自の<span className="font-semibold text-cyan-600">AI技術と専門チーム</span>を駆使し、戦略的なSNSグロース、成果に繋がるウェブサイト制作、業務を効率化するカスタムツール開発を、ワンストップで提供します。
+                      Luminous Coreは、<span className="font-semibold text-blue-600">デジタル戦略</span>で事業成果を最大化するグローステック・パートナーです。私たちは、<span className="font-semibold text-cyan-600">AI技術と専門チーム</span>を駆使し、SNSグロース、Web制作、業務効率化をワンストップで実現します。
                     </motion.p>
                     <motion.div
                       whileHover={{ x: 10 }}
