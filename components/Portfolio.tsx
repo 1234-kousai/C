@@ -502,7 +502,7 @@ export default function Portfolio() {
                       transition={{ type: "spring", stiffness: 150 }}
                     >
                       <Link
-                        href="https://agi.safe.ai"
+                        href="https://lc-j64q.vercel.app/"
                         target="_blank"
                         className="inline-flex items-center gap-2 text-lg font-semibold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-cyan-700 transition-all"
                       >
