@@ -4,8 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Moon, Sun, Menu, X, ExternalLink, Instagram, Mail, ChevronDown, Sparkles, Zap, Rocket, Code2, Palette, Globe, Facebook, Linkedin, MessageCircle } from "lucide-react"
-import { useTheme } from "next-themes"
+import { Menu, X, ExternalLink, Instagram, Mail, ChevronDown, Sparkles, Zap, Rocket, Code2, Palette, Globe, Facebook, Linkedin, MessageCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
@@ -13,7 +12,6 @@ import Tilt from "react-parallax-tilt"
 import { throttle, rafThrottle } from "@/lib/performance"
 
 export default function Portfolio() {
-  const { theme, setTheme } = useTheme()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [mounted, setMounted] = useState(false)
@@ -132,49 +130,10 @@ export default function Portfolio() {
                 />
               </motion.button>
             ))}
-            <motion.div whileHover={{ scale: 1.1, rotate: 180 }} whileTap={{ scale: 0.9 }}>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                onClick={() => mounted && setTheme(theme === "dark" ? "light" : "dark")}
-                className="relative overflow-hidden"
-              >
-                <AnimatePresence mode="wait">
-                  {mounted ? (
-                    theme === "dark" ? (
-                      <motion.div
-                        key="sun"
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -20, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <Sun className="h-5 w-5" />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="moon"
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -20, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <Moon className="h-5 w-5" />
-                      </motion.div>
-                    )
-                  ) : (
-                    <div className="h-5 w-5" />
-                  )}
-                </AnimatePresence>
-              </Button>
-            </motion.div>
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
-            <Button variant="ghost" size="icon" onClick={() => mounted && setTheme(theme === "dark" ? "light" : "dark")}>
-              {mounted ? (theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />) : <div className="h-5 w-5" />}
-            </Button>
             <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -221,7 +180,7 @@ export default function Portfolio() {
       >
         {/* Animated Background Gradient */}
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-purple-900/40 to-pink-900/30 dark:from-cyan-900/50 dark:via-purple-900/60 dark:to-pink-900/50 animate-gradient"
+          className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-purple-900/40 to-pink-900/30 animate-gradient"
           style={{ backgroundSize: "400% 400%" }}
         />
         
@@ -451,7 +410,7 @@ export default function Portfolio() {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
         }}></div>
-        <div className="absolute inset-0 bg-white/85 dark:bg-gray-900/85"></div>
+        <div className="absolute inset-0 bg-white/85"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
@@ -487,7 +446,7 @@ export default function Portfolio() {
                 transitionSpeed={500}
                 className="h-full"
               >
-                <Card className="group h-full hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-cyan-50/30 dark:from-blue-950/20 dark:via-slate-900/50 dark:to-cyan-950/10 hover:from-white/95 hover:via-blue-50/30 hover:to-cyan-50/20 dark:hover:from-blue-950/10 dark:hover:via-slate-900/30 dark:hover:to-cyan-950/5 backdrop-blur-sm relative overflow-hidden gradient-border">
+                <Card className="group h-full hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-cyan-50/30 hover:from-white/95 hover:via-blue-50/30 hover:to-cyan-50/20 backdrop-blur-sm relative overflow-hidden gradient-border">
                   <CardContent className="p-8 relative z-10">
                     <motion.div 
                       className="mb-6 overflow-hidden rounded-lg"
@@ -524,19 +483,19 @@ export default function Portfolio() {
                       viewport={{ once: true }}
                       transition={{ type: "spring", delay: 0.3 }}
                     >
-                      <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-blue-100 to-cyan-100 border-2 border-blue-600 text-blue-900 dark:bg-gradient-to-r dark:from-blue-900/80 dark:to-cyan-900/80 dark:text-blue-100 font-bold shadow-lg backdrop-blur-md">
+                      <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-blue-100 to-cyan-100 border-2 border-blue-600 text-blue-900 font-bold shadow-lg backdrop-blur-md">
                         <Zap className="w-4 h-4 mr-2 inline" />
                         グローステック・カンパニー
                       </Badge>
                     </motion.div>
                     <motion.p 
-                      className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 dark:text-gray-300 tracking-wide"
+                      className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 tracking-wide"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                      Luminous Coreは、<span className="font-semibold text-blue-600 dark:text-blue-400">デジタル戦略</span>を起点として、クライアントの事業成果を最大化するグローステック・カンパニーです。我々は、独自の<span className="font-semibold text-cyan-600 dark:text-cyan-400">AI技術と専門チーム</span>を駆使し、戦略的なSNSグロース、成果に繋がるウェブサイト制作、業務を効率化するカスタムツール開発を、ワンストップで提供します。
+                      Luminous Coreは、<span className="font-semibold text-blue-600">デジタル戦略</span>を起点として、クライアントの事業成果を最大化するグローステック・カンパニーです。我々は、独自の<span className="font-semibold text-cyan-600">AI技術と専門チーム</span>を駆使し、戦略的なSNSグロース、成果に繋がるウェブサイト制作、業務を効率化するカスタムツール開発を、ワンストップで提供します。
                     </motion.p>
                     <motion.div
                       whileHover={{ x: 10 }}
@@ -575,7 +534,7 @@ export default function Portfolio() {
                 transitionSpeed={500}
                 className="h-full"
               >
-                <Card className="group h-full hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-purple-50/50 to-pink-50/30 dark:from-purple-950/20 dark:via-slate-900/50 dark:to-pink-950/10 hover:from-white/95 hover:via-purple-50/30 hover:to-pink-50/20 dark:hover:from-purple-950/10 dark:hover:via-slate-900/30 dark:hover:to-pink-950/5 backdrop-blur-sm relative overflow-hidden gradient-border">
+                <Card className="group h-full hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-purple-50/50 to-pink-50/30 hover:from-white/95 hover:via-purple-50/30 hover:to-pink-50/20 backdrop-blur-sm relative overflow-hidden gradient-border">
                   <CardContent className="p-8 relative z-10">
                     <motion.div 
                       className="mb-6 overflow-hidden rounded-lg"
@@ -615,13 +574,13 @@ export default function Portfolio() {
                       viewport={{ once: true }}
                       transition={{ type: "spring", delay: 0.3 }}
                     >
-                      <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-purple-100 to-pink-100 border-2 border-purple-600 text-purple-900 dark:bg-gradient-to-r dark:from-purple-900/80 dark:to-pink-900/80 dark:text-purple-100 font-bold shadow-lg backdrop-blur-md">
+                      <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-purple-100 to-pink-100 border-2 border-purple-600 text-purple-900 font-bold shadow-lg backdrop-blur-md">
                         <Rocket className="w-4 h-4 mr-2 inline" />
                         デジタル人材育成団体
                       </Badge>
                     </motion.div>
                     <motion.p 
-                      className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 dark:text-gray-300 tracking-wide"
+                      className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 tracking-wide"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
@@ -671,7 +630,7 @@ export default function Portfolio() {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
         }}></div>
-        <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80"></div>
+        <div className="absolute inset-0 bg-white/80"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
@@ -763,7 +722,7 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  <span className="font-semibold text-3xl md:text-4xl text-blue-600 dark:text-blue-400">慶應義塾大学</span>経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で<span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">慶應・東大・早稲田・一橋</span>に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体<span className="font-bold text-purple-600 dark:text-purple-400">"StuDXIA"</span>を立ち上げ、上場企業やテック企業とも連携。<span className="font-semibold">JDLA認定AIジェネラリスト資格</span>と<span className="font-semibold">簿記資格</span>を保有。
+                  <span className="font-semibold text-3xl md:text-4xl text-blue-600">慶應義塾大学</span>経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で<span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">慶應・東大・早稲田・一橋</span>に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体<span className="font-bold text-purple-600">"StuDXIA"</span>を立ち上げ、上場企業やテック企業とも連携。<span className="font-semibold">JDLA認定AIジェネラリスト資格</span>と<span className="font-semibold">簿記資格</span>を保有。
                 </motion.p>
 
                 <motion.p 
@@ -773,7 +732,7 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  現在は、これまでの経験と知見を基に、グローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>を創設し、その代表として活動しています。Luminous Coreは、<span className="font-semibold text-blue-600 dark:text-blue-400">デジタル戦略で事業成果を最大化するグローステック・パートナー</span>として、<span className="font-semibold text-cyan-600 dark:text-cyan-400">AI技術と専門チーム</span>を駆使し、SNSグロース、Web制作、業務効率化をワンストップで実現します。
+                  現在は、これまでの経験と知見を基に、グローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>を創設し、その代表として活動しています。Luminous Coreは、<span className="font-semibold text-blue-600">デジタル戦略で事業成果を最大化するグローステック・パートナー</span>として、<span className="font-semibold text-cyan-600">AI技術と専門チーム</span>を駆使し、SNSグロース、Web制作、業務効率化をワンストップで実現します。
                 </motion.p>
 
                 <motion.p 
@@ -843,7 +802,7 @@ export default function Portfolio() {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
         }}></div>
-        <div className="absolute inset-0 bg-white/85 dark:bg-gray-900/85"></div>
+        <div className="absolute inset-0 bg-white/85"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
@@ -920,7 +879,7 @@ export default function Portfolio() {
                       backgroundSize: 'cover',
                       backgroundPosition: 'center'
                     }}></div>
-                    <div className="absolute inset-0 bg-white/85 dark:bg-gray-900/85"></div>
+                    <div className="absolute inset-0 bg-white/85"></div>
                     <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}></div>
                     <CardContent className="p-6 relative z-10 h-full flex flex-col">
                       <motion.div 
@@ -949,7 +908,7 @@ export default function Portfolio() {
                       </motion.div>
                       
                       <motion.h3 
-                        className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent"
+                        className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
@@ -995,7 +954,7 @@ export default function Portfolio() {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
         }}></div>
-        <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80"></div>
+        <div className="absolute inset-0 bg-white/80"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
@@ -1018,7 +977,7 @@ export default function Portfolio() {
 
           <div className="max-w-3xl mx-auto">
             <motion.p 
-              className="text-2xl md:text-3xl font-bold text-center mb-12 bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent"
+              className="text-2xl md:text-3xl font-bold text-center mb-12 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -1097,7 +1056,7 @@ export default function Portfolio() {
 
       {/* Footer */}
       <motion.footer 
-        className="py-12 relative overflow-hidden border-t border-gray-200/50 dark:border-gray-700/50"
+        className="py-12 relative overflow-hidden border-t border-gray-200/50" 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -1109,7 +1068,7 @@ export default function Portfolio() {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
         }}></div>
-        <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90"></div>
+        <div className="absolute inset-0 bg-white/90"></div> 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center space-y-6">
 

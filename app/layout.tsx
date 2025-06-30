@@ -39,7 +39,7 @@ export default function RootLayout({
     <html lang="ja" suppressHydrationWarning>
       <body className={`${montserrat.variable} ${notoSansJP.variable} ${playfairDisplay.variable} font-sans`}>
         <ErrorBoundary>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
             {children}
           </ThemeProvider>
         </ErrorBoundary>
