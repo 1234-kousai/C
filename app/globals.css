@@ -37,6 +37,16 @@
     will-change: transform;
   }
 
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
   /* Optimize scrolling performance */
   html {
     scroll-behavior: smooth;
@@ -93,25 +103,25 @@
   }
 
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite;
   }
 
   .animate-glow {
-    animation: glow 3s ease-in-out infinite;
+    animation: glow 2s ease-in-out infinite;
   }
 
   .animate-gradient {
-    animation: gradient 15s ease infinite;
+    animation: gradient 8s ease infinite;
     background-size: 400% 400%;
     will-change: background-position;
   }
 
   .animate-pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
   .animate-morphing {
-    animation: morphing 8s ease-in-out infinite;
+    animation: morphing 4s ease-in-out infinite;
   }
 
   .animate-shimmer {

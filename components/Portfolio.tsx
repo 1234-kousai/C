@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Moon, Sun, Menu, X, ExternalLink, Instagram, Mail, ChevronDown, Sparkles, Zap, Rocket, Code2, Palette, Globe } from "lucide-react"
+import { Moon, Sun, Menu, X, ExternalLink, Instagram, Mail, ChevronDown, Sparkles, Zap, Rocket, Code2, Palette, Globe, Facebook, Linkedin, MessageCircle } from "lucide-react"
 import { useTheme } from "next-themes"
 import Image from "next/image"
 import Link from "next/link"
@@ -18,7 +18,6 @@ export default function Portfolio() {
   const [scrollY, setScrollY] = useState(0)
   const [mounted, setMounted] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
   const [currentBgImageIndex, setCurrentBgImageIndex] = useState(0)
   const [particles, setParticles] = useState<Array<{id: number, initialX: number, initialY: number, targetX: number, targetY: number}>>([])
   
@@ -28,7 +27,6 @@ export default function Portfolio() {
   const aboutRef = useRef<HTMLElement>(null)
   const businessRef = useRef<HTMLElement>(null)
   const projectsRef = useRef<HTMLElement>(null)
-  const snsRef = useRef<HTMLElement>(null)
 
   const aboutMeImages = [
     "/more about me1.JPG",
@@ -37,10 +35,6 @@ export default function Portfolio() {
     "/IMG_8019.JPG"
   ]
 
-  const snsVideos = [
-    "/SNS1.mov",
-    "/SNS2.mov"
-  ]
 
   const backgroundImages = [
     "/Luminous Core.png",
@@ -54,7 +48,7 @@ export default function Portfolio() {
     window.addEventListener("scroll", handleScroll, { passive: true })
     
     // Initialize particles after mount
-    const newParticles = [...Array(8)].map((_, i) => ({
+    const newParticles = [...Array(5)].map((_, i) => ({
       id: i,
       initialX: Math.random() * window.innerWidth,
       initialY: Math.random() * window.innerHeight,
@@ -78,33 +72,13 @@ export default function Portfolio() {
     return () => clearInterval(interval)
   }, [aboutMeImages.length])
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentVideoIndex((prevIndex) => 
-        prevIndex === snsVideos.length - 1 ? 0 : prevIndex + 1
-      )
-    }, 3000)
-    
-    return () => clearInterval(interval)
-  }, [snsVideos.length])
-
-  useEffect(() => {
-    const videos = document.querySelectorAll('video')
-    videos.forEach((video, index) => {
-      if (index === currentVideoIndex) {
-        video.play().catch(() => {})
-      } else {
-        video.pause()
-      }
-    })
-  }, [currentVideoIndex])
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBgImageIndex((prevIndex) => 
         prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
       )
-    }, 8000)
+    }, 5000)
     
     return () => clearInterval(interval)
   }, [backgroundImages.length])
@@ -262,7 +236,7 @@ export default function Portfolio() {
               className={`absolute inset-0 transition-opacity duration-2000`}
               initial={{ opacity: 0 }}
               animate={{ opacity: index === currentBgImageIndex ? 1 : 0 }}
-              transition={{ duration: 2 }}
+              transition={{ duration: 0.8 }}
               style={{
                 backgroundImage: `url('${image}')`,
                 backgroundSize: "cover",
@@ -288,7 +262,7 @@ export default function Portfolio() {
                   y: particle.targetY,
                 }}
                 transition={{
-                  duration: 30 + particle.id * 2,
+                  duration: 10 + particle.id * 0.5,
                   repeat: Infinity,
                   repeatType: "reverse",
                   ease: "easeInOut",
@@ -306,11 +280,11 @@ export default function Portfolio() {
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           >
             <Tilt
-              tiltMaxAngleX={15}
-              tiltMaxAngleY={15}
+              tiltMaxAngleX={8}
+              tiltMaxAngleY={8}
               perspective={1000}
-              transitionSpeed={1000}
-              scale={1.05}
+              transitionSpeed={500}
+              scale={1.02}
             >
               <div className="relative inline-block">
                 <motion.div
@@ -347,7 +321,7 @@ export default function Portfolio() {
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{
-                duration: 5,
+                duration: 3,
                 repeat: Infinity,
                 ease: "linear",
               }}
@@ -384,7 +358,7 @@ export default function Portfolio() {
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             {[
-              { text: "Luminous Core 株式会社 代表取締役CEO", icon: <Zap className="w-5 h-5" /> },
+              { text: "Luminous Core 主宰", icon: <Zap className="w-5 h-5" /> },
               { text: "学生団体 StuDXIA 代表", icon: <Rocket className="w-5 h-5" /> },
               { text: "慶應義塾大学 経済学部 在学", icon: <Sparkles className="w-5 h-5" /> },
               { text: "Faith United 所属モデル", icon: <Palette className="w-5 h-5" /> },
@@ -437,7 +411,7 @@ export default function Portfolio() {
                 詳しく見る
                 <motion.div
                   animate={{ y: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+                  transition={{ duration: 1, repeat: Infinity }}
                 >
                   <ChevronDown className="h-5 w-5" />
                 </motion.div>
@@ -506,11 +480,11 @@ export default function Portfolio() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <Tilt
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
+                tiltMaxAngleX={5}
+                tiltMaxAngleY={5}
                 perspective={1000}
-                scale={1.02}
-                transitionSpeed={1000}
+                scale={1.01}
+                transitionSpeed={500}
                 className="h-full"
               >
                 <Card className="group h-full hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-cyan-50/30 dark:from-blue-950/20 dark:via-slate-900/50 dark:to-cyan-950/10 hover:from-white/95 hover:via-blue-50/30 hover:to-cyan-50/20 dark:hover:from-blue-950/10 dark:hover:via-slate-900/30 dark:hover:to-cyan-950/5 backdrop-blur-sm relative overflow-hidden gradient-border">
@@ -531,7 +505,7 @@ export default function Portfolio() {
                     <motion.h3 
                       className="text-3xl md:text-4xl font-bold mb-6 flex items-center"
                       whileHover={{ x: 10 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      transition={{ type: "spring", stiffness: 150 }}
                     >
                       <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                         株式会社Luminous Core
@@ -566,7 +540,7 @@ export default function Portfolio() {
                     </motion.p>
                     <motion.div
                       whileHover={{ x: 10 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      transition={{ type: "spring", stiffness: 150 }}
                     >
                       <Link
                         href="https://agi.safe.ai"
@@ -576,7 +550,7 @@ export default function Portfolio() {
                         ウェブサイトを見る 
                         <motion.div
                           animate={{ x: [0, 5, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
+                          transition={{ duration: 1, repeat: Infinity }}
                         >
                           <ExternalLink className="h-5 w-5" />
                         </motion.div>
@@ -594,11 +568,11 @@ export default function Portfolio() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <Tilt
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
+                tiltMaxAngleX={5}
+                tiltMaxAngleY={5}
                 perspective={1000}
-                scale={1.02}
-                transitionSpeed={1000}
+                scale={1.01}
+                transitionSpeed={500}
                 className="h-full"
               >
                 <Card className="group h-full hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-purple-50/50 to-pink-50/30 dark:from-purple-950/20 dark:via-slate-900/50 dark:to-pink-950/10 hover:from-white/95 hover:via-purple-50/30 hover:to-pink-50/20 dark:hover:from-purple-950/10 dark:hover:via-slate-900/30 dark:hover:to-pink-950/5 backdrop-blur-sm relative overflow-hidden gradient-border">
@@ -622,7 +596,7 @@ export default function Portfolio() {
                     <motion.h3 
                       className="text-3xl md:text-4xl font-bold mb-6 flex items-center"
                       whileHover={{ x: 10 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      transition={{ type: "spring", stiffness: 150 }}
                     >
                       <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                         StuDXIA - 学生団体
@@ -657,7 +631,7 @@ export default function Portfolio() {
                     </motion.p>
                     <motion.div
                       whileHover={{ x: 10 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      transition={{ type: "spring", stiffness: 150 }}
                     >
                       <Link
                         href="https://www.studxia.com"
@@ -667,7 +641,7 @@ export default function Portfolio() {
                         ウェブサイトを見る 
                         <motion.div
                           animate={{ x: [0, 5, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
+                          transition={{ duration: 1, repeat: Infinity }}
                         >
                           <ExternalLink className="h-5 w-5" />
                         </motion.div>
@@ -799,7 +773,7 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  現在は、これまでの経験と、SNSにおける発信力やトレンドへの深い理解を基に、<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">株式会社Luminous Core</span>を設立し、代表取締役CEOに就任しました。Luminous Coreは、<span className="font-semibold text-blue-600 dark:text-blue-400">デジタル戦略</span>を起点として、クライアントの事業成果を最大化するグローステック・カンパニーです。我々は、独自の<span className="font-semibold text-cyan-600 dark:text-cyan-400">AI技術と専門チーム</span>を駆使し、戦略的なSNSグロース、成果に繋がるウェブサイト制作、業務を効率化するカスタムツール開発を、ワンストップで提供します。
+                  現在は、これまでの経験と知見を基に、グローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>を創設し、その代表として活動しています。Luminous Coreは、<span className="font-semibold text-blue-600 dark:text-blue-400">デジタル戦略で事業成果を最大化するグローステック・パートナー</span>として、<span className="font-semibold text-cyan-600 dark:text-cyan-400">AI技術と専門チーム</span>を駆使し、SNSグロース、Web制作、業務効率化をワンストップで実現します。
                 </motion.p>
 
                 <motion.p 
@@ -833,7 +807,7 @@ export default function Portfolio() {
                       transition={{ 
                         type: "spring", 
                         delay: 1 + index * 0.1,
-                        stiffness: 200
+                        stiffness: 120
                       }}
                       whileHover={{ scale: 1.1, rotate: [-1, 1, -1] }}
                     >
@@ -1007,10 +981,8 @@ export default function Portfolio() {
         </div>
       </motion.section>
 
-      {/* Creative & SNS Section */}
+      {/* SNS Links Section */}
       <motion.section 
-        ref={snsRef}
-        id="sns" 
         className="py-20 relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -1033,7 +1005,7 @@ export default function Portfolio() {
             transition={{ duration: 0.8 }}
           >
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-              Creative & SNS
+              Connect with Me
             </span>
             <motion.div
               className="h-1 w-32 mx-auto mt-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
@@ -1044,149 +1016,80 @@ export default function Portfolio() {
             />
           </motion.h2>
 
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div 
-              className="mb-12"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+          <div className="max-w-3xl mx-auto">
+            <motion.p 
+              className="text-2xl md:text-3xl font-bold text-center mb-12 bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Tilt
-                tiltMaxAngleX={5}
-                tiltMaxAngleY={5}
-                perspective={1000}
-                scale={1.02}
-                transitionSpeed={1000}
-              >
-                <div className="relative w-full max-w-2xl mx-auto h-[400px] overflow-hidden rounded-2xl shadow-2xl gradient-border">
-                  {snsVideos.map((video, index) => (
-                    <motion.video
-                      key={index}
-                      src={video}
-                      autoPlay={index === currentVideoIndex}
-                      muted
-                      loop
-                      playsInline
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: index === currentVideoIndex ? 1 : 0 }}
-                      transition={{ duration: 1 }}
-                      className="absolute top-0 left-0 w-full h-full object-cover"
-                    />
-                  ))}
-                  
-                  {/* Video Controls */}
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-                    {snsVideos.map((_, index) => (
-                      <motion.button
-                        key={index}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer`}
-                        style={{
-                          backgroundColor: index === currentVideoIndex ? '#ffffff' : 'rgba(255,255,255,0.5)'
-                        }}
-                        whileHover={{ scale: 1.2 }}
-                        onClick={() => setCurrentVideoIndex(index)}
-                      />
-                    ))}
-                  </div>
-                  
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-                </div>
-              </Tilt>
-            </motion.div>
+              事業や協業のご相談はお気軽にDMください！
+            </motion.p>
 
             <motion.div 
-              className="space-y-8"
+              className="grid grid-cols-2 md:grid-cols-4 gap-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <motion.p 
-                className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                事業や協業のご相談はお気軽にDMください！
-              </motion.p>
-              
-              <motion.div
-                className="flex justify-center gap-4 text-4xl"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                {["↓", "↓", "↓"].map((arrow, index) => (
-                  <motion.span
-                    key={index}
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{
-                      duration: 1,
-                      delay: index * 0.1,
-                      repeat: Infinity,
-                      repeatType: "loop"
-                    }}
-                    className="inline-block bg-gradient-to-b from-purple-600 to-pink-600 bg-clip-text text-transparent"
-                  >
-                    {arrow}
-                  </motion.span>
-                ))}
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  href="https://www.instagram.com/kousai_ai_?igsh=bzBuNjFpODZjbWph&utm_source=qr"
-                  target="_blank"
-                  className="inline-flex items-center gap-4 relative overflow-hidden group"
+              {[
+                { 
+                  href: "https://www.instagram.com/kousai_yamamoto?igsh=ZGs1M200NWY0dXp6&utm_source=qr", 
+                  icon: Instagram, 
+                  label: "Instagram",
+                  gradient: "from-pink-500 to-purple-600"
+                },
+                { 
+                  href: "https://line.me/ti/p/LQZTlwfkC4", 
+                  icon: MessageCircle, 
+                  label: "LINE",
+                  gradient: "from-green-500 to-green-600"
+                },
+                { 
+                  href: "https://www.facebook.com/profile.php?id=100063969728654", 
+                  icon: Facebook, 
+                  label: "Facebook",
+                  gradient: "from-blue-600 to-blue-700"
+                },
+                { 
+                  href: "https://www.linkedin.com/in/%E5%85%AC%E6%89%8D-%E5%B1%B1%E6%9C%AC-39319a358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", 
+                  icon: Linkedin, 
+                  label: "LinkedIn",
+                  gradient: "from-blue-700 to-blue-800"
+                }
+              ].map((social, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 * index, type: "spring" }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <motion.div
-                    className="relative bg-gradient-to-r from-pink-500 via-purple-600 to-pink-500 text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl flex items-center gap-4"
-                    style={{
-                      backgroundSize: "200% 100%"
-                    }}
-                    animate={{
-                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
+                  <Link
+                    href={social.href}
+                    target="_blank"
+                    className="group relative block"
                   >
-                    <Instagram className="h-7 w-7" />
-                    <span>Instagram をフォロー</span>
-                    <motion.div
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      <ExternalLink className="h-6 w-6" />
-                    </motion.div>
-                    
-                    {/* Shimmer Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                      initial={{ x: "-100%" }}
-                      animate={{ x: "100%" }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        repeatDelay: 1
-                      }}
-                    />
-                  </motion.div>
-                </Link>
-              </motion.div>
+                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${social.gradient} p-6 shadow-xl transition-all duration-300 hover:shadow-2xl`}>
+                      <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="relative flex flex-col items-center gap-3">
+                        <social.icon className="h-12 w-12 text-white" />
+                        <span className="text-white font-semibold text-lg">{social.label}</span>
+                      </div>
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                        initial={{ x: "-100%" }}
+                        whileHover={{ x: "100%" }}
+                        transition={{ duration: 0.8 }}
+                      />
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>
@@ -1209,41 +1112,6 @@ export default function Portfolio() {
         <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center space-y-6">
-            <motion.div 
-              className="flex justify-center gap-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              {[
-                { href: "https://www.instagram.com/kousai_ai_?igsh=bzBuNjFpODZjbWph&utm_source=qr", icon: Instagram, label: "Instagram" },
-                { href: "mailto:contact@example.com", icon: Mail, label: "Email" }
-              ].map((social, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 * index, type: "spring" }}
-                >
-                  <Link
-                    href={social.href}
-                    target={social.href.startsWith("http") ? "_blank" : undefined}
-                    className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <social.icon className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-primary transition-colors" />
-                    <motion.div
-                      className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-20"
-                      whileHover={{ scale: 1.5 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
 
             <motion.div 
               className="text-muted-foreground"
