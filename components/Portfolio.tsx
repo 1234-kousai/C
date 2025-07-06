@@ -318,7 +318,7 @@ export default function Portfolio() {
           >
             {[
               { text: "Luminous Core 主宰", icon: <Zap className="w-5 h-5" /> },
-              { text: "学生団体 StuDXIA 代表", icon: <Rocket className="w-5 h-5" /> },
+              { text: "学生団体 StuDXIA 創設者", icon: <Rocket className="w-5 h-5" /> },
               { text: "慶應義塾大学 経済学部 在学", icon: <Sparkles className="w-5 h-5" /> },
               { text: "Faith United 所属モデル", icon: <Palette className="w-5 h-5" /> },
             ].map((item, index) => (
