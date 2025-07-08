@@ -722,7 +722,7 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  <span className="font-semibold text-3xl md:text-4xl text-blue-600">慶應義塾大学</span>経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で<span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">慶應・東大・早稲田・一橋</span>に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体<span className="font-bold text-purple-600">"StuDXIA"</span>を立ち上げ、上場企業やテック企業とも連携。<span className="font-semibold">JDLA認定AIジェネラリスト資格</span>と<span className="font-semibold">簿記資格</span>を保有。
+                  <span className="font-semibold text-3xl md:text-4xl text-blue-600">慶應義塾大学</span>経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で<span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">慶應・東大・早稲田・一橋</span>に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体<span className="font-bold text-purple-600">"StuDXIA"</span>を立ち上げ、上場企業やテック企業とも連携。
                 </motion.p>
 
                 <motion.p 
@@ -732,7 +732,7 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  現在は、これまでの経験と知見を基に、グローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>を創設し、その代表として活動しています。Luminous Coreは、<span className="font-semibold text-blue-600">デジタル戦略で事業成果を最大化するグローステック・パートナー</span>として、<span className="font-semibold text-cyan-600">AI技術と専門チーム</span>を駆使し、SNSグロース、Web制作、業務効率化をワンストップで実現します。
+                  現在は、IT資格や簿記資格で培った多角的な視点を活かし、これまでの経験と知見を基に、グローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>を創設し、その代表として活動しています。Luminous Coreは、<span className="font-semibold text-blue-600">デジタル戦略で事業成果を最大化するグローステック・パートナー</span>として、<span className="font-semibold text-cyan-600">AI技術と専門チーム</span>を駆使し、SNSグロース、Web制作、業務効率化をワンストップで実現します。
                 </motion.p>
 
                 <motion.p 
@@ -744,42 +744,6 @@ export default function Portfolio() {
                 >
                   趣味で<span className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">ゲーム開発</span>、<span className="font-semibold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">モデル活動・コスプレ</span>、そしてAIに関するSNS発信も行っています。
                 </motion.p>
-
-                <motion.div 
-                  className="flex flex-wrap gap-3 mt-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.9 }}
-                >
-                  {[
-                    { text: "JDLA認定AIジェネラリスト", icon: <Code2 className="w-4 h-4 mr-2" />, color: "from-blue-600 to-cyan-600" },
-                    { text: "簿記資格", icon: <Zap className="w-4 h-4 mr-2" />, color: "from-green-600 to-emerald-600" },
-                    { text: "ゲーム開発", icon: <Rocket className="w-4 h-4 mr-2" />, color: "from-purple-600 to-pink-600" },
-                    { text: "モデル活動", icon: <Palette className="w-4 h-4 mr-2" />, color: "from-pink-600 to-rose-600" },
-                  ].map((badge, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ 
-                        type: "spring", 
-                        delay: 1 + index * 0.1,
-                        stiffness: 120
-                      }}
-                      whileHover={{ scale: 1.1, rotate: [-1, 1, -1] }}
-                    >
-                      <Badge 
-                        variant="secondary" 
-                        className={`text-base px-6 py-3 bg-gradient-to-r ${badge.color} text-white border-0 shadow-lg flex items-center`}
-                      >
-                        {badge.icon}
-                        {badge.text}
-                      </Badge>
-                    </motion.div>
-                  ))}
-                </motion.div>
               </motion.div>
             </div>
           </div>
@@ -826,8 +790,8 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "AI システム開発",
-                description: "クライアント向けのオーダーメイドAIシステム・ツールの開発",
+                title: "システム開発",
+                description: "クライアントのニーズに合わせたWebサイト制作、オーダーメイドのシステム・ツール開発",
                 image: "/system.png",
                 icon: <Code2 className="w-6 h-6" />,
                 color: "from-blue-500 to-cyan-500",
@@ -835,7 +799,7 @@ export default function Portfolio() {
               },
               {
                 title: "SNS グロース戦略",
-                description: "AIを活用したSNSアカウントの運用代行とグロース戦略",
+                description: "データ分析と最新技術を活用したSNSアカウントの運用代行とグロース戦略",
                 image: "/SNS.png",
                 icon: <Globe className="w-6 h-6" />,
                 color: "from-green-500 to-emerald-500",
@@ -843,7 +807,7 @@ export default function Portfolio() {
               },
               {
                 title: "ゲーム開発",
-                description: "AIが物語を織りなす、新しいメタバース体験。最終ビジョン「アニメワールド」に向けた、最初の世界のMVPを開発しています。",
+                description: "インタラクティブな物語体験を提供する新しいメタバース。最終ビジョン「アニメワールド」に向けた、最初の世界のMVPを開発しています。",
                 image: "/game.png",
                 icon: <Rocket className="w-6 h-6" />,
                 color: "from-purple-500 to-pink-500",
