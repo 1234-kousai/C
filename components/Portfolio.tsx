@@ -827,7 +827,7 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.7 }}
                 >
-                  趣味で<span className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">ゲーム開発</span>、<span className="font-semibold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">モデル活動・コスプレ</span>を行っています。
+                  趣味で<span className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">アプリ・ゲーム開発</span>、<span className="font-semibold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">モデル活動</span>を行っています。アニメが大好きなので<span className="font-semibold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">コスプレ</span>もしています。
                 </motion.p>
               </motion.div>
             </div>
@@ -891,8 +891,8 @@ export default function Portfolio() {
                 shadowColor: "green"
               },
               {
-                title: "ゲーム開発",
-                description: "インタラクティブな物語体験を提供する新しいメタバース。最終ビジョン「アニメワールド」に向けた、最初の世界のMVPを開発しています。",
+                title: "アプリ・ゲーム開発",
+                description: "夜職業界の課題を解決する実用的なアプリ開発と、最終ビジョン「アニメワールド」の構築。これらを通じて、テクノロジーで人の体験を豊かにする、新しいメタバースのMVPを開発しています。",
                 image: "/game.png",
                 icon: <Rocket className="w-6 h-6" />,
                 color: "from-purple-500 to-pink-500",
