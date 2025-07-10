@@ -331,7 +331,7 @@ export default function Portfolio() {
             </motion.button>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Business & Community Section */}
       <section 
@@ -635,7 +635,7 @@ export default function Portfolio() {
             </motion.div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* More about me Section */}
       <motion.section 
@@ -774,17 +774,13 @@ IT資格や簿記資格で培った知識も、これらの事業の土台とな
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Projects Section */}
-      <motion.section 
+      <section 
         ref={projectsRef}
         id="projects" 
         className="py-20 relative overflow-hidden"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -842,21 +838,9 @@ IT資格や簿記資格で培った知識も、これらの事業の土台とな
                 shadowColor: "pink"
               }
             ].map((project, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 * index }}
               >
-                <Tilt
-                  tiltMaxAngleX={10}
-                  tiltMaxAngleY={10}
-                  perspective={1000}
-                  scale={1.05}
-                  transitionSpeed={1000}
-                  className="h-full"
-                >
                   <Card className={`group h-full hover:shadow-2xl hover:shadow-${project.shadowColor}-500/25 transition-all duration-500 transform border-0 relative overflow-hidden gradient-border`}>
                     <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}></div>
                     <CardContent className="p-6 relative z-10 h-full flex flex-col">
@@ -914,12 +898,11 @@ IT資格や簿記資格で培った知識も、これらの事業の土台とな
                       </motion.p>
                     </CardContent>
                   </Card>
-                </Tilt>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* SNS Links Section */}
       <motion.section 
@@ -1033,7 +1016,7 @@ IT資格や簿記資格で培った知識も、これらの事業の土台とな
             </motion.div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Footer */}
       <motion.footer 
