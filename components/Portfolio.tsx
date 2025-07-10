@@ -17,7 +17,6 @@ export default function Portfolio() {
   const [mounted, setMounted] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentBgImageIndex, setCurrentBgImageIndex] = useState(0)
-  const [particles, setParticles] = useState<Array<{id: number, initialX: number, initialY: number, targetX: number, targetY: number}>>([])
   
   const { scrollYProgress } = useScroll()
   const parallaxY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
@@ -42,19 +41,11 @@ export default function Portfolio() {
 
   useEffect(() => {
     setMounted(true)
-    const handleScroll = throttle(() => setScrollY(window.scrollY), 16) // 60fps
+    const handleScroll = throttle(() => setScrollY(window.scrollY), 100) // 10fps for header only
     
     window.addEventListener("scroll", handleScroll, { passive: true })
     
-    // Initialize particles after mount
-    const newParticles = [...Array(5)].map((_, i) => ({
-      id: i,
-      initialX: Math.random() * window.innerWidth,
-      initialY: Math.random() * window.innerHeight,
-      targetX: Math.random() * window.innerWidth,
-      targetY: Math.random() * window.innerHeight
-    }))
-    setParticles(newParticles)
+    // Particles disabled for performance
     
     return () => {
       window.removeEventListener("scroll", handleScroll)
@@ -180,9 +171,8 @@ export default function Portfolio() {
         transition={{ duration: 1 }}
       >
         {/* Animated Background Gradient */}
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-purple-900/40 to-pink-900/30 animate-gradient"
-          style={{ backgroundSize: "400% 400%" }}
+        <div 
+          className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-purple-900/40 to-pink-900/30"
         />
         
         {/* Parallax Background Images */}
@@ -206,31 +196,7 @@ export default function Portfolio() {
           ))}
         </motion.div>
         
-        {/* Floating Particles - Reduced count and optimized */}
-        {mounted && particles.length > 0 && (
-          <div className="absolute inset-0 pointer-events-none">
-            {particles.map((particle) => (
-              <motion.div
-                key={particle.id}
-                className="absolute w-2 h-2 bg-white/10 rounded-full will-change-transform"
-                initial={{
-                  x: particle.initialX,
-                  y: particle.initialY,
-                }}
-                animate={{
-                  x: particle.targetX,
-                  y: particle.targetY,
-                }}
-                transition={{
-                  duration: 10 + particle.id * 0.5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut",
-                }}
-              />
-            ))}
-          </div>
-        )}
+        {/* Floating Particles - Disabled for performance */}
 
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <motion.div 
@@ -247,16 +213,8 @@ export default function Portfolio() {
               scale={1.02}
             >
               <div className="relative inline-block">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-xl"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.5, 0.8, 0.5],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                  }}
+                <div
+                  className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-xl opacity-60"
                 />
                 <Image
                   src="/Kousai.png"
@@ -370,20 +328,6 @@ export default function Portfolio() {
                   <ChevronDown className="h-5 w-5" />
                 </motion.div>
               </motion.span>
-              
-              {/* Ripple Effect */}
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                initial={{ scale: 0, opacity: 0.5 }}
-                whileHover={{
-                  scale: [1, 1.5, 2],
-                  opacity: [0.5, 0.3, 0],
-                }}
-                transition={{ duration: 1, repeat: Infinity }}
-                style={{
-                  background: "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)",
-                }}
-              />
             </motion.button>
           </motion.div>
         </div>
@@ -454,6 +398,9 @@ export default function Portfolio() {
                         width={400}
                         height={300}
                         className="rounded-lg w-full object-cover"
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                       />
                     </motion.div>
                     <motion.h3 
@@ -633,6 +580,9 @@ export default function Portfolio() {
                         width={400}
                         height={300}
                         className="rounded-lg w-full object-cover"
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                       />
                     </motion.div>
                     <motion.h3 
