@@ -819,7 +819,9 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  現在は、IT資格や簿記資格で培った多角的な視点を活かし、これまでの経験と知見を基に、グローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>を創設し、その代表として活動しています。Luminous Coreは、<span className="font-semibold text-blue-600">デジタル戦略で事業成果を最大化するグローステック・パートナー</span>として、<span className="font-semibold text-cyan-600">AI技術と専門チーム</span>を駆使し、SNSグロース、Web制作、業務効率化をワンストップで実現します。
+                  現在は、IT資格や簿記資格で得た多角的な視点を活かし、2つの事業を率いています。
+一つは、企業のDX（デジタル変革）を支援するグローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>。
+そしてもう一つが、夜職業界に特化したSNSプロデュースチーム<span className="font-bold bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent">『Noir Producers』</span>です。
                 </motion.p>
 
                 <motion.p 
