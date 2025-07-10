@@ -163,12 +163,9 @@ export default function Portfolio() {
       </motion.header>
 
       {/* Hero Section */}
-      <motion.section 
+      <section 
         ref={heroRef}
         className="relative h-screen flex items-center justify-center overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
       >
         {/* Animated Background Gradient */}
         <div 
@@ -638,22 +635,12 @@ export default function Portfolio() {
       </section>
 
       {/* More about me Section */}
-      <motion.section 
+      <section 
         ref={aboutRef}
         id="about" 
         className="py-20 relative overflow-hidden"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
       >
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url('/大理石.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}></div>
-        <div className="absolute inset-0 bg-white/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
@@ -905,20 +892,10 @@ IT資格や簿記資格で培った知識も、これらの事業の土台とな
       </section>
 
       {/* SNS Links Section */}
-      <motion.section 
+      <section 
         className="py-20 relative overflow-hidden"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
       >
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url('/大理石.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}></div>
-        <div className="absolute inset-0 bg-white/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
