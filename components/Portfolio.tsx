@@ -516,8 +516,8 @@ export default function Portfolio() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
@@ -607,8 +607,8 @@ export default function Portfolio() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
@@ -815,9 +815,10 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  現在は、IT資格や簿記資格で得た多角的な視点を活かし、2つの事業を率いています。
+                  現在は、2つの事業を率いています。
 一つは、企業のDX（デジタル変革）を支援するグローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>。
 そしてもう一つが、夜職業界に特化したSNSプロデュースチーム<span className="font-bold bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent">『Noir Producers』</span>です。
+IT資格や簿記資格で培った知識も、これらの事業の土台となっています。
                 </motion.p>
 
                 <motion.p 
