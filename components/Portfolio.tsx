@@ -892,7 +892,7 @@ export default function Portfolio() {
               },
               {
                 title: "アプリ・ゲーム開発",
-                description: "夜職業界の課題を解決する実用的なアプリ開発と、最終ビジョン「アニメワールド」の構築。これらを通じて、テクノロジーで人の体験を豊かにする、新しいメタバースのMVPを開発しています。",
+                description: "夜職業界向けの実用アプリ開発と、メタバース「アニメワールド」のMVP構築を進めています。",
                 image: "/game.png",
                 icon: <Rocket className="w-6 h-6" />,
                 color: "from-purple-500 to-pink-500",
