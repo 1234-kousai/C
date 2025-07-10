@@ -36,7 +36,8 @@ export default function Portfolio() {
 
   const backgroundImages = [
     "/Luminous Core.png",
-    "/StuDXIA.jpg"
+    "/StuDXIA.jpg",
+    "/NoirProducers.png"
   ]
 
   useEffect(() => {
@@ -186,7 +187,7 @@ export default function Portfolio() {
         
         {/* Parallax Background Images */}
         <motion.div 
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-40 z-0"
           style={{ y: parallaxY }}
         >
           {backgroundImages.map((image, index) => (
@@ -831,7 +832,7 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.7 }}
                 >
-                  趣味で<span className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">ゲーム開発</span>、<span className="font-semibold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">モデル活動・コスプレ</span>、そしてAIに関するSNS発信も行っています。
+                  趣味で<span className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">ゲーム開発</span>、<span className="font-semibold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">モデル活動・コスプレ</span>を行っています。
                 </motion.p>
               </motion.div>
             </div>
