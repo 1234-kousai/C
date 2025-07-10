@@ -431,7 +431,7 @@ export default function Portfolio() {
             />
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -596,6 +596,94 @@ export default function Portfolio() {
                         href="https://www.studxia.com"
                         target="_blank"
                         className="inline-flex items-center gap-2 text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent hover:from-purple-700 hover:to-pink-700 transition-all"
+                      >
+                        ウェブサイトを見る 
+                        <motion.div
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1, repeat: Infinity }}
+                        >
+                          <ExternalLink className="h-5 w-5" />
+                        </motion.div>
+                      </Link>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </Tilt>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <Tilt
+                tiltMaxAngleX={5}
+                tiltMaxAngleY={5}
+                perspective={1000}
+                scale={1.01}
+                transitionSpeed={500}
+                className="h-full"
+              >
+                <Card className="group h-full hover:shadow-2xl hover:shadow-gray-500/10 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-gray-50/50 to-slate-50/30 hover:from-white/95 hover:via-gray-50/30 hover:to-slate-50/20 backdrop-blur-sm relative overflow-hidden gradient-border">
+                  <CardContent className="p-8 relative z-10">
+                    <motion.div 
+                      className="mb-6 overflow-hidden rounded-lg"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src="/NoirProducers.png"
+                        alt="Noir Producers"
+                        width={400}
+                        height={300}
+                        className="rounded-lg w-full object-cover"
+                      />
+                    </motion.div>
+                    <motion.h3 
+                      className="text-3xl md:text-4xl font-bold mb-6 flex items-center"
+                      whileHover={{ x: 10 }}
+                      transition={{ type: "spring", stiffness: 150 }}
+                    >
+                      <span className="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                        Noir Producers
+                      </span>
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5 }}
+                      >
+                        <ExternalLink className="ml-3 h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity text-gray-800" />
+                      </motion.div>
+                    </motion.h3>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ type: "spring", delay: 0.3 }}
+                    >
+                      <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-gray-100 to-slate-100 border-2 border-gray-600 text-gray-900 font-bold shadow-lg backdrop-blur-md">
+                        <Sparkles className="w-4 h-4 mr-2 inline" />
+                        夜職専門SNSプロデュース
+                      </Badge>
+                    </motion.div>
+                    <motion.p 
+                      className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 tracking-wide"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                      夜職業界に特化した<span className="font-semibold text-gray-800">SNSプロデュース専門チーム</span>。感覚と経験則に頼りがちなこの業界のSNS戦略を、<span className="font-semibold text-gray-600">データとロジック</span>で再構築。独自開発した分析プロダクトも活用し、あなたという存在を<span className="font-semibold bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent">「再現性のある、稼げる戦略的資産」</span>へと変貌させる、唯一無二のソリューションを提供。
+                    </motion.p>
+                    <motion.div
+                      whileHover={{ x: 10 }}
+                      transition={{ type: "spring", stiffness: 150 }}
+                    >
+                      <Link
+                        href="https://noir-7u2c.vercel.app"
+                        target="_blank"
+                        className="inline-flex items-center gap-2 text-lg font-semibold bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent hover:from-gray-800 hover:to-gray-600 transition-all"
                       >
                         ウェブサイトを見る 
                         <motion.div
