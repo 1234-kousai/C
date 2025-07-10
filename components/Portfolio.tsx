@@ -334,22 +334,12 @@ export default function Portfolio() {
       </motion.section>
 
       {/* Business & Community Section */}
-      <motion.section 
+      <section 
         ref={businessRef}
         id="business" 
         className="py-20 relative overflow-hidden"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
       >
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url('/大理石.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}></div>
-        <div className="absolute inset-0 bg-white/85"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
@@ -796,13 +786,7 @@ IT資格や簿記資格で培った知識も、これらの事業の土台とな
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url('/大理石.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}></div>
-        <div className="absolute inset-0 bg-white/85"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
@@ -874,12 +858,6 @@ IT資格や簿記資格で培った知識も、これらの事業の土台とな
                   className="h-full"
                 >
                   <Card className={`group h-full hover:shadow-2xl hover:shadow-${project.shadowColor}-500/25 transition-all duration-500 transform border-0 relative overflow-hidden gradient-border`}>
-                    <div className="absolute inset-0" style={{
-                      backgroundImage: `url('/大理石.jpg')`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}></div>
-                    <div className="absolute inset-0 bg-white/85"></div>
                     <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}></div>
                     <CardContent className="p-6 relative z-10 h-full flex flex-col">
                       <motion.div 
@@ -893,6 +871,9 @@ IT資格や簿記資格で培った知識も、これらの事業の土台とな
                           width={300}
                           height={200}
                           className="w-full object-cover"
+                          loading="lazy"
+                          placeholder="blur"
+                          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                         />
                         <motion.div
                           className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}
