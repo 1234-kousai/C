@@ -299,11 +299,6 @@ export default function Portfolio() {
                     stiffness: 100,
                   }}
                   className="inline-block"
-                  whileHover={{ 
-                    scale: 1.2, 
-                    rotate: Math.random() * 10 - 5,
-                    transition: { duration: 0.2 }
-                  }}
                 >
                   {char === " " ? "\u00A0" : char}
                 </motion.span>
