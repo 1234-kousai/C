@@ -105,11 +105,11 @@ export default function Portfolio() {
       >
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <motion.div 
-            className="text-2xl font-black bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent cursor-pointer"
-            whileHover={{ scale: 1.1, rotate: 5 }}
+            className="text-xl md:text-2xl font-black bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent cursor-pointer"
+            whileHover={{ scale: 1.05, rotate: 2 }}
             whileTap={{ scale: 0.95 }}
           >
-            K.Y
+            Kousai Yamamoto
           </motion.div>
 
           {/* Desktop Navigation */}
