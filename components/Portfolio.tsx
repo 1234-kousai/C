@@ -330,6 +330,135 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* More about me Section */}
+      <section 
+        ref={aboutRef}
+        id="about" 
+        className="py-20 relative overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.h2 
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
+              More about me
+            </span>
+            <motion.div
+              className="h-1 w-32 mx-auto mt-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
+              initial={{ width: 0 }}
+              whileInView={{ width: 128 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            />
+          </motion.h2>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div 
+                className="relative"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <Tilt
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  perspective={1000}
+                  scale={1.02}
+                  transitionSpeed={1000}
+                >
+                  <div className="relative w-full h-[500px] overflow-hidden rounded-2xl shadow-2xl">
+                    {aboutMeImages.map((image, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 1.1 }}
+                        animate={{ 
+                          opacity: index === currentImageIndex ? 1 : 0,
+                          scale: index === currentImageIndex ? 1 : 1.1
+                        }}
+                        transition={{ duration: 1 }}
+                        className="absolute inset-0"
+                      >
+                        <Image
+                          src={image}
+                          alt={`山本公才 プロフィール ${index + 1}`}
+                          width={400}
+                          height={500}
+                          className="w-full h-full object-cover"
+                        />
+                      </motion.div>
+                    ))}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-8">
+                      <div className="flex justify-center gap-2">
+                        {aboutMeImages.map((_, index) => (
+                          <motion.div
+                            key={index}
+                            className={`h-2 rounded-full bg-white/50 cursor-pointer`}
+                            animate={{ 
+                              width: index === currentImageIndex ? 32 : 8,
+                              backgroundColor: index === currentImageIndex ? '#ffffff' : 'rgba(255,255,255,0.5)'
+                            }}
+                            onClick={() => setCurrentImageIndex(index)}
+                            whileHover={{ scale: 1.2 }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </Tilt>
+              </motion.div>
+
+              <motion.div 
+                className="space-y-8"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <motion.p 
+                  className="text-xl md:text-2xl leading-relaxed font-light"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <span className="font-semibold text-3xl md:text-4xl text-blue-600">慶應義塾大学</span>経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で<span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">慶應・東大・早稲田・一橋</span>に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体<span className="font-bold text-purple-600">"StuDXIA"</span>を立ち上げ、上場企業やテック企業とも連携。
+                </motion.p>
+
+                <motion.p 
+                  className="text-xl md:text-2xl leading-relaxed font-light"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                >
+                  現在は、2つの事業を率いています。
+一つは、企業のDX（デジタル変革）を支援するグローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>。
+そしてもう一つが、夜職業界に特化したSNSプロデュースチーム<span className="font-bold bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent">『Noir Producers』</span>です。
+IT資格や簿記資格で培った知識も、これらの事業の土台となっています。
+                </motion.p>
+
+                <motion.p 
+                  className="text-xl md:text-2xl leading-relaxed font-light"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                >
+                  趣味で<span className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">アプリ・ゲーム開発</span>、<span className="font-semibold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">モデル活動</span>を行っています。アニメが大好きなので<span className="font-semibold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">コスプレ</span>もしています。
+                </motion.p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Business & Community Section */}
       <section 
         ref={businessRef}
@@ -630,135 +759,6 @@ export default function Portfolio() {
                 </Card>
               </Tilt>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* More about me Section */}
-      <section 
-        ref={aboutRef}
-        id="about" 
-        className="py-20 relative overflow-hidden"
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-              More about me
-            </span>
-            <motion.div
-              className="h-1 w-32 mx-auto mt-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
-              initial={{ width: 0 }}
-              whileInView={{ width: 128 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            />
-          </motion.h2>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div 
-                className="relative"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              >
-                <Tilt
-                  tiltMaxAngleX={10}
-                  tiltMaxAngleY={10}
-                  perspective={1000}
-                  scale={1.02}
-                  transitionSpeed={1000}
-                >
-                  <div className="relative w-full h-[500px] overflow-hidden rounded-2xl shadow-2xl">
-                    {aboutMeImages.map((image, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, scale: 1.1 }}
-                        animate={{ 
-                          opacity: index === currentImageIndex ? 1 : 0,
-                          scale: index === currentImageIndex ? 1 : 1.1
-                        }}
-                        transition={{ duration: 1 }}
-                        className="absolute inset-0"
-                      >
-                        <Image
-                          src={image}
-                          alt={`山本公才 プロフィール ${index + 1}`}
-                          width={400}
-                          height={500}
-                          className="w-full h-full object-cover"
-                        />
-                      </motion.div>
-                    ))}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-8">
-                      <div className="flex justify-center gap-2">
-                        {aboutMeImages.map((_, index) => (
-                          <motion.div
-                            key={index}
-                            className={`h-2 rounded-full bg-white/50 cursor-pointer`}
-                            animate={{ 
-                              width: index === currentImageIndex ? 32 : 8,
-                              backgroundColor: index === currentImageIndex ? '#ffffff' : 'rgba(255,255,255,0.5)'
-                            }}
-                            onClick={() => setCurrentImageIndex(index)}
-                            whileHover={{ scale: 1.2 }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </Tilt>
-              </motion.div>
-
-              <motion.div 
-                className="space-y-8"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <motion.p 
-                  className="text-xl md:text-2xl leading-relaxed font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                >
-                  <span className="font-semibold text-3xl md:text-4xl text-blue-600">慶應義塾大学</span>経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で<span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">慶應・東大・早稲田・一橋</span>に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体<span className="font-bold text-purple-600">"StuDXIA"</span>を立ち上げ、上場企業やテック企業とも連携。
-                </motion.p>
-
-                <motion.p 
-                  className="text-xl md:text-2xl leading-relaxed font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                >
-                  現在は、2つの事業を率いています。
-一つは、企業のDX（デジタル変革）を支援するグローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>。
-そしてもう一つが、夜職業界に特化したSNSプロデュースチーム<span className="font-bold bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent">『Noir Producers』</span>です。
-IT資格や簿記資格で培った知識も、これらの事業の土台となっています。
-                </motion.p>
-
-                <motion.p 
-                  className="text-xl md:text-2xl leading-relaxed font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                >
-                  趣味で<span className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">アプリ・ゲーム開発</span>、<span className="font-semibold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">モデル活動</span>を行っています。アニメが大好きなので<span className="font-semibold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">コスプレ</span>もしています。
-                </motion.p>
-              </motion.div>
-            </div>
           </div>
         </div>
       </section>
