@@ -28,7 +28,7 @@ export default function Portfolio() {
 
   const aboutMeImages = [
     "/more about me1.JPG",
-    "/more about me2.JPG", 
+    "/more-about-me-new.jpg", 
     "/more about me3.jpeg",
     "/IMG_8019.JPG"
   ]
