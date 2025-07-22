@@ -17,7 +17,6 @@ export default function Portfolio() {
   const [mounted, setMounted] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentBgImageIndex, setCurrentBgImageIndex] = useState(0)
-  const [currentHeroImageIndex, setCurrentHeroImageIndex] = useState(0)
   
   const { scrollYProgress } = useScroll()
   const parallaxY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
@@ -31,11 +30,6 @@ export default function Portfolio() {
     "/more-about-me-new.jpg", 
     "/more about me3.jpeg",
     "/IMG_8019.JPG"
-  ]
-
-  const heroImages = [
-    "/profile-main.png",
-    "/Kousai.png"
   ]
 
   const backgroundImages = [
@@ -78,15 +72,6 @@ export default function Portfolio() {
     return () => clearInterval(interval)
   }, [backgroundImages.length])
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentHeroImageIndex((prevIndex) => 
-        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-      )
-    }, 4000)
-    
-    return () => clearInterval(interval)
-  }, [heroImages.length])
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
@@ -228,25 +213,13 @@ export default function Portfolio() {
                 <div
                   className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-xl opacity-60"
                 />
-                {heroImages.map((image, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0 }}
-                    animate={{ 
-                      opacity: index === currentHeroImageIndex ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.8 }}
-                    className="absolute inset-0"
-                  >
-                    <Image
-                      src={image}
-                      alt="山本公才"
-                      width={200}
-                      height={200}
-                      className="rounded-full mx-auto border-4 border-white/20 shadow-2xl relative z-10 object-cover"
-                    />
-                  </motion.div>
-                ))}
+                <Image
+                  src="/profile-main.png"
+                  alt="山本公才"
+                  width={200}
+                  height={200}
+                  className="rounded-full mx-auto border-4 border-white/20 shadow-2xl relative z-10 object-cover"
+                />
               </div>
             </Tilt>
           </motion.div>
