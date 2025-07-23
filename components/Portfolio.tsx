@@ -474,190 +474,177 @@ export default function Portfolio() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <motion.div
-                  className="relative"
+                  className="relative group"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                 >
-                  <motion.div
-                    className="absolute -inset-2 bg-gradient-to-r from-blue-300/20 via-purple-300/20 to-pink-300/20 blur-xl"
-                    animate={{
-                      opacity: [0.5, 0.8, 0.5],
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  />
-                  <motion.p 
-                    className="relative text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                  >
-                    {[
-                      { text: "慶應義塾大学", color: "text-blue-600 dark:text-blue-400" },
-                      { text: "経済学部在籍。" },
-                      { text: "金融機関・税理士事務所", color: "text-emerald-600 dark:text-emerald-400" },
-                      { text: "でのインターン経験や、" },
-                      { text: "経理代行事業", color: "text-amber-600 dark:text-amber-400" },
-                      { text: "の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。" },
-                      { text: "AI・DX", color: "text-violet-600 dark:text-violet-400" },
-                      { text: "を学ぶ中で、創設から1ヶ月で" },
-                      { text: "慶應・東大・早稲田・一橋", color: "text-rose-600 dark:text-rose-400" },
-                      { text: "に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体" },
-                      { text: "「StuDXIA」", color: "text-purple-600 dark:text-purple-400 font-semibold" },
-                      { text: "を立ち上げ、上場企業やテック企業とも連携。" }
-                    ].map((segment, segmentIndex) => {
-                      let charCount = 0;
-                      for (let i = 0; i < segmentIndex; i++) {
-                        charCount += [
-                          { text: "慶應義塾大学", color: "text-blue-600 dark:text-blue-400" },
+                  {/* Premium Card Design */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
+                  
+                  {/* Glass Card */}
+                  <div className="relative bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl border border-white/50 dark:border-gray-700/50 shadow-2xl overflow-hidden">
+                    {/* Animated Border Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-10" />
+                    
+                    {/* Content Container */}
+                    <motion.div 
+                      className="relative p-8 md:p-10"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.3 }}
+                    >
+                      <p className="text-lg md:text-xl leading-loose text-gray-800 dark:text-gray-200">
+                        {[
+                          { text: "慶應義塾大学", style: "font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent" },
                           { text: "経済学部在籍。" },
-                          { text: "金融機関・税理士事務所", color: "text-emerald-600 dark:text-emerald-400" },
+                          { text: "金融機関・税理士事務所", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
                           { text: "でのインターン経験や、" },
-                          { text: "経理代行事業", color: "text-amber-600 dark:text-amber-400" },
+                          { text: "経理代行事業", style: "font-bold bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent" },
                           { text: "の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。" },
-                          { text: "AI・DX", color: "text-violet-600 dark:text-violet-400" },
+                          { text: "AI・DX", style: "font-bold bg-gradient-to-r from-violet-600 to-violet-400 bg-clip-text text-transparent" },
                           { text: "を学ぶ中で、創設から1ヶ月で" },
-                          { text: "慶應・東大・早稲田・一橋", color: "text-rose-600 dark:text-rose-400" },
+                          { text: "慶應・東大・早稲田・一橋", style: "font-bold bg-gradient-to-r from-rose-600 to-rose-400 bg-clip-text text-transparent" },
                           { text: "に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体" },
-                          { text: "「StuDXIA」", color: "text-purple-600 dark:text-purple-400 font-semibold" },
+                          { text: "「StuDXIA」", style: "font-black text-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent inline-block mx-1 transform hover:scale-105 transition-transform duration-300" },
                           { text: "を立ち上げ、上場企業やテック企業とも連携。" }
-                        ][i].text.length;
-                      }
-                      return segment.text.split("").map((char, charIndex) => (
+                        ].map((segment, index) => (
+                          <motion.span
+                            key={index}
+                            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            viewport={{ once: true }}
+                            transition={{
+                              duration: 0.6,
+                              delay: 0.5 + index * 0.05,
+                              ease: [0.25, 0.46, 0.45, 0.94]
+                            }}
+                            className={segment.style || ""}
+                          >
+                            {segment.text}
+                          </motion.span>
+                        ))}
+                      </p>
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="relative group"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {/* Modern Card with Gradient Border */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-700" />
+                  
+                  <div className="relative bg-gradient-to-br from-gray-50/90 to-white/90 dark:from-gray-900/90 dark:to-gray-800/90 backdrop-blur-lg rounded-3xl p-8 md:p-10 border border-gray-200/50 dark:border-gray-700/50 shadow-xl">
+                    {/* Subtle Pattern Overlay */}
+                    <div className="absolute inset-0 opacity-5">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500" />
+                    </div>
+                    
+                    <p className="relative text-lg md:text-xl leading-loose text-gray-800 dark:text-gray-200">
+                      {[
+                        { text: "現在は、" },
+                        { text: "2つの事業", style: "font-bold bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent" },
+                        { text: "を率いています。一つは、企業の" },
+                        { text: "DX（デジタル変革）", style: "font-bold bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent" },
+                        { text: "を支援するグローステック・事業" },
+                        { text: "『Luminous Core』", style: "font-black text-2xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent inline-block mx-1 px-3 py-1 rounded-xl bg-blue-100/10 dark:bg-blue-900/20 border border-blue-200/30 dark:border-blue-800/30 transform hover:scale-105 transition-all duration-300" },
+                        { text: "。そしてもう一つが、" },
+                        { text: "夜職業界", style: "font-semibold text-gray-700 dark:text-gray-300" },
+                        { text: "に特化したSNSプロデュースチーム" },
+                        { text: "『Noir Producers』", style: "font-black text-2xl bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 dark:from-gray-300 dark:via-gray-100 dark:to-gray-300 bg-clip-text text-transparent inline-block mx-1 px-3 py-1 rounded-xl bg-gray-100/10 dark:bg-gray-900/20 border border-gray-300/30 dark:border-gray-700/30 transform hover:scale-105 transition-all duration-300" },
+                        { text: "です。" },
+                        { text: "IT資格", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
+                        { text: "や" },
+                        { text: "簿記資格", style: "font-bold bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent" },
+                        { text: "で培った知識も、これらの事業の土台となっています。" }
+                      ].map((segment, index) => (
                         <motion.span
-                          key={`${segmentIndex}-${charIndex}`}
-                          initial={{ opacity: 0, rotateX: -90 }}
-                          whileInView={{ opacity: 1, rotateX: 0 }}
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{
-                            duration: 0.02,
-                            delay: 0.4 + (charCount + charIndex) * 0.01,
-                            ease: "easeOut"
+                            duration: 0.5,
+                            delay: 0.8 + index * 0.03,
+                            ease: [0.25, 0.1, 0.25, 1]
                           }}
-                          className={`inline-block ${segment.color || ""}`}
-                          style={{ transformStyle: "preserve-3d" }}
+                          className={segment.style || ""}
                         >
-                          {char}
+                          {segment.text}
                         </motion.span>
-                      ))
-                    })}
-                  </motion.p>
+                      ))}
+                    </p>
+                  </div>
                 </motion.div>
 
                 <motion.div
-                  className="relative"
+                  className="relative group"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
                 >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-blue-400/10 to-purple-400/10 rounded-2xl"
-                    animate={{
-                      backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-                    }}
-                    transition={{
-                      duration: 10,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                    style={{ backgroundSize: "200% 200%" }}
-                  />
-                  <p className="relative text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 p-6">
-                    {[
-                      { text: "現在は、", delay: 0 },
-                      { text: "2つの事業", delay: 0.1, color: "text-indigo-600 dark:text-indigo-400" },
-                      { text: "を率いています。", delay: 0.2 },
-                      { text: "一つは、企業の", delay: 0.3 },
-                      { text: "DX（デジタル変革）", delay: 0.4, color: "text-cyan-600 dark:text-cyan-400" },
-                      { text: "を支援するグローステック・事業", delay: 0.5 },
-                      { text: "『Luminous Core』", delay: 0.6, highlight: true, color: "text-blue-600 dark:text-blue-400" },
-                      { text: "。そしてもう一つが、", delay: 0.7 },
-                      { text: "夜職業界", delay: 0.8, color: "text-gray-700 dark:text-gray-300" },
-                      { text: "に特化したSNSプロデュースチーム", delay: 0.9 },
-                      { text: "『Noir Producers』", delay: 1.0, highlight: true, color: "text-gray-800 dark:text-gray-200" },
-                      { text: "です。", delay: 1.1 },
-                      { text: "IT資格", delay: 1.2, color: "text-emerald-600 dark:text-emerald-400" },
-                      { text: "や", delay: 1.3 },
-                      { text: "簿記資格", delay: 1.4, color: "text-amber-600 dark:text-amber-400" },
-                      { text: "で培った知識も、これらの事業の土台となっています。", delay: 1.5 }
-                    ].map((item, index) => (
-                      <motion.span
-                        key={index}
-                        initial={{ opacity: 0, scale: 0.8, filter: "blur(20px)" }}
-                        whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.8,
-                          delay: 1.2 + item.delay,
-                          ease: [0.16, 1, 0.3, 1]
-                        }}
-                        className={`inline-block ${item.color || ""} ${item.highlight ? "px-2 py-1 mx-1 rounded-lg bg-gradient-to-r from-blue-100/50 to-purple-100/50 dark:from-blue-900/20 dark:to-purple-900/20 backdrop-blur-sm" : ""}`}
-                      >
-                        {item.text}
-                      </motion.span>
-                    ))}
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="relative overflow-hidden rounded-2xl"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-rose-500/5"
-                    animate={{
-                      x: ["-100%", "100%"],
-                    }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                  />
-                  <motion.p 
-                    className="relative text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 p-6 border border-gray-200/30 dark:border-gray-700/30"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.7 }}
-                  >
-                    {[
-                      { text: "趣味で", delay: 0 },
-                      { text: "アプリ・ゲーム開発", delay: 0.1, color: "text-purple-600 dark:text-purple-400" },
-                      { text: "、", delay: 0.2 },
-                      { text: "モデル活動", delay: 0.3, color: "text-pink-600 dark:text-pink-400" },
-                      { text: "を行っています。", delay: 0.4 },
-                      { text: "アニメ", delay: 0.5, color: "text-rose-600 dark:text-rose-400" },
-                      { text: "が大好きなので", delay: 0.6 },
-                      { text: "コスプレ", delay: 0.7, color: "text-fuchsia-600 dark:text-fuchsia-400" },
-                      { text: "もしています。", delay: 0.8 }
-                    ].map((item, index) => (
-                      <motion.span
-                        key={index}
-                        className={`inline-block ${item.color || ""}`}
-                        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.5,
-                          delay: 2.2 + item.delay,
-                          type: "spring",
-                          stiffness: 100
-                        }}
-                      >
-                        {item.text}
-                      </motion.span>
-                    ))}
-                  </motion.p>
+                  {/* Elegant Gradient Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-rose-500/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
+                  
+                  {/* Refined Card */}
+                  <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-gray-200/30 dark:border-gray-700/30 shadow-xl overflow-hidden">
+                    {/* Animated Accent */}
+                    <motion.div
+                      className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500"
+                      animate={{
+                        x: ["-100%", "100%"],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "linear"
+                      }}
+                    />
+                    
+                    <motion.p 
+                      className="relative text-lg md:text-xl leading-loose text-gray-800 dark:text-gray-200"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.7 }}
+                    >
+                      {[
+                        { text: "趣味で" },
+                        { text: "アプリ・ゲーム開発", style: "font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent" },
+                        { text: "、" },
+                        { text: "モデル活動", style: "font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent" },
+                        { text: "を行っています。" },
+                        { text: "アニメ", style: "font-bold bg-gradient-to-r from-rose-600 to-rose-400 bg-clip-text text-transparent" },
+                        { text: "が大好きなので" },
+                        { text: "コスプレ", style: "font-bold bg-gradient-to-r from-fuchsia-600 to-fuchsia-400 bg-clip-text text-transparent" },
+                        { text: "もしています。" }
+                      ].map((segment, index) => (
+                        <motion.span
+                          key={index}
+                          className={segment.style || ""}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          whileHover={segment.style ? { scale: 1.1, y: -2 } : {}}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: 0.4,
+                            delay: 1.4 + index * 0.02,
+                            type: "spring",
+                            stiffness: 200
+                          }}
+                        >
+                          {segment.text}
+                        </motion.span>
+                      ))}
+                    </motion.p>
+                  </div>
                 </motion.div>
               </motion.div>
             </div>
