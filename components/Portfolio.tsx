@@ -165,16 +165,47 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="relative h-screen flex items-center justify-center overflow-hidden"
+        className="relative h-screen flex items-center justify-center overflow-hidden noise-texture"
       >
-        {/* Animated Background Gradient */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-purple-900/40 to-pink-900/30"
-        />
+        {/* Premium Gradient Mesh Background */}
+        <div className="absolute inset-0 gradient-mesh opacity-50" />
+        
+        {/* Animated Gradient Orbs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-purple-600/30 to-transparent rounded-full blur-3xl"
+            animate={{
+              x: [0, 100, 0],
+              y: [0, 50, 0],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-cyan-600/30 to-transparent rounded-full blur-3xl"
+            animate={{
+              x: [0, -100, 0],
+              y: [0, -50, 0],
+              scale: [1, 1.3, 1],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </div>
+        
+        {/* Glass Morphism Layer */}
+        <div className="absolute inset-0 backdrop-blur-[2px] bg-white/[0.01] dark:bg-black/[0.01]" />
         
         {/* Parallax Background Images */}
         <motion.div 
-          className="absolute inset-0 opacity-40 z-0"
+          className="absolute inset-0 opacity-30 z-0"
           style={{ y: parallaxY }}
         >
           {backgroundImages.map((image, index) => (
@@ -182,12 +213,13 @@ export default function Portfolio() {
               key={index}
               className={`absolute inset-0 transition-opacity duration-2000`}
               initial={{ opacity: 0 }}
-              animate={{ opacity: index === currentBgImageIndex ? 1 : 0 }}
-              transition={{ duration: 0.8 }}
+              animate={{ opacity: index === currentBgImageIndex ? 0.4 : 0 }}
+              transition={{ duration: 1.5 }}
               style={{
                 backgroundImage: `url('${image}')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                filter: "saturate(0.5) contrast(1.2)",
               }}
             />
           ))}
@@ -197,103 +229,186 @@ export default function Portfolio() {
 
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <motion.div 
-            className="mb-4 mt-8 md:mt-12"
+            className="mb-8 mt-12 md:mt-16"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           >
             <Tilt
-              tiltMaxAngleX={8}
-              tiltMaxAngleY={8}
+              tiltMaxAngleX={15}
+              tiltMaxAngleY={15}
               perspective={1000}
-              transitionSpeed={500}
-              scale={1.02}
+              transitionSpeed={1000}
+              scale={1.05}
+              gyroscope={true}
             >
-              <div className="relative inline-block w-[200px] h-[200px]">
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-xl opacity-60"
+              <div className="relative inline-block">
+                {/* Animated Glow Ring */}
+                <motion.div
+                  className="absolute -inset-4 rounded-full gradient-aurora opacity-75 blur-2xl"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 180, 360],
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
                 />
-                <Image
-                  src="/profile-main.png"
-                  alt="山本公才"
-                  width={200}
-                  height={200}
-                  className="rounded-full mx-auto border-4 border-white/20 shadow-2xl relative z-10 object-cover"
-                />
+                
+                {/* Glass Morphism Container */}
+                <div className="relative w-[220px] h-[220px] p-2 rounded-full glass backdrop-blur-xl">
+                  {/* Inner Glow */}
+                  <div className="absolute inset-2 bg-gradient-to-br from-purple-400/20 via-pink-400/20 to-cyan-400/20 rounded-full animate-pulse" />
+                  
+                  {/* Profile Image */}
+                  <div className="relative w-full h-full rounded-full overflow-hidden">
+                    <Image
+                      src="/profile-main.png"
+                      alt="山本公才"
+                      width={200}
+                      height={200}
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Shimmer Effect */}
+                    <div className="absolute inset-0 shimmer" />
+                  </div>
+                  
+                  {/* Premium Border */}
+                  <div className="absolute inset-0 rounded-full ring-2 ring-white/30 ring-offset-2 ring-offset-transparent" />
+                </div>
               </div>
             </Tilt>
           </motion.div>
 
           <motion.h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-6xl md:text-8xl lg:text-9xl font-black mb-12 tracking-tight perspective-1000"
+            initial={{ opacity: 0, z: -100 }}
+            animate={{ opacity: 1, z: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
-            <motion.span 
-              className="inline-block bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-2xl"
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              style={{ backgroundSize: "200% 200%" }}
-            >
-              {"山本 公才".split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.8 + index * 0.1,
-                    type: "spring",
-                    stiffness: 100,
-                  }}
-                  className="inline-block"
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </motion.span>
+            <motion.div className="relative inline-block">
+              {/* Background Glow */}
+              <motion.div
+                className="absolute -inset-x-20 -inset-y-10 text-gradient-premium opacity-30 blur-3xl"
+                animate={{
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                山本 公才
+              </motion.div>
+              
+              {/* Main Text */}
+              <div className="relative">
+                {"山本 公才".split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ 
+                      opacity: 0, 
+                      y: 100,
+                      rotateX: -90,
+                      scale: 0.5
+                    }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0,
+                      rotateX: 0,
+                      scale: 1
+                    }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.8 + index * 0.15,
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 10
+                    }}
+                    className="inline-block text-gradient-premium font-black preserve-3d"
+                    style={{
+                      textShadow: "0 10px 40px rgba(99, 102, 241, 0.3)",
+                    }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
           </motion.h1>
 
           <motion.div 
-            className="text-lg md:text-xl mb-8 space-y-3"
+            className="mb-12 space-y-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             {[
-              { text: "Luminous Core & Noir Producers 主宰", icon: <Zap className="w-5 h-5" /> },
-              { text: "学生団体 StuDXIA 創設者", icon: <Rocket className="w-5 h-5" /> },
-              { text: "慶應義塾大学 経済学部 在学", icon: <Sparkles className="w-5 h-5" /> },
+              { text: "Luminous Core & Noir Producers 主宰", icon: <Zap className="w-6 h-6" />, gradient: "from-blue-500 to-cyan-500" },
+              { text: "学生団体 StuDXIA 創設者", icon: <Rocket className="w-6 h-6" />, gradient: "from-purple-500 to-pink-500" },
+              { text: "慶應義塾大学 経済学部 在学", icon: <Sparkles className="w-6 h-6" />, gradient: "from-amber-500 to-orange-500" },
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -50, rotateY: -30 }}
+                animate={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{
-                  duration: 0.5,
-                  delay: 1.4 + index * 0.1,
+                  duration: 0.8,
+                  delay: 1.4 + index * 0.15,
                   type: "spring",
                   stiffness: 100,
                 }}
-                whileHover={{ scale: 1.05, x: 10 }}
-                className="group"
+                whileHover={{ scale: 1.03, x: 10, rotateY: 5 }}
+                className="group perspective-1000"
               >
-                <div className="bg-black/40 backdrop-blur-sm rounded-2xl px-6 py-4 mx-auto max-w-2xl border border-white/10 hover:border-white/30 transition-all duration-300 glass-morphism flex items-center justify-center gap-3">
-                  <motion.div
-                    className="text-white/60 group-hover:text-white transition-colors"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {item.icon}
-                  </motion.div>
-                  <p className="text-white font-semibold text-shadow-lg">{item.text}</p>
+                <div className="relative mx-auto max-w-2xl preserve-3d">
+                  {/* Background Glow */}
+                  <motion.div 
+                    className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-70 blur-xl transition-opacity duration-500 rounded-3xl`}
+                  />
+                  
+                  {/* Card */}
+                  <div className="relative glass backdrop-blur-xl rounded-3xl px-8 py-5 border border-white/10 group-hover:border-white/20 transition-all duration-500 overflow-hidden">
+                    {/* Shimmer Effect */}
+                    <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Content */}
+                    <div className="relative flex items-center justify-center gap-4">
+                      <motion.div
+                        className={`text-white/70 group-hover:text-white transition-all duration-300`}
+                        whileHover={{ rotate: 360, scale: 1.2 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <div className={`p-2 rounded-xl bg-gradient-to-br ${item.gradient} bg-opacity-20`}>
+                          {item.icon}
+                        </div>
+                      </motion.div>
+                      <p className="text-lg md:text-xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300">
+                        {item.text}
+                      </p>
+                    </div>
+                    
+                    {/* Animated Border Gradient */}
+                    <motion.div 
+                      className="absolute inset-0 rounded-3xl"
+                      style={{
+                        background: `linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)`,
+                        transform: "translateX(-100%)",
+                      }}
+                      animate={{
+                        transform: ["translateX(-100%)", "translateX(100%)"],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatDelay: 3,
+                      }}
+                    />
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -303,28 +418,86 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.8 }}
+            className="relative"
           >
             <motion.button
-              className="relative group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-4 rounded-full text-lg font-semibold overflow-hidden shadow-xl"
-              onClick={() => scrollToSection("business")}
+              className="relative group px-12 py-5 text-lg font-bold overflow-hidden rounded-full"
+              onClick={() => scrollToSection("about")}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
+              {/* Animated Background */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
-                initial={{ x: "100%" }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
+                className="absolute inset-0 gradient-aurora"
+                animate={{
+                  backgroundPosition: ["0% 0%", "100% 100%"],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
               />
-              <motion.span className="relative z-10 flex items-center gap-3">
-                詳しく見る
+              
+              {/* Glass Layer */}
+              <div className="absolute inset-0 glass backdrop-blur-md rounded-full" />
+              
+              {/* Glow Effect */}
+              <motion.div
+                className="absolute -inset-1 gradient-aurora opacity-0 group-hover:opacity-60 blur-xl transition-opacity duration-500 rounded-full"
+              />
+              
+              {/* Border Shimmer */}
+              <div className="absolute inset-0 rounded-full ring-2 ring-white/20 group-hover:ring-white/40 transition-all duration-300">
+                <div className="absolute inset-0 rounded-full shimmer" />
+              </div>
+              
+              {/* Content */}
+              <motion.span className="relative z-10 flex items-center gap-3 text-white font-black tracking-wide">
+                <span>詳しく見る</span>
                 <motion.div
-                  animate={{ y: [0, 5, 0] }}
-                  transition={{ duration: 1, repeat: Infinity }}
+                  animate={{ 
+                    y: [0, 3, 0],
+                    rotate: [0, 10, 0, -10, 0]
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
                 >
-                  <ChevronDown className="h-5 w-5" />
+                  <ChevronDown className="h-6 w-6" />
                 </motion.div>
               </motion.span>
+              
+              {/* Hover Particles */}
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              >
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-white rounded-full"
+                    initial={{ 
+                      x: "50%", 
+                      y: "50%",
+                      scale: 0
+                    }}
+                    animate={{
+                      x: `${50 + (Math.random() - 0.5) * 100}%`,
+                      y: `${50 + (Math.random() - 0.5) * 100}%`,
+                      scale: [0, 1, 0],
+                    }}
+                    transition={{
+                      duration: 1,
+                      delay: i * 0.1,
+                      repeat: Infinity,
+                      repeatDelay: 1
+                    }}
+                  />
+                ))}
+              </motion.div>
             </motion.button>
           </motion.div>
         </div>
@@ -617,118 +790,187 @@ export default function Portfolio() {
       <section 
         ref={businessRef}
         id="business" 
-        className="py-20 relative overflow-hidden"
+        className="py-24 relative overflow-hidden noise-texture"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
+        {/* Premium Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 gradient-mesh opacity-30" />
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-br from-slate-900/5 via-purple-900/5 to-blue-900/5"
+            animate={{
+              backgroundPosition: ["0% 0%", "100% 100%"],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            style={{ backgroundSize: "400% 400%" }}
+          />
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
-          <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="text-center mb-20"
           >
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-              Business & Community
-            </span>
-            <motion.div
-              className="h-1 w-32 mx-auto mt-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
-              initial={{ width: 0 }}
-              whileInView={{ width: 128 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            />
-          </motion.h2>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6">
+              <motion.span 
+                className="inline-block text-gradient-premium"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, type: "spring" }}
+              >
+                Business & Community
+              </motion.span>
+            </h2>
+            
+            {/* Animated Underline */}
+            <motion.div className="flex justify-center">
+              <motion.div
+                className="h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent rounded-full"
+                initial={{ width: 0 }}
+                whileInView={{ width: 200 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.3 }}
+              />
+            </motion.div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            {/* Luminous Core Card */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50, rotateX: -15 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              className="perspective-1000"
             >
               <Tilt
-                tiltMaxAngleX={5}
-                tiltMaxAngleY={5}
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
                 perspective={1000}
-                scale={1.01}
-                transitionSpeed={500}
-                className="h-full"
+                scale={1.02}
+                transitionSpeed={1000}
+                gyroscope={true}
+                className="h-full preserve-3d"
               >
-                <Card className="group h-full hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 transform border-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-cyan-50/30 hover:from-white/95 hover:via-blue-50/30 hover:to-cyan-50/20 backdrop-blur-sm relative overflow-hidden gradient-border">
-                  <CardContent className="p-8 relative z-10">
-                    <motion.div 
-                      className="mb-6 overflow-hidden rounded-lg"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Image
-                        src="/Luminous Core.png"
-                        alt="Luminous Core"
-                        width={400}
-                        height={300}
-                        className="rounded-lg w-full object-cover"
-                        loading="lazy"
-                        placeholder="blur"
-                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                      />
-                    </motion.div>
-                    <motion.h3 
-                      className="text-3xl md:text-4xl font-bold mb-6 flex items-center"
-                      whileHover={{ x: 10 }}
-                      transition={{ type: "spring", stiffness: 150 }}
-                    >
-                      <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                        Luminous Core
-                      </span>
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.5 }}
+                <div className="group h-full relative">
+                  {/* Animated Background Glow */}
+                  <motion.div
+                    className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-blue-600/20 via-cyan-600/20 to-blue-600/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    animate={{
+                      backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                    style={{ backgroundSize: "200% 200%" }}
+                  />
+                  
+                  {/* Main Card */}
+                  <Card className="h-full border-0 rounded-3xl overflow-hidden relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-2xl">
+                    {/* Top Gradient Bar */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500" />
+                    
+                    <CardContent className="p-8 relative z-10">
+                      {/* Image Container */}
+                      <motion.div 
+                        className="mb-8 overflow-hidden rounded-2xl relative group"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.3 }}
                       >
-                        <ExternalLink className="ml-3 h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity text-blue-600" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                        <Image
+                          src="/Luminous Core.png"
+                          alt="Luminous Core"
+                          width={400}
+                          height={300}
+                          className="rounded-2xl w-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100" />
                       </motion.div>
-                    </motion.h3>
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ type: "spring", delay: 0.3 }}
-                    >
-                      <Badge className="mb-6 text-lg px-6 py-3 bg-gradient-to-r from-blue-100 to-cyan-100 border-2 border-blue-600 text-blue-900 font-bold shadow-lg backdrop-blur-md">
+                      
+                      {/* Title */}
+                      <motion.h3 
+                        className="text-3xl md:text-4xl font-black mb-6 flex items-center justify-between"
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 150 }}
+                      >
+                        <span className="text-gradient-premium">
+                          Luminous Core
+                        </span>
+                        <motion.div
+                          whileHover={{ rotate: 360, scale: 1.2 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <ExternalLink className="h-6 w-6 opacity-50 group-hover:opacity-100 transition-all text-blue-600" />
+                        </motion.div>
+                      </motion.h3>
+                      
+                      {/* Badge */}
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ type: "spring", delay: 0.3 }}
+                        className="mb-6"
+                      >
+                        <div className="inline-block">
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 blur-md opacity-50" />
+                            <Badge className="relative text-sm px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 border-0 text-white font-bold shadow-xl">
                         <Zap className="w-4 h-4 mr-2 inline" />
                         グローステック・パートナー
-                      </Badge>
-                    </motion.div>
-                    <motion.p 
-                      className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 tracking-wide"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                      Luminous Coreは、<span className="font-semibold text-blue-600">デジタル戦略</span>で事業成果を最大化するグローステック・パートナーです。私たちは、<span className="font-semibold text-cyan-600">AI技術と専門チーム</span>を駆使し、SNSグロース、Web制作、業務効率化をワンストップで実現します。
-                    </motion.p>
-                    <motion.div
-                      whileHover={{ x: 10 }}
-                      transition={{ type: "spring", stiffness: 150 }}
-                    >
-                      <Link
-                        href="https://lc-j64q.vercel.app/"
-                        target="_blank"
-                        className="inline-flex items-center gap-2 text-lg font-semibold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-cyan-700 transition-all"
+                            </Badge>
+                          </div>
+                        </div>
+                      </motion.div>
+                      
+                      {/* Description */}
+                      <motion.p 
+                        className="text-base md:text-lg leading-relaxed mb-8 text-gray-600 dark:text-gray-300"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
                       >
-                        ウェブサイトを見る 
-                        <motion.div
-                          animate={{ x: [0, 5, 0] }}
-                          transition={{ duration: 1, repeat: Infinity }}
+                        Luminous Coreは、<span className="text-blue-600 dark:text-blue-400 font-semibold">デジタル戦略</span>で事業成果を最大化するグローステック・パートナーです。
+                        <span className="text-cyan-600 dark:text-cyan-400 font-semibold">AI技術と専門チーム</span>を駆使し、SNSグロース、Web制作、業務効率化をワンストップで実現します。
+                      </motion.p>
+                      
+                      {/* CTA Button */}
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Link
+                          href="https://lc-j64q.vercel.app/"
+                          target="_blank"
+                          className="relative inline-flex items-center gap-3 px-8 py-4 overflow-hidden rounded-2xl group"
                         >
-                          <ExternalLink className="h-5 w-5" />
-                        </motion.div>
-                      </Link>
-                    </motion.div>
-                  </CardContent>
-                </Card>
+                          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 transition-transform duration-300 group-hover:scale-105" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 blur-xl opacity-50 group-hover:opacity-70 transition-opacity" />
+                          <span className="relative z-10 text-white font-bold text-lg">ウェブサイトを見る</span>
+                          <motion.div
+                            className="relative z-10"
+                            animate={{ x: [0, 3, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          >
+                            <ExternalLink className="h-5 w-5 text-white" />
+                          </motion.div>
+                        </Link>
+                      </motion.div>
+                    </CardContent>
+                  </Card>
+                </div>
               </Tilt>
             </motion.div>
 
