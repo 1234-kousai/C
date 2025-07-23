@@ -422,95 +422,141 @@ export default function Portfolio() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <motion.div
-                  className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300"
+                  className="relative"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  {[
-                    "慶應義塾大学経済学部在籍。",
-                    "金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、",
-                    "ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。",
-                    "AI・DXを学ぶ中で、創設から1ヶ月で慶應・東大・早稲田・一橋に加え、",
-                    "起業家や専門学生など多様な人材が在籍するデジタル人材育成団体",
-                    "「StuDXIA」を立ち上げ、上場企業やテック企業とも連携。"
-                  ].map((text, index) => (
+                  <motion.div
+                    className="absolute -inset-2 bg-gradient-to-r from-blue-300/20 via-purple-300/20 to-pink-300/20 blur-xl"
+                    animate={{
+                      opacity: [0.5, 0.8, 0.5],
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  <motion.p 
+                    className="relative text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  >
+                    {"慶應義塾大学経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で慶應・東大・早稲田・一橋に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体「StuDXIA」を立ち上げ、上場企業やテック企業とも連携。".split("").map((char, index) => (
+                      <motion.span
+                        key={index}
+                        initial={{ opacity: 0, rotateX: -90 }}
+                        whileInView={{ opacity: 1, rotateX: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.02,
+                          delay: 0.4 + index * 0.01,
+                          ease: "easeOut"
+                        }}
+                        className="inline-block"
+                        style={{ transformStyle: "preserve-3d" }}
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </motion.p>
+                </motion.div>
+
+                <motion.div
+                  className="relative"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-blue-400/10 to-purple-400/10 rounded-2xl"
+                    animate={{
+                      backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+                    }}
+                    transition={{
+                      duration: 10,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                    style={{ backgroundSize: "200% 200%" }}
+                  />
+                  <p className="relative text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 p-6">
+                    {[
+                      { text: "現在は、2つの事業を率いています。", delay: 0 },
+                      { text: "一つは、企業のDX（デジタル変革）を支援するグローステック・事業", delay: 0.2 },
+                      { text: "『Luminous Core』", delay: 0.4, highlight: true },
+                      { text: "。そしてもう一つが、夜職業界に特化したSNSプロデュースチーム", delay: 0.6 },
+                      { text: "『Noir Producers』", delay: 0.8, highlight: true },
+                      { text: "です。IT資格や簿記資格で培った知識も、これらの事業の土台となっています。", delay: 1.0 }
+                    ].map((item, index) => (
+                      <motion.span
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.8, filter: "blur(20px)" }}
+                        whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.8,
+                          delay: 1.2 + item.delay,
+                          ease: [0.16, 1, 0.3, 1]
+                        }}
+                        className={`inline-block ${item.highlight ? "px-2 py-1 mx-1 rounded-lg bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30" : ""}`}
+                      >
+                        {item.text}
+                      </motion.span>
+                    ))}
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  className="relative overflow-hidden rounded-2xl"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-rose-500/5"
+                    animate={{
+                      x: ["-100%", "100%"],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  />
+                  <motion.p 
+                    className="relative text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 p-6 border border-gray-200/30 dark:border-gray-700/30"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                  >
                     <motion.span
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
+                      className="inline-block"
+                      whileHover={{ scale: 1.05, color: "#ec4899" }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      趣味でアプリ・ゲーム開発、モデル活動を行っています。
+                    </motion.span>
+                    <motion.span
+                      className="inline-block"
+                      initial={{ opacity: 0, x: -50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ 
-                        duration: 0.5, 
-                        delay: 0.4 + index * 0.1,
-                        ease: "easeOut"
-                      }}
-                      className="inline-block"
-                    >
-                      {text}
-                    </motion.span>
-                  ))}
-                </motion.div>
-
-                <motion.div
-                  className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                >
-                  {[
-                    "現在は、2つの事業を率いています。",
-                    "一つは、企業のDX（デジタル変革）を支援するグローステック・事業『Luminous Core』。",
-                    "そしてもう一つが、夜職業界に特化したSNSプロデュースチーム『Noir Producers』です。",
-                    "IT資格や簿記資格で培った知識も、これらの事業の土台となっています。"
-                  ].map((text, index) => (
-                    <motion.span
-                      key={index}
-                      initial={{ opacity: 0, filter: "blur(10px)" }}
-                      whileInView={{ opacity: 1, filter: "blur(0px)" }}
-                      viewport={{ once: true }}
-                      transition={{ 
-                        duration: 0.6, 
-                        delay: 1.0 + index * 0.15,
-                        ease: "easeOut"
-                      }}
-                      className="inline-block"
-                    >
-                      {text}
-                    </motion.span>
-                  ))}
-                </motion.div>
-
-                <motion.div
-                  className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                >
-                  {[
-                    "趣味でアプリ・ゲーム開発、",
-                    "モデル活動を行っています。",
-                    "アニメが大好きなのでコスプレもしています。"
-                  ].map((text, index) => (
-                    <motion.span
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ 
-                        duration: 0.5, 
-                        delay: 1.8 + index * 0.1,
+                      transition={{
+                        duration: 0.6,
+                        delay: 2.4,
                         type: "spring",
-                        stiffness: 100
+                        bounce: 0.4
                       }}
-                      className="inline-block"
                     >
-                      {text}
+                      アニメが大好きなのでコスプレもしています。
                     </motion.span>
-                  ))}
+                  </motion.p>
                 </motion.div>
               </motion.div>
             </div>
