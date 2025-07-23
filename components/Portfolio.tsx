@@ -421,38 +421,97 @@ export default function Portfolio() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <motion.p 
-                  className="text-xl md:text-2xl leading-relaxed font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                <motion.div
+                  className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  <span className="font-semibold text-3xl md:text-4xl text-blue-600">慶應義塾大学</span>経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で<span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">慶應・東大・早稲田・一橋</span>に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体<span className="font-bold text-purple-600">"StuDXIA"</span>を立ち上げ、上場企業やテック企業とも連携。
-                </motion.p>
+                  {[
+                    "慶應義塾大学経済学部在籍。",
+                    "金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、",
+                    "ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。",
+                    "AI・DXを学ぶ中で、創設から1ヶ月で慶應・東大・早稲田・一橋に加え、",
+                    "起業家や専門学生など多様な人材が在籍するデジタル人材育成団体",
+                    "「StuDXIA」を立ち上げ、上場企業やテック企業とも連携。"
+                  ].map((text, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ 
+                        duration: 0.5, 
+                        delay: 0.4 + index * 0.1,
+                        ease: "easeOut"
+                      }}
+                      className="inline-block"
+                    >
+                      {text}
+                    </motion.span>
+                  ))}
+                </motion.div>
 
-                <motion.p 
-                  className="text-xl md:text-2xl leading-relaxed font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                <motion.div
+                  className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
                 >
-                  現在は、2つの事業を率いています。
-一つは、企業のDX（デジタル変革）を支援するグローステック・事業<span className="font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">『Luminous Core』</span>。
-そしてもう一つが、夜職業界に特化したSNSプロデュースチーム<span className="font-bold bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent">『Noir Producers』</span>です。
-IT資格や簿記資格で培った知識も、これらの事業の土台となっています。
-                </motion.p>
+                  {[
+                    "現在は、2つの事業を率いています。",
+                    "一つは、企業のDX（デジタル変革）を支援するグローステック・事業『Luminous Core』。",
+                    "そしてもう一つが、夜職業界に特化したSNSプロデュースチーム『Noir Producers』です。",
+                    "IT資格や簿記資格で培った知識も、これらの事業の土台となっています。"
+                  ].map((text, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, filter: "blur(10px)" }}
+                      whileInView={{ opacity: 1, filter: "blur(0px)" }}
+                      viewport={{ once: true }}
+                      transition={{ 
+                        duration: 0.6, 
+                        delay: 1.0 + index * 0.15,
+                        ease: "easeOut"
+                      }}
+                      className="inline-block"
+                    >
+                      {text}
+                    </motion.span>
+                  ))}
+                </motion.div>
 
-                <motion.p 
-                  className="text-xl md:text-2xl leading-relaxed font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                <motion.div
+                  className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
                 >
-                  趣味で<span className="font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">アプリ・ゲーム開発</span>、<span className="font-semibold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">モデル活動</span>を行っています。アニメが大好きなので<span className="font-semibold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">コスプレ</span>もしています。
-                </motion.p>
+                  {[
+                    "趣味でアプリ・ゲーム開発、",
+                    "モデル活動を行っています。",
+                    "アニメが大好きなのでコスプレもしています。"
+                  ].map((text, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ 
+                        duration: 0.5, 
+                        delay: 1.8 + index * 0.1,
+                        type: "spring",
+                        stiffness: 100
+                      }}
+                      className="inline-block"
+                    >
+                      {text}
+                    </motion.span>
+                  ))}
+                </motion.div>
               </motion.div>
             </div>
           </div>
