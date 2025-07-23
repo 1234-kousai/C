@@ -312,26 +312,26 @@ export default function Portfolio() {
                   />
                   
                   {/* Card */}
-                  <div className="relative glass backdrop-blur-xl rounded-3xl px-8 py-5 border border-white/10 group-hover:border-white/20 transition-all duration-500 overflow-hidden">
-                    {/* Shimmer Effect */}
-                    <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative bg-gray-900/80 backdrop-blur-md rounded-3xl px-8 py-5 border border-gray-700 group-hover:border-gray-600 group-hover:bg-gray-800/90 transition-all duration-500 overflow-hidden shadow-2xl">
                     
                     {/* Content */}
                     <div className="relative flex items-center justify-center gap-4">
                       <motion.div
-                        className={`text-white/70 group-hover:text-white transition-all duration-300`}
+                        className="text-white transition-all duration-300"
                         whileHover={{ rotate: 360, scale: 1.2 }}
                         transition={{ duration: 0.6 }}
                       >
-                        <div className={`p-2 rounded-xl bg-gradient-to-br ${item.gradient} bg-opacity-20`}>
+                        <div className={`p-3 rounded-xl bg-gradient-to-br ${item.gradient} shadow-lg`}>
                           {item.icon}
                         </div>
                       </motion.div>
-                      <p className="text-lg md:text-xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300">
+                      <p className="text-lg md:text-xl font-bold text-white drop-shadow-md">
                         {item.text}
                       </p>
                     </div>
                     
+                    {/* Gradient Border Effect on Hover */}
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   </div>
                 </div>
               </motion.div>
