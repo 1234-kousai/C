@@ -170,38 +170,11 @@ export default function Portfolio() {
         {/* Premium Gradient Mesh Background */}
         <div className="absolute inset-0 gradient-mesh opacity-50" />
         
-        {/* Animated Gradient Orbs */}
+        {/* Simplified Gradient Background */}
         <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-purple-600/30 to-transparent rounded-full blur-3xl"
-            animate={{
-              x: [0, 100, 0],
-              y: [0, 50, 0],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div
-            className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-cyan-600/30 to-transparent rounded-full blur-3xl"
-            animate={{
-              x: [0, -100, 0],
-              y: [0, -50, 0],
-              scale: [1, 1.3, 1],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
+          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-purple-600/20 to-transparent rounded-full blur-2xl" />
+          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-cyan-600/20 to-transparent rounded-full blur-2xl" />
         </div>
-        
-        {/* Glass Morphism Layer */}
-        <div className="absolute inset-0 backdrop-blur-[2px] bg-white/[0.01] dark:bg-black/[0.01]" />
         
         {/* Parallax Background Images */}
         <motion.div 
@@ -243,22 +216,11 @@ export default function Portfolio() {
               gyroscope={true}
             >
               <div className="relative inline-block">
-                {/* Animated Glow Ring */}
-                <motion.div
-                  className="absolute -inset-4 rounded-full gradient-aurora opacity-75 blur-2xl"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 180, 360],
-                  }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                />
+                {/* Static Glow Ring */}
+                <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-purple-500/30 to-cyan-500/30 blur-xl" />
                 
-                {/* Glass Morphism Container */}
-                <div className="relative w-[220px] h-[220px] p-2 rounded-full glass backdrop-blur-xl">
+                {/* Simplified Container */}
+                <div className="relative w-[220px] h-[220px] p-2 rounded-full bg-white/10 dark:bg-black/10 backdrop-blur-sm border border-white/20">
                   {/* Inner Glow */}
                   <div className="absolute inset-2 bg-gradient-to-br from-purple-400/20 via-pink-400/20 to-cyan-400/20 rounded-full animate-pulse" />
                   
@@ -270,10 +232,8 @@ export default function Portfolio() {
                       width={200}
                       height={200}
                       className="w-full h-full object-cover"
+                      priority
                     />
-                    
-                    {/* Shimmer Effect */}
-                    <div className="absolute inset-0 shimmer" />
                   </div>
                   
                   {/* Premium Border */}
@@ -290,20 +250,9 @@ export default function Portfolio() {
             transition={{ duration: 1, delay: 0.5 }}
           >
             <motion.div className="relative inline-block">
-              {/* Background Glow */}
-              <motion.div
-                className="absolute -inset-x-20 -inset-y-10 text-gradient-premium opacity-30 blur-3xl"
-                animate={{
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                山本 公才
-              </motion.div>
+              {/* Static Background Glow */}
+              <div className="absolute -inset-x-20 -inset-y-10 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 blur-2xl">
+              </div>
               
               {/* Main Text */}
               <div className="relative">
@@ -312,27 +261,18 @@ export default function Portfolio() {
                     key={index}
                     initial={{ 
                       opacity: 0, 
-                      y: 100,
-                      rotateX: -90,
-                      scale: 0.5
+                      y: 20
                     }}
                     animate={{ 
                       opacity: 1, 
-                      y: 0,
-                      rotateX: 0,
-                      scale: 1
+                      y: 0
                     }}
                     transition={{
-                      duration: 0.8,
-                      delay: 0.8 + index * 0.15,
-                      type: "spring",
-                      stiffness: 100,
-                      damping: 10
+                      duration: 0.5,
+                      delay: 0.8 + index * 0.1,
+                      ease: "easeOut"
                     }}
-                    className="inline-block text-gradient-premium font-black preserve-3d"
-                    style={{
-                      textShadow: "0 10px 40px rgba(99, 102, 241, 0.3)",
-                    }}
+                    className="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent font-black"
                   >
                     {char === " " ? "\u00A0" : char}
                   </motion.span>
@@ -392,22 +332,6 @@ export default function Portfolio() {
                       </p>
                     </div>
                     
-                    {/* Animated Border Gradient */}
-                    <motion.div 
-                      className="absolute inset-0 rounded-3xl"
-                      style={{
-                        background: `linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)`,
-                        transform: "translateX(-100%)",
-                      }}
-                      animate={{
-                        transform: ["translateX(-100%)", "translateX(100%)"],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        repeatDelay: 3,
-                      }}
-                    />
                   </div>
                 </div>
               </motion.div>
@@ -426,31 +350,14 @@ export default function Portfolio() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {/* Animated Background */}
-              <motion.div
-                className="absolute inset-0 gradient-aurora"
-                animate={{
-                  backgroundPosition: ["0% 0%", "100% 100%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-              />
+              {/* Static Gradient Background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full" />
               
-              {/* Glass Layer */}
-              <div className="absolute inset-0 glass backdrop-blur-md rounded-full" />
+              {/* Simple Hover Glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-50 blur-lg transition-opacity duration-300 rounded-full" />
               
-              {/* Glow Effect */}
-              <motion.div
-                className="absolute -inset-1 gradient-aurora opacity-0 group-hover:opacity-60 blur-xl transition-opacity duration-500 rounded-full"
-              />
-              
-              {/* Border Shimmer */}
-              <div className="absolute inset-0 rounded-full ring-2 ring-white/20 group-hover:ring-white/40 transition-all duration-300">
-                <div className="absolute inset-0 rounded-full shimmer" />
-              </div>
+              {/* Border */}
+              <div className="absolute inset-0 rounded-full ring-2 ring-white/20 group-hover:ring-white/40 transition-all duration-300" />
               
               {/* Content */}
               <motion.span className="relative z-10 flex items-center gap-3 text-white font-black tracking-wide">
@@ -470,34 +377,6 @@ export default function Portfolio() {
                 </motion.div>
               </motion.span>
               
-              {/* Hover Particles */}
-              <motion.div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              >
-                {[...Array(6)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1 h-1 bg-white rounded-full"
-                    initial={{ 
-                      x: "50%", 
-                      y: "50%",
-                      scale: 0
-                    }}
-                    animate={{
-                      x: `${50 + (Math.random() - 0.5) * 100}%`,
-                      y: `${50 + (Math.random() - 0.5) * 100}%`,
-                      scale: [0, 1, 0],
-                    }}
-                    transition={{
-                      duration: 1,
-                      delay: i * 0.1,
-                      repeat: Infinity,
-                      repeatDelay: 1
-                    }}
-                  />
-                ))}
-              </motion.div>
             </motion.button>
           </motion.div>
         </div>
@@ -792,22 +671,8 @@ export default function Portfolio() {
         id="business" 
         className="py-24 relative overflow-hidden noise-texture"
       >
-        {/* Premium Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 gradient-mesh opacity-30" />
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-slate-900/5 via-purple-900/5 to-blue-900/5"
-            animate={{
-              backgroundPosition: ["0% 0%", "100% 100%"],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-            style={{ backgroundSize: "400% 400%" }}
-          />
-        </div>
+        {/* Simple Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black" />
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -860,19 +725,8 @@ export default function Portfolio() {
                 className="h-full preserve-3d"
               >
                 <div className="group h-full relative">
-                  {/* Animated Background Glow */}
-                  <motion.div
-                    className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-blue-600/20 via-cyan-600/20 to-blue-600/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    animate={{
-                      backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-                    }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                    style={{ backgroundSize: "200% 200%" }}
-                  />
+                  {/* Static Hover Glow */}
+                  <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-blue-600/20 to-cyan-600/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   {/* Main Card */}
                   <Card className="h-full border-0 rounded-3xl overflow-hidden relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-2xl">
@@ -895,7 +749,6 @@ export default function Portfolio() {
                           className="rounded-2xl w-full object-cover transform transition-transform duration-500 group-hover:scale-110"
                           loading="lazy"
                         />
-                        <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100" />
                       </motion.div>
                       
                       {/* Title */}
