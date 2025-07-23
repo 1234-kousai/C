@@ -446,23 +446,55 @@ export default function Portfolio() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   >
-                    {"慶應義塾大学経済学部在籍。金融機関・税理士事務所でのインターン経験や、経理代行事業の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。AI・DXを学ぶ中で、創設から1ヶ月で慶應・東大・早稲田・一橋に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体「StuDXIA」を立ち上げ、上場企業やテック企業とも連携。".split("").map((char, index) => (
-                      <motion.span
-                        key={index}
-                        initial={{ opacity: 0, rotateX: -90 }}
-                        whileInView={{ opacity: 1, rotateX: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.02,
-                          delay: 0.4 + index * 0.01,
-                          ease: "easeOut"
-                        }}
-                        className="inline-block"
-                        style={{ transformStyle: "preserve-3d" }}
-                      >
-                        {char}
-                      </motion.span>
-                    ))}
+                    {[
+                      { text: "慶應義塾大学", color: "text-blue-600 dark:text-blue-400" },
+                      { text: "経済学部在籍。" },
+                      { text: "金融機関・税理士事務所", color: "text-emerald-600 dark:text-emerald-400" },
+                      { text: "でのインターン経験や、" },
+                      { text: "経理代行事業", color: "text-amber-600 dark:text-amber-400" },
+                      { text: "の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。" },
+                      { text: "AI・DX", color: "text-violet-600 dark:text-violet-400" },
+                      { text: "を学ぶ中で、創設から1ヶ月で" },
+                      { text: "慶應・東大・早稲田・一橋", color: "text-rose-600 dark:text-rose-400" },
+                      { text: "に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体" },
+                      { text: "「StuDXIA」", color: "text-purple-600 dark:text-purple-400 font-semibold" },
+                      { text: "を立ち上げ、上場企業やテック企業とも連携。" }
+                    ].map((segment, segmentIndex) => {
+                      let charCount = 0;
+                      for (let i = 0; i < segmentIndex; i++) {
+                        charCount += [
+                          { text: "慶應義塾大学", color: "text-blue-600 dark:text-blue-400" },
+                          { text: "経済学部在籍。" },
+                          { text: "金融機関・税理士事務所", color: "text-emerald-600 dark:text-emerald-400" },
+                          { text: "でのインターン経験や、" },
+                          { text: "経理代行事業", color: "text-amber-600 dark:text-amber-400" },
+                          { text: "の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。" },
+                          { text: "AI・DX", color: "text-violet-600 dark:text-violet-400" },
+                          { text: "を学ぶ中で、創設から1ヶ月で" },
+                          { text: "慶應・東大・早稲田・一橋", color: "text-rose-600 dark:text-rose-400" },
+                          { text: "に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体" },
+                          { text: "「StuDXIA」", color: "text-purple-600 dark:text-purple-400 font-semibold" },
+                          { text: "を立ち上げ、上場企業やテック企業とも連携。" }
+                        ][i].text.length;
+                      }
+                      return segment.text.split("").map((char, charIndex) => (
+                        <motion.span
+                          key={`${segmentIndex}-${charIndex}`}
+                          initial={{ opacity: 0, rotateX: -90 }}
+                          whileInView={{ opacity: 1, rotateX: 0 }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: 0.02,
+                            delay: 0.4 + (charCount + charIndex) * 0.01,
+                            ease: "easeOut"
+                          }}
+                          className={`inline-block ${segment.color || ""}`}
+                          style={{ transformStyle: "preserve-3d" }}
+                        >
+                          {char}
+                        </motion.span>
+                      ))
+                    })}
                   </motion.p>
                 </motion.div>
 
@@ -486,12 +518,22 @@ export default function Portfolio() {
                   />
                   <p className="relative text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 p-6">
                     {[
-                      { text: "現在は、2つの事業を率いています。", delay: 0 },
-                      { text: "一つは、企業のDX（デジタル変革）を支援するグローステック・事業", delay: 0.2 },
-                      { text: "『Luminous Core』", delay: 0.4, highlight: true },
-                      { text: "。そしてもう一つが、夜職業界に特化したSNSプロデュースチーム", delay: 0.6 },
-                      { text: "『Noir Producers』", delay: 0.8, highlight: true },
-                      { text: "です。IT資格や簿記資格で培った知識も、これらの事業の土台となっています。", delay: 1.0 }
+                      { text: "現在は、", delay: 0 },
+                      { text: "2つの事業", delay: 0.1, color: "text-indigo-600 dark:text-indigo-400" },
+                      { text: "を率いています。", delay: 0.2 },
+                      { text: "一つは、企業の", delay: 0.3 },
+                      { text: "DX（デジタル変革）", delay: 0.4, color: "text-cyan-600 dark:text-cyan-400" },
+                      { text: "を支援するグローステック・事業", delay: 0.5 },
+                      { text: "『Luminous Core』", delay: 0.6, highlight: true, color: "text-blue-600 dark:text-blue-400" },
+                      { text: "。そしてもう一つが、", delay: 0.7 },
+                      { text: "夜職業界", delay: 0.8, color: "text-gray-700 dark:text-gray-300" },
+                      { text: "に特化したSNSプロデュースチーム", delay: 0.9 },
+                      { text: "『Noir Producers』", delay: 1.0, highlight: true, color: "text-gray-800 dark:text-gray-200" },
+                      { text: "です。", delay: 1.1 },
+                      { text: "IT資格", delay: 1.2, color: "text-emerald-600 dark:text-emerald-400" },
+                      { text: "や", delay: 1.3 },
+                      { text: "簿記資格", delay: 1.4, color: "text-amber-600 dark:text-amber-400" },
+                      { text: "で培った知識も、これらの事業の土台となっています。", delay: 1.5 }
                     ].map((item, index) => (
                       <motion.span
                         key={index}
@@ -503,7 +545,7 @@ export default function Portfolio() {
                           delay: 1.2 + item.delay,
                           ease: [0.16, 1, 0.3, 1]
                         }}
-                        className={`inline-block ${item.highlight ? "px-2 py-1 mx-1 rounded-lg bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30" : ""}`}
+                        className={`inline-block ${item.color || ""} ${item.highlight ? "px-2 py-1 mx-1 rounded-lg bg-gradient-to-r from-blue-100/50 to-purple-100/50 dark:from-blue-900/20 dark:to-purple-900/20 backdrop-blur-sm" : ""}`}
                       >
                         {item.text}
                       </motion.span>
@@ -535,27 +577,34 @@ export default function Portfolio() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.7 }}
                   >
-                    <motion.span
-                      className="inline-block"
-                      whileHover={{ scale: 1.05, color: "#ec4899" }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      趣味でアプリ・ゲーム開発、モデル活動を行っています。
-                    </motion.span>
-                    <motion.span
-                      className="inline-block"
-                      initial={{ opacity: 0, x: -50 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.6,
-                        delay: 2.4,
-                        type: "spring",
-                        bounce: 0.4
-                      }}
-                    >
-                      アニメが大好きなのでコスプレもしています。
-                    </motion.span>
+                    {[
+                      { text: "趣味で", delay: 0 },
+                      { text: "アプリ・ゲーム開発", delay: 0.1, color: "text-purple-600 dark:text-purple-400" },
+                      { text: "、", delay: 0.2 },
+                      { text: "モデル活動", delay: 0.3, color: "text-pink-600 dark:text-pink-400" },
+                      { text: "を行っています。", delay: 0.4 },
+                      { text: "アニメ", delay: 0.5, color: "text-rose-600 dark:text-rose-400" },
+                      { text: "が大好きなので", delay: 0.6 },
+                      { text: "コスプレ", delay: 0.7, color: "text-fuchsia-600 dark:text-fuchsia-400" },
+                      { text: "もしています。", delay: 0.8 }
+                    ].map((item, index) => (
+                      <motion.span
+                        key={index}
+                        className={`inline-block ${item.color || ""}`}
+                        initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.5,
+                          delay: 2.2 + item.delay,
+                          type: "spring",
+                          stiffness: 100
+                        }}
+                      >
+                        {item.text}
+                      </motion.span>
+                    ))}
                   </motion.p>
                 </motion.div>
               </motion.div>
