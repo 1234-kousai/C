@@ -165,15 +165,15 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="relative h-screen flex items-center justify-center overflow-hidden noise-texture"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden noise-texture py-20 md:py-0"
       >
         {/* Premium Gradient Mesh Background */}
         <div className="absolute inset-0 gradient-mesh opacity-50" />
         
         {/* Simplified Gradient Background */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-purple-600/20 to-transparent rounded-full blur-2xl" />
-          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-cyan-600/20 to-transparent rounded-full blur-2xl" />
+          <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-purple-600/20 to-transparent rounded-full blur-2xl transform -translate-x-1/4 -translate-y-1/4" />
+          <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-cyan-600/20 to-transparent rounded-full blur-2xl transform translate-x-1/4 translate-y-1/4" />
         </div>
         
         {/* Parallax Background Images */}
@@ -200,9 +200,9 @@ export default function Portfolio() {
         
         {/* Floating Particles - Disabled for performance */}
 
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+        <div className="relative z-10 text-center w-full max-w-4xl mx-auto px-4 py-8">
           <motion.div 
-            className="mb-8 mt-12 md:mt-16"
+            className="mb-6 md:mb-8"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
@@ -220,7 +220,7 @@ export default function Portfolio() {
                 <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-purple-500/30 to-cyan-500/30 blur-xl" />
                 
                 {/* Simplified Container */}
-                <div className="relative w-[220px] h-[220px] p-2 rounded-full bg-white/10 dark:bg-black/10 backdrop-blur-sm border border-white/20">
+                <div className="relative w-[160px] h-[160px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px] p-2 rounded-full bg-white/10 dark:bg-black/10 backdrop-blur-sm border border-white/20">
                   {/* Inner Glow */}
                   <div className="absolute inset-2 bg-gradient-to-br from-purple-400/20 via-pink-400/20 to-cyan-400/20 rounded-full animate-pulse" />
                   
@@ -244,14 +244,14 @@ export default function Portfolio() {
           </motion.div>
 
           <motion.h1 
-            className="text-6xl md:text-8xl lg:text-9xl font-black mb-12 tracking-tight perspective-1000"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 md:mb-12 tracking-tight perspective-1000"
             initial={{ opacity: 0, z: -100 }}
             animate={{ opacity: 1, z: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
             <motion.div className="relative inline-block">
               {/* Static Background Glow */}
-              <div className="absolute -inset-x-20 -inset-y-10 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 blur-2xl">
+              <div className="absolute -inset-x-4 md:-inset-x-10 lg:-inset-x-20 -inset-y-4 md:-inset-y-8 lg:-inset-y-10 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 blur-xl md:blur-2xl">
               </div>
               
               {/* Main Text */}
@@ -282,15 +282,15 @@ export default function Portfolio() {
           </motion.h1>
 
           <motion.div 
-            className="mb-12 space-y-4"
+            className="mb-8 md:mb-12 space-y-3 md:space-y-4 px-2 sm:px-4 md:px-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             {[
-              { text: "Luminous Core & Noir Producers 主宰", icon: <Zap className="w-6 h-6" />, gradient: "from-blue-500 to-cyan-500" },
-              { text: "学生団体 StuDXIA 創設者", icon: <Rocket className="w-6 h-6" />, gradient: "from-purple-500 to-pink-500" },
-              { text: "慶應義塾大学 経済学部 在学", icon: <Sparkles className="w-6 h-6" />, gradient: "from-amber-500 to-orange-500" },
+              { text: "Luminous Core & Noir Producers 主宰", icon: <Zap className="w-5 h-5 md:w-6 md:h-6" />, gradient: "from-blue-500 to-cyan-500" },
+              { text: "学生団体 StuDXIA 創設者", icon: <Rocket className="w-5 h-5 md:w-6 md:h-6" />, gradient: "from-purple-500 to-pink-500" },
+              { text: "慶應義塾大学 経済学部 在学", icon: <Sparkles className="w-5 h-5 md:w-6 md:h-6" />, gradient: "from-amber-500 to-orange-500" },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -312,7 +312,7 @@ export default function Portfolio() {
                   />
                   
                   {/* Card */}
-                  <div className="relative bg-gray-900/80 backdrop-blur-md rounded-3xl px-8 py-5 border border-gray-700 group-hover:border-gray-600 group-hover:bg-gray-800/90 transition-all duration-500 overflow-hidden shadow-2xl">
+                  <div className="relative bg-gray-900/80 backdrop-blur-md rounded-2xl md:rounded-3xl px-4 sm:px-6 md:px-8 py-3 md:py-5 border border-gray-700 group-hover:border-gray-600 group-hover:bg-gray-800/90 transition-all duration-500 overflow-hidden shadow-2xl">
                     
                     {/* Content */}
                     <div className="relative flex items-center justify-center gap-4">
@@ -321,11 +321,11 @@ export default function Portfolio() {
                         whileHover={{ rotate: 360, scale: 1.2 }}
                         transition={{ duration: 0.6 }}
                       >
-                        <div className={`p-3 rounded-xl bg-gradient-to-br ${item.gradient} shadow-lg`}>
+                        <div className={`p-2 md:p-3 rounded-lg md:rounded-xl bg-gradient-to-br ${item.gradient} shadow-lg`}>
                           {item.icon}
                         </div>
                       </motion.div>
-                      <p className="text-lg md:text-xl font-bold text-white drop-shadow-md">
+                      <p className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white drop-shadow-md break-keep">
                         {item.text}
                       </p>
                     </div>
@@ -345,7 +345,7 @@ export default function Portfolio() {
             className="relative"
           >
             <motion.button
-              className="relative group px-12 py-5 text-lg font-bold overflow-hidden rounded-full"
+              className="relative group px-8 md:px-12 py-4 md:py-5 text-base md:text-lg font-bold overflow-hidden rounded-full"
               onClick={() => scrollToSection("about")}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

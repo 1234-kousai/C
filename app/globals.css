@@ -32,6 +32,16 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Prevent horizontal overflow */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    position: relative;
+  }
+
   /* Enable GPU acceleration for animations */
   .will-change-transform {
     will-change: transform;
