@@ -281,62 +281,7 @@ export default function Portfolio() {
             </motion.div>
           </motion.h1>
 
-          <motion.div 
-            className="mb-8 md:mb-12 space-y-3 md:space-y-4 px-2 sm:px-4 md:px-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-          >
-            {[
-              { text: "Luminous Core & Noir Producers 主宰", icon: <Zap className="w-5 h-5 md:w-6 md:h-6" />, gradient: "from-blue-500 to-cyan-500" },
-              { text: "学生団体 StuDXIA 創設者", icon: <Rocket className="w-5 h-5 md:w-6 md:h-6" />, gradient: "from-purple-500 to-pink-500" },
-              { text: "慶應義塾大学 経済学部 在学", icon: <Sparkles className="w-5 h-5 md:w-6 md:h-6" />, gradient: "from-amber-500 to-orange-500" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -50, rotateY: -30 }}
-                animate={{ opacity: 1, x: 0, rotateY: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 1.4 + index * 0.15,
-                  type: "spring",
-                  stiffness: 100,
-                }}
-                whileHover={{ scale: 1.03, x: 10, rotateY: 5 }}
-                className="group perspective-1000"
-              >
-                <div className="relative mx-auto max-w-2xl preserve-3d">
-                  {/* Background Glow */}
-                  <motion.div 
-                    className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-70 blur-xl transition-opacity duration-500 rounded-3xl`}
-                  />
-                  
-                  {/* Card */}
-                  <div className="relative bg-gray-900/80 backdrop-blur-md rounded-2xl md:rounded-3xl px-4 sm:px-6 md:px-8 py-3 md:py-5 border border-gray-700 group-hover:border-gray-600 group-hover:bg-gray-800/90 transition-all duration-500 overflow-hidden shadow-2xl">
-                    
-                    {/* Content */}
-                    <div className="relative flex items-center justify-center gap-4">
-                      <motion.div
-                        className="text-white transition-all duration-300"
-                        whileHover={{ rotate: 360, scale: 1.2 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <div className={`p-2 md:p-3 rounded-lg md:rounded-xl bg-gradient-to-br ${item.gradient} shadow-lg`}>
-                          {item.icon}
-                        </div>
-                      </motion.div>
-                      <p className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white drop-shadow-md break-keep">
-                        {item.text}
-                      </p>
-                    </div>
-                    
-                    {/* Gradient Border Effect on Hover */}
-                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+          
 
           <motion.div
             initial={{ opacity: 0, y: 50 }}
