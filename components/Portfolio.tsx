@@ -449,11 +449,9 @@ export default function Portfolio() {
                           { text: "経理代行事業", style: "font-bold bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent" },
                           { text: "の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。" },
                           { text: "AI・DX", style: "font-bold bg-gradient-to-r from-violet-600 to-violet-400 bg-clip-text text-transparent" },
-                          { text: "を学ぶ中で、創設から1ヶ月で" },
-                          { text: "慶應・東大・早稲田・一橋", style: "font-bold bg-gradient-to-r from-rose-600 to-rose-400 bg-clip-text text-transparent" },
-                          { text: "に加え、起業家や専門学生など多様な人材が在籍するデジタル人材育成団体" },
+                          { text: "を学ぶ中で、多様な人材が在籍するデジタル人材育成団体" },
                           { text: "「StuDXIA」", style: "font-black text-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent inline-block mx-1 transform hover:scale-105 transition-transform duration-300" },
-                          { text: "を立ち上げ、上場企業やテック企業とも連携。" }
+                          { text: "を立ち上げ、上場企業やテック企業と連携。それとは別に、個人事業として大手企業のデジタルプロモーションを支援し、コンバージョン重視のLP開発などを手掛けてきました。" }
                         ].map((segment, index) => (
                           <motion.span
                             key={index}
@@ -728,7 +726,7 @@ export default function Portfolio() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                       >
                         Luminous Coreは、<span className="text-blue-600 dark:text-blue-400 font-semibold">デジタル戦略</span>で事業成果を最大化するグローステック・パートナーです。
-                        <span className="text-cyan-600 dark:text-cyan-400 font-semibold">AI技術と専門チーム</span>を駆使し、SNSグロース、Web制作、業務効率化をワンストップで実現します。
+                        <span className="text-cyan-600 dark:text-cyan-400 font-semibold">AI技術と専門チーム</span>を駆使し、SNSグロース、大手製薬会社や著名ブランドのプロモーションLP開発をはじめとするWeb制作、業務効率化をワンストップで実現します。
                       </motion.p>
                       
                       {/* CTA Button */}
@@ -974,8 +972,8 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "システム開発",
-                description: "クライアントのニーズに合わせたWebサイト制作、オーダーメイドのシステム・ツール開発",
+                title: "Webサイト・LP開発",
+                description: "大手企業のマーケティング戦略を支えるコンバージョン重視のLP開発や、クライアントのニーズに合わせたWebサイト制作、オーダーメイドのシステム・ツール開発",
                 image: "/system.png",
                 icon: <Code2 className="w-6 h-6" />,
                 color: "from-blue-500 to-cyan-500",
