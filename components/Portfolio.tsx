@@ -972,8 +972,8 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "Webサイト・LP開発",
-                description: "大手企業のマーケティング戦略を支えるコンバージョン重視のLP開発や、クライアントのニーズに合わせたWebサイト制作、オーダーメイドのシステム・ツール開発",
+                title: "システム開発",
+                description: "クライアントのニーズに合わせたWebサイト制作、オーダーメイドのシステム・ツール開発",
                 image: "/system.png",
                 icon: <Code2 className="w-6 h-6" />,
                 color: "from-blue-500 to-cyan-500",
