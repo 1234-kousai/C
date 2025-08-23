@@ -23,7 +23,6 @@ export default function Portfolio() {
   const heroRef = useRef<HTMLElement>(null)
   const aboutRef = useRef<HTMLElement>(null)
   const businessRef = useRef<HTMLElement>(null)
-  const projectsRef = useRef<HTMLElement>(null)
 
   const aboutMeImages = [
     "/more about me1.JPG",
@@ -147,12 +146,6 @@ export default function Portfolio() {
                 className="text-left hover:text-primary transition-colors"
               >
                 Business
-              </button>
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="text-left hover:text-primary transition-colors"
-              >
-                Projects
               </button>
               <button onClick={() => scrollToSection("sns")} className="text-left hover:text-primary transition-colors">
                 SNS
@@ -942,133 +935,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section 
-        ref={projectsRef}
-        id="projects" 
-        className="py-20 relative overflow-hidden"
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-              Projects & Activities
-            </span>
-            <motion.div
-              className="h-1 w-32 mx-auto mt-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
-              initial={{ width: 0 }}
-              whileInView={{ width: 128 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            />
-          </motion.h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                title: "システム開発",
-                description: "クライアントのニーズに合わせたWebサイト制作、オーダーメイドのシステム・ツール開発",
-                image: "/system.png",
-                icon: <Code2 className="w-6 h-6" />,
-                color: "from-blue-500 to-cyan-500",
-                shadowColor: "blue"
-              },
-              {
-                title: "SNS グロース戦略",
-                description: "データ分析と最新技術を活用したSNSアカウントの運用代行とグロース戦略",
-                image: "/SNS.png",
-                icon: <Globe className="w-6 h-6" />,
-                color: "from-green-500 to-emerald-500",
-                shadowColor: "green"
-              },
-              {
-                title: "アプリ・ゲーム開発",
-                description: "夜職業界向けの実用アプリ開発と、メタバース「アニメワールド」のMVP構築を進めています。",
-                image: "/game.png",
-                icon: <Rocket className="w-6 h-6" />,
-                color: "from-purple-500 to-pink-500",
-                shadowColor: "purple"
-              },
-              {
-                title: "表現活動：モデル / コスプレ",
-                description: "モデル・コスプレの活動もしています！\nアニメ大好きです！！",
-                image: "/model.png",
-                icon: <Palette className="w-6 h-6" />,
-                color: "from-pink-500 to-rose-500",
-                shadowColor: "pink"
-              }
-            ].map((project, index) => (
-              <div
-                key={index}
-              >
-                  <Card className={`group h-full hover:shadow-2xl hover:shadow-${project.shadowColor}-500/25 transition-all duration-500 transform border-0 relative overflow-hidden gradient-border`}>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}></div>
-                    <CardContent className="p-6 relative z-10 h-full flex flex-col">
-                      <motion.div 
-                        className="relative overflow-hidden rounded-lg mb-4"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          width={300}
-                          height={200}
-                          className="w-full object-cover"
-                          loading="lazy"
-                          placeholder="blur"
-                          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                        />
-                        <motion.div
-                          className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}
-                        />
-                      </motion.div>
-                      
-                      <motion.div
-                        className={`absolute -top-2 -right-2 w-14 h-14 bg-gradient-to-br ${project.color} rounded-full flex items-center justify-center text-white shadow-lg`}
-                        whileHover={{ scale: 1.2, rotate: 360 }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        {project.icon}
-                      </motion.div>
-                      
-                      <motion.h3 
-                        className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                      >
-                        {project.title}
-                      </motion.h3>
-                      
-                      <motion.p 
-                        className="text-lg md:text-xl leading-relaxed flex-grow"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                      >
-                        {project.description.split('\n').map((line, i) => (
-                          <span key={i}>
-                            {line}
-                            {i < project.description.split('\n').length - 1 && <br />}
-                          </span>
-                        ))}
-                      </motion.p>
-                    </CardContent>
-                  </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SNS Links Section */}
       <section 
