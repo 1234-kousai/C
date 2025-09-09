@@ -552,15 +552,15 @@ export default function Portfolio() {
                       transition={{ duration: 0.8, delay: 0.7 }}
                     >
                       {[
-                        { text: "趣味で" },
-                        { text: "アプリ・ゲーム開発", style: "font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent" },
-                        { text: "、" },
-                        { text: "モデル活動", style: "font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent" },
-                        { text: "を行っています。" },
+                        { text: "モデル活動や" },
+                        { text: "韓国大手事務所felicity", style: "font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent" },
+                        { text: "でのライバーなど、" },
+                        { text: "クリエイティブな分野", style: "font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent" },
+                        { text: "でも活動していました。趣味は" },
                         { text: "アニメ", style: "font-bold bg-gradient-to-r from-rose-600 to-rose-400 bg-clip-text text-transparent" },
                         { text: "が大好きなので" },
                         { text: "コスプレ", style: "font-bold bg-gradient-to-r from-fuchsia-600 to-fuchsia-400 bg-clip-text text-transparent" },
-                        { text: "もしています。" }
+                        { text: "をしています！！" }
                       ].map((segment, index) => (
                         <motion.span
                           key={index}
@@ -1070,6 +1070,7 @@ export default function Portfolio() {
                 <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
                   実は私は、四人兄弟の末っ子です。
                   兄たちは昔から東大、旧帝の医学部など、非常に優秀で学級委員を務めるようなタイプでした。反対に、私は毎日先生に怒られているような問題児で…笑
+                  そんな私ですが、一生懸命頑張らせていただきます！
                   何かお手伝いできることがあれば、いつでもお気軽にお声がけください！
                 </p>
               </div>
