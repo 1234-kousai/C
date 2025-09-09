@@ -343,7 +343,7 @@ export default function Portfolio() {
               initial={{ width: 0 }}
               whileInView={{ width: 128 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             />
           </motion.h2>
 
@@ -351,10 +351,10 @@ export default function Portfolio() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <motion.div 
                 className="relative"
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.5 }}
               >
                 <Tilt
                   tiltMaxAngleX={10}
@@ -406,10 +406,10 @@ export default function Portfolio() {
 
               <motion.div 
                 className="space-y-8"
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
               >
                 <motion.div
                   className="relative group"
@@ -448,12 +448,12 @@ export default function Portfolio() {
                         ].map((segment, index) => (
                           <motion.span
                             key={index}
-                            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{
-                              duration: 0.3,
-                              delay: 0.2 + index * 0.02,
+                              duration: 0.4,
+                              delay: 0.3 + index * 0.01,
                             }}
                             className={segment.style || ""}
                           >
@@ -536,7 +536,7 @@ export default function Portfolio() {
                         x: ["-100%", "100%"],
                       }}
                       transition={{
-                        duration: 6,
+                        duration: 8,
                         repeat: Infinity,
                         ease: "linear"
                       }}
@@ -565,7 +565,7 @@ export default function Portfolio() {
                           className={segment.style || ""}
                           initial={{ opacity: 0, scale: 0.9 }}
                           whileInView={{ opacity: 1, scale: 1 }}
-                          whileHover={segment.style ? { scale: 1.1, y: -2 } : {}}
+                          whileHover={segment.style ? { scale: 1.05, y: -1 } : {}}
                           viewport={{ once: true }}
                           transition={{
                             duration: 0.3,
@@ -956,7 +956,7 @@ export default function Portfolio() {
               initial={{ width: 0 }}
               whileInView={{ width: 128 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             />
           </motion.h2>
 
