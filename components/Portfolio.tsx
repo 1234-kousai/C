@@ -34,7 +34,7 @@ export default function Portfolio() {
   const backgroundImages = [
     "/Luminous Core.png",
     "/StuDXIA.jpg",
-    "/NoirProducers.png"
+    "/NoirProducers.jpg"
   ]
 
   useEffect(() => {
@@ -452,9 +452,8 @@ export default function Portfolio() {
                             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                             viewport={{ once: true }}
                             transition={{
-                              duration: 0.6,
-                              delay: 0.5 + index * 0.05,
-                              ease: [0.25, 0.46, 0.45, 0.94]
+                              duration: 0.3,
+                              delay: 0.2 + index * 0.02,
                             }}
                             className={segment.style || ""}
                           >
@@ -506,9 +505,8 @@ export default function Portfolio() {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{
-                            duration: 0.5,
-                            delay: 0.8 + index * 0.03,
-                            ease: [0.25, 0.1, 0.25, 1]
+                            duration: 0.3,
+                            delay: 0.3 + index * 0.02,
                           }}
                           className={segment.style || ""}
                         >
@@ -538,7 +536,7 @@ export default function Portfolio() {
                         x: ["-100%", "100%"],
                       }}
                       transition={{
-                        duration: 3,
+                        duration: 6,
                         repeat: Infinity,
                         ease: "linear"
                       }}
@@ -570,8 +568,8 @@ export default function Portfolio() {
                           whileHover={segment.style ? { scale: 1.1, y: -2 } : {}}
                           viewport={{ once: true }}
                           transition={{
-                            duration: 0.4,
-                            delay: 1.4 + index * 0.02,
+                            duration: 0.3,
+                            delay: 0.4 + index * 0.01,
                             type: "spring",
                             stiffness: 200
                           }}
@@ -864,7 +862,7 @@ export default function Portfolio() {
                       transition={{ duration: 0.3 }}
                     >
                       <Image
-                        src="/NoirProducers.png"
+                        src="/NoirProducers.jpg"
                         alt="Noir Producers"
                         width={400}
                         height={300}
@@ -1056,7 +1054,7 @@ export default function Portfolio() {
               <div className="relative">
                 <div className="relative overflow-hidden rounded-lg shadow-lg">
                   <Image
-                    src="/family tree.png"
+                    src="/family tree.jpg"
                     alt="Family Tree"
                     width={500}
                     height={400}
