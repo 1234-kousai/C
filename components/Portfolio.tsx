@@ -382,7 +382,7 @@ export default function Portfolio() {
                           height={500}
                           className="w-full h-full object-cover"
                         />
-                      </motion.div>
+                      </div>
                     ))}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-8">
                       <div className="flex justify-center gap-2">
@@ -446,22 +446,15 @@ export default function Portfolio() {
                           { text: "「StuDXIA」", style: "font-black text-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent inline-block mx-1 transform hover:scale-105 transition-transform duration-300" },
                           { text: "を立ち上げ、上場企業やテック企業と連携。それとは別に、個人事業として大手企業のデジタルプロモーションを支援し、コンバージョン重視のLP開発などを手掛けてきました。" }
                         ].map((segment, index) => (
-                          <motion.span
+                          <span
                             key={index}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{
-                              duration: 0.4,
-                              delay: 0.3 + index * 0.01,
-                            }}
                             className={segment.style || ""}
                           >
                             {segment.text}
-                          </motion.span>
+                          </span>
                         ))}
                       </p>
-                    </motion.div>
+                    </div>
                   </div>
                 </motion.div>
 
@@ -499,19 +492,12 @@ export default function Portfolio() {
                         { text: "簿記資格", style: "font-bold bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent" },
                         { text: "で培った知識も、これらの事業の土台となっています。" }
                       ].map((segment, index) => (
-                        <motion.span
+                        <span
                           key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{
-                            duration: 0.3,
-                            delay: 0.3 + index * 0.02,
-                          }}
                           className={segment.style || ""}
                         >
                           {segment.text}
-                        </motion.span>
+                        </span>
                       ))}
                     </p>
                   </div>
@@ -530,25 +516,9 @@ export default function Portfolio() {
                   {/* Refined Card */}
                   <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-gray-200/30 dark:border-gray-700/30 shadow-xl overflow-hidden">
                     {/* Animated Accent */}
-                    <motion.div
-                      className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500"
-                      animate={{
-                        x: ["-100%", "100%"],
-                      }}
-                      transition={{
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                    />
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500" />
                     
-                    <motion.p 
-                      className="relative text-lg md:text-xl leading-loose text-gray-800 dark:text-gray-200"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: 0.7 }}
-                    >
+                    <p className="relative text-lg md:text-xl leading-loose text-gray-800 dark:text-gray-200">
                       {[
                         { text: "モデル活動や" },
                         { text: "韓国大手事務所felicity", style: "font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent" },
@@ -560,24 +530,14 @@ export default function Portfolio() {
                         { text: "コスプレ", style: "font-bold bg-gradient-to-r from-fuchsia-600 to-fuchsia-400 bg-clip-text text-transparent" },
                         { text: "をしています！！" }
                       ].map((segment, index) => (
-                        <motion.span
+                        <span
                           key={index}
                           className={segment.style || ""}
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          whileHover={segment.style ? { scale: 1.05, y: -1 } : {}}
-                          viewport={{ once: true }}
-                          transition={{
-                            duration: 0.3,
-                            delay: 0.4 + index * 0.01,
-                            type: "spring",
-                            stiffness: 200
-                          }}
                         >
                           {segment.text}
-                        </motion.span>
+                        </span>
                       ))}
-                    </motion.p>
+                    </p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -671,7 +631,7 @@ export default function Portfolio() {
                           className="rounded-2xl w-full object-cover transform transition-transform duration-500 group-hover:scale-110"
                           loading="lazy"
                         />
-                      </motion.div>
+                      </div>
                       
                       {/* Title */}
                       <motion.h3 
@@ -687,7 +647,7 @@ export default function Portfolio() {
                           transition={{ duration: 0.5 }}
                         >
                           <ExternalLink className="h-6 w-6 opacity-50 group-hover:opacity-100 transition-all text-blue-600" />
-                        </motion.div>
+                        </div>
                       </motion.h3>
                       
                       {/* Badge */}
@@ -707,7 +667,7 @@ export default function Portfolio() {
                             </Badge>
                           </div>
                         </div>
-                      </motion.div>
+                      </div>
                       
                       {/* Description */}
                       <motion.p 
@@ -719,7 +679,7 @@ export default function Portfolio() {
                       >
                         Luminous Coreは、<span className="text-blue-600 dark:text-blue-400 font-semibold">デジタル戦略</span>で事業成果を最大化するグローステック・パートナーです。
                         <span className="text-cyan-600 dark:text-cyan-400 font-semibold">AI技術と専門チーム</span>を駆使し、SNSグロース、大手製薬会社や著名ブランドのプロモーションLP開発をはじめとするWeb制作、業務効率化をワンストップで実現します。
-                      </motion.p>
+                      </p>
                       
                       {/* CTA Button */}
                       <motion.div
@@ -740,9 +700,9 @@ export default function Portfolio() {
                             transition={{ duration: 1.5, repeat: Infinity }}
                           >
                             <ExternalLink className="h-5 w-5 text-white" />
-                          </motion.div>
+                          </div>
                         </Link>
-                      </motion.div>
+                      </div>
                     </CardContent>
                   </Card>
                 </div>
@@ -780,7 +740,7 @@ export default function Portfolio() {
                         placeholder="blur"
                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                       />
-                    </motion.div>
+                    </div>
                     <motion.h3 
                       className="text-3xl md:text-4xl font-bold mb-6 flex items-center"
                       whileHover={{ x: 10 }}
@@ -795,7 +755,7 @@ export default function Portfolio() {
                         transition={{ delay: 0.5 }}
                       >
                         <ExternalLink className="ml-3 h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity text-purple-600" />
-                      </motion.div>
+                      </div>
                     </motion.h3>
                     <motion.div
                       initial={{ scale: 0 }}
@@ -807,7 +767,7 @@ export default function Portfolio() {
                         <Rocket className="w-4 h-4 mr-2 inline" />
                         デジタル人材育成団体
                       </Badge>
-                    </motion.div>
+                    </div>
                     <motion.p 
                       className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 tracking-wide"
                       initial={{ opacity: 0 }}
@@ -816,7 +776,7 @@ export default function Portfolio() {
                       transition={{ duration: 0.8, delay: 0.4 }}
                     >
                       未来のデジタルリーダーを育成する、最高峰大学連合のイノベーションハブ。<span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">慶應・東大・早稲田・一橋</span>のエリート学生から、革新的起業家、専門技術者まで、各界のトップタレントが結集。上場企業・テックジャイアントとの戦略パートナーシップで、業界を変革する次世代タレントを育成。
-                    </motion.p>
+                    </p>
                     <motion.div
                       whileHover={{ x: 10 }}
                       transition={{ type: "spring", stiffness: 150 }}
@@ -832,9 +792,9 @@ export default function Portfolio() {
                           transition={{ duration: 1, repeat: Infinity }}
                         >
                           <ExternalLink className="h-5 w-5" />
-                        </motion.div>
+                        </div>
                       </Link>
-                    </motion.div>
+                    </div>
                   </CardContent>
                 </Card>
               </Tilt>
@@ -871,7 +831,7 @@ export default function Portfolio() {
                         placeholder="blur"
                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                       />
-                    </motion.div>
+                    </div>
                     <motion.h3 
                       className="text-3xl md:text-4xl font-bold mb-6 flex items-center"
                       whileHover={{ x: 10 }}
@@ -886,7 +846,7 @@ export default function Portfolio() {
                         transition={{ delay: 0.5 }}
                       >
                         <ExternalLink className="ml-3 h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity text-gray-800" />
-                      </motion.div>
+                      </div>
                     </motion.h3>
                     <motion.div
                       initial={{ scale: 0 }}
@@ -898,7 +858,7 @@ export default function Portfolio() {
                         <Sparkles className="w-4 h-4 mr-2 inline" />
                         夜職専門SNSプロデュース
                       </Badge>
-                    </motion.div>
+                    </div>
                     <motion.p 
                       className="text-lg md:text-xl leading-loose mb-6 font-light text-gray-700 tracking-wide"
                       initial={{ opacity: 0 }}
@@ -907,7 +867,7 @@ export default function Portfolio() {
                       transition={{ duration: 0.8, delay: 0.4 }}
                     >
                       夜職業界に特化した<span className="font-semibold text-gray-800">SNSプロデュース専門チーム</span>。感覚と経験則に頼りがちなこの業界のSNS戦略を、<span className="font-semibold text-gray-600">データとロジック</span>で再構築。独自開発した分析プロダクトも活用し、あなたという存在を<span className="font-semibold bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent">「再現性のある、稼げる戦略的資産」</span>へと変貌させる、唯一無二のソリューションを提供。
-                    </motion.p>
+                    </p>
                     <motion.div
                       whileHover={{ x: 10 }}
                       transition={{ type: "spring", stiffness: 150 }}
@@ -923,9 +883,9 @@ export default function Portfolio() {
                           transition={{ duration: 1, repeat: Infinity }}
                         >
                           <ExternalLink className="h-5 w-5" />
-                        </motion.div>
+                        </div>
                       </Link>
-                    </motion.div>
+                    </div>
                   </CardContent>
                 </Card>
               </Tilt>
