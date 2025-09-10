@@ -897,6 +897,7 @@ export default function Portfolio() {
 
       {/* SNS Links Section */}
       <section 
+        id="sns"
         className="py-20 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
