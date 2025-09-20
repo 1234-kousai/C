@@ -470,20 +470,14 @@ export default function Portfolio() {
                     <p className="relative text-lg md:text-xl leading-loose text-gray-800 dark:text-gray-200">
                       {[
                         { text: "現在は、" },
-                        { text: "2つの事業", style: "font-bold bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent" },
-                        { text: "を率いています。一つは、企業の" },
-                        { text: "DX（デジタル変革）", style: "font-bold bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent" },
-                        { text: "を支援するグローステック・事業" },
-                        { text: "『Luminous Core』", style: "font-black text-2xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent inline-block mx-1 px-3 py-1 rounded-xl bg-blue-100/10 dark:bg-blue-900/20 border border-blue-200/30 dark:border-blue-800/30 transform hover:scale-105 transition-all duration-300" },
-                        { text: "。そしてもう一つが、" },
-                        { text: "夜職業界", style: "font-semibold text-gray-700 dark:text-gray-300" },
-                        { text: "に特化したSNSプロデュースチーム" },
-                        { text: "『Noir Producers』", style: "font-black text-2xl bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 dark:from-gray-300 dark:via-gray-100 dark:to-gray-300 bg-clip-text text-transparent inline-block mx-1 px-3 py-1 rounded-xl bg-gray-100/10 dark:bg-gray-900/20 border border-gray-300/30 dark:border-gray-700/30 transform hover:scale-105 transition-all duration-300" },
-                        { text: "です。" },
-                        { text: "IT資格", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
-                        { text: "や" },
-                        { text: "簿記資格", style: "font-bold bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent" },
-                        { text: "で培った知識も、これらの事業の土台となっています。" }
+                        { text: "Web開発", style: "font-bold bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent" },
+                        { text: "と" },
+                        { text: "デジタルマーケティング", style: "font-bold bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent" },
+                        { text: "を中心とした事業を展開しています。" },
+                        { text: "SNSプロデュース", style: "font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent" },
+                        { text: "から" },
+                        { text: "システム開発", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
+                        { text: "まで、企業のデジタル戦略を幅広くサポートしています。" }
                       ].map((segment, index) => (
                         <span
                           key={index}
