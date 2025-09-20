@@ -267,62 +267,6 @@ export default function Portfolio() {
             </motion.div>
           </motion.h1>
 
-          <motion.div 
-            className="mb-12 space-y-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-          >
-            {[
-              { text: "Web開発 & デジタルマーケティング", icon: <Zap className="w-6 h-6" />, gradient: "from-blue-500 to-cyan-500" },
-              { text: "学生団体 StuDXIA 創設者", icon: <Rocket className="w-6 h-6" />, gradient: "from-purple-500 to-pink-500" },
-              { text: "慶應義塾大学 経済学部 在学", icon: <Sparkles className="w-6 h-6" />, gradient: "from-amber-500 to-orange-500" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -50, rotateY: -30 }}
-                animate={{ opacity: 1, x: 0, rotateY: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 1.4 + index * 0.15,
-                  type: "spring",
-                  stiffness: 100,
-                }}
-                whileHover={{ scale: 1.03, x: 10, rotateY: 5 }}
-                className="group perspective-1000"
-              >
-                <div className="relative mx-auto max-w-2xl preserve-3d">
-                  {/* Background Glow */}
-                  <motion.div 
-                    className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-70 blur-xl transition-opacity duration-500 rounded-3xl`}
-                  />
-                  
-                  {/* Card */}
-                  <div className="relative glass backdrop-blur-xl rounded-3xl px-8 py-5 border border-white/10 group-hover:border-white/20 transition-all duration-500 overflow-hidden">
-                    {/* Shimmer Effect */}
-                    <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    {/* Content */}
-                    <div className="relative flex items-center justify-center gap-4">
-                      <motion.div
-                        className={`text-white/70 group-hover:text-white transition-all duration-300`}
-                        whileHover={{ rotate: 360, scale: 1.2 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <div className={`p-2 rounded-xl bg-gradient-to-br ${item.gradient} bg-opacity-20`}>
-                          {item.icon}
-                        </div>
-                      </motion.div>
-                      <p className="text-lg md:text-xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300">
-                        {item.text}
-                      </p>
-                    </div>
-                    
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -507,62 +451,55 @@ export default function Portfolio() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                {/* Introduction Card */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
                   className="relative group"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 rounded-3xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-300" />
-                  <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700">
-                    <div className="absolute top-4 left-8 w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" />
-                    <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white mt-8">My Journey</h3>
-                    <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-                      <span className="text-purple-600 dark:text-purple-400 font-semibold">慶應義塾大学経済学部</span>で学びながら、
-                      ビジネスの実践を通じて成長してきました。
-                      <span className="text-blue-600 dark:text-blue-400 font-semibold">金融機関</span>や
-                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold">税理士事務所</span>でのインターン、
-                      そして自ら立ち上げた<span className="text-amber-600 dark:text-amber-400 font-semibold">経理代行事業</span>を通じて、
-                      デジタル技術の可能性に目覚めました。
-                    </p>
-                  </div>
-                </motion.div>
-                
-                {/* Achievement Card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="relative group"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-3xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-300" />
-                  <div className="relative bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-800 rounded-3xl p-8 shadow-xl border border-blue-100 dark:border-gray-700">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                        <Rocket className="w-6 h-6 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white">創設した団体</h3>
-                    </div>
-                    <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-                      AI・DXの学習を深める中で、
-                      <span className="text-purple-600 dark:text-purple-400 font-bold text-xl">「StuDXIA」</span>を創設。
-                      わずか1ヶ月で<span className="text-rose-600 dark:text-rose-400 font-semibold">慶應・東大・早稲田・一橋</span>の学生や
-                      起業家など多様な人材が集まる団体に成長させ、
-                      上場企業やテック企業との連携も実現しました。
-                    </p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
+                  
+                  <div className="relative bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl border border-white/50 dark:border-gray-700/50 shadow-2xl overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-10" />
+                    
+                    <motion.div 
+                      className="relative p-8 md:p-10"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.3 }}
+                    >
+                      <p className="text-lg md:text-xl leading-loose text-gray-800 dark:text-gray-200">
+                        {[
+                          { text: "慶應義塾大学", style: "font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent" },
+                          { text: "経済学部在籍。" },
+                          { text: "金融機関・税理士事務所", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
+                          { text: "でのインターン経験や、" },
+                          { text: "経理代行事業", style: "font-bold bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent" },
+                          { text: "の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。" },
+                          { text: "AI・DX", style: "font-bold bg-gradient-to-r from-violet-600 to-violet-400 bg-clip-text text-transparent" },
+                          { text: "を学ぶ中で、多様な人材が在籍するデジタル人材育成団体" },
+                          { text: "「StuDXIA」", style: "font-black text-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent inline-block mx-1 transform hover:scale-105 transition-transform duration-300" },
+                          { text: "を立ち上げ、上場企業やテック企業と連携。それとは別に、個人事業として大手企業のデジタルプロモーションを支援し、コンバージョン重視のLP開発などを手掛けてきました。" }
+                        ].map((segment, index) => (
+                          <span
+                            key={index}
+                            className={segment.style || ""}
+                          >
+                            {segment.text}
+                          </span>
+                        ))}
+                      </p>
+                    </motion.div>
                   </div>
                 </motion.div>
 
-                {/* Current Business Card */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
                   className="relative group"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-700" />
                   
@@ -594,39 +531,38 @@ export default function Portfolio() {
                   </div>
                 </motion.div>
 
-                {/* Hobbies Section */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  className="relative group"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  className="relative"
+                  transition={{ delay: 0.4 }}
                 >
-                  <div className="relative bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-800 rounded-3xl p-8 shadow-xl border border-purple-100 dark:border-gray-700">
-                    <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">My Passions</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-rose-500/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
+                  
+                  <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-gray-200/30 dark:border-gray-700/30 shadow-xl overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500" />
+                    
+                    <p className="relative text-lg md:text-xl leading-loose text-gray-800 dark:text-gray-200">
                       {[
-                        { icon: <Code2 className="w-5 h-5" />, text: "アプリ開発", color: "from-purple-500 to-purple-600" },
-                        { icon: <Palette className="w-5 h-5" />, text: "ゲーム開発", color: "from-pink-500 to-pink-600" },
-                        { icon: <Sparkles className="w-5 h-5" />, text: "モデル活動", color: "from-rose-500 to-rose-600" },
-                        { icon: <Globe className="w-5 h-5" />, text: "コスプレ", color: "from-fuchsia-500 to-fuchsia-600" }
-                      ].map((hobby, index) => (
-                        <motion.div
+                        { text: "モデル活動や" },
+                        { text: "韓国大手事務所felicity", style: "font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent" },
+                        { text: "でのライバーなど、" },
+                        { text: "クリエイティブな分野", style: "font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent" },
+                        { text: "でも活動していました。趣味は" },
+                        { text: "アニメ", style: "font-bold bg-gradient-to-r from-rose-600 to-rose-400 bg-clip-text text-transparent" },
+                        { text: "が大好きなので" },
+                        { text: "コスプレ", style: "font-bold bg-gradient-to-r from-fuchsia-600 to-fuchsia-400 bg-clip-text text-transparent" },
+                        { text: "をしています！！" }
+                      ].map((segment, index) => (
+                        <span
                           key={index}
-                          whileHover={{ scale: 1.05, y: -5 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="relative group cursor-pointer"
+                          className={segment.style || ""}
                         >
-                          <div className={`absolute inset-0 bg-gradient-to-r ${hobby.color} rounded-xl blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
-                          <div className="relative bg-white dark:bg-gray-700 rounded-xl p-4 shadow-lg text-center">
-                            <div className={`w-10 h-10 mx-auto mb-2 bg-gradient-to-r ${hobby.color} rounded-lg flex items-center justify-center text-white`}>
-                              {hobby.icon}
-                            </div>
-                            <p className="text-sm font-medium text-gray-700 dark:text-gray-200">{hobby.text}</p>
-                          </div>
-                        </motion.div>
+                          {segment.text}
+                        </span>
                       ))}
-                    </div>
+                    </p>
                   </div>
                 </motion.div>
               </motion.div>
