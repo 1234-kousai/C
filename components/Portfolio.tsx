@@ -676,6 +676,62 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* Family Section */}
+      <section 
+        className="py-16 relative overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-gray-50 dark:bg-gray-900/20"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.h3 
+            className="text-2xl md:text-3xl font-semibold text-center mb-8 text-gray-700 dark:text-gray-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            余談ですが、家系図です！
+          </motion.h3>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <motion.div 
+                className="relative"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="relative overflow-hidden rounded-lg shadow-lg">
+                  <Image
+                    src="/family tree.jpg"
+                    alt="Family Tree"
+                    width={500}
+                    height={400}
+                    className="w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </motion.div>
+
+              <motion.div 
+                className="text-center md:text-left"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+                  実は私は、四人兄弟の末っ子です。
+                  兄たちは昔から東大、旧帝の医学部など、非常に優秀で学級委員を務めるようなタイプでした。反対に、私は毎日先生に怒られているような問題児で…笑
+                  そんな私ですが、一生懸命頑張らせていただきます！
+                  何かお手伝いできることがあれば、いつでもお気軽にお声がけください！
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <motion.footer 
         className="py-12 relative overflow-hidden border-t border-gray-200/50" 
