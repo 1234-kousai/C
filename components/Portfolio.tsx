@@ -473,14 +473,12 @@ export default function Portfolio() {
                         {[
                           { text: "慶應義塾大学", style: "font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent" },
                           { text: "経済学部在籍。" },
-                          { text: "金融機関・税理士事務所", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
-                          { text: "でのインターン経験や、" },
-                          { text: "経理代行事業", style: "font-bold bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent" },
-                          { text: "の起業を通じて、ビジネスや数字の現場に触れ、デジタル分野の可能性を実感。" },
                           { text: "AI・DX", style: "font-bold bg-gradient-to-r from-violet-600 to-violet-400 bg-clip-text text-transparent" },
-                          { text: "を学ぶ中で、多様な人材が在籍するデジタル人材育成団体" },
+                          { text: "を学ぶ中で、デジタル分野の可能性を実感し、" },
+                          { text: "慶應生を中心とした", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
+                          { text: "デジタル人材育成団体" },
                           { text: "「StuDXIA」", style: "font-black text-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent inline-block mx-1 transform hover:scale-105 transition-transform duration-300" },
-                          { text: "を立ち上げ、上場企業やテック企業と連携。それとは別に、個人事業として大手企業のデジタルプロモーションを支援し、コンバージョン重視のLP開発などを手掛けてきました。" }
+                          { text: "を立ち上げ、上場企業やテック企業と連携してDX/AI教育を推進。それとは別に、大手企業のデジタルプロモーションを支援し、コンバージョン重視のLP開発などを手掛けてきました。" }
                         ].map((segment, index) => (
                           <span
                             key={index}
