@@ -1,13 +1,13 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useMemo, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Menu, X, ExternalLink, Instagram, Mail, ChevronDown, Sparkles, Zap, Rocket, Code2, Palette, Globe, Facebook, Linkedin, MessageCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, LazyMotion, domAnimation } from "framer-motion"
 import Tilt from "react-parallax-tilt"
 import { throttle, rafThrottle } from "@/lib/performance"
 
@@ -19,8 +19,6 @@ export default function Portfolio() {
   const [currentBgImageIndex, setCurrentBgImageIndex] = useState(0)
   const [activeSection, setActiveSection] = useState("")
   
-  const { scrollYProgress } = useScroll()
-  const parallaxY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
   const heroRef = useRef<HTMLElement>(null)
   const aboutRef = useRef<HTMLElement>(null)
 
@@ -66,34 +64,30 @@ export default function Portfolio() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
+      setCurrentImageIndex((prevIndex) =>
         prevIndex === aboutMeImages.length - 1 ? 0 : prevIndex + 1
       )
     }, 3000)
-    
+
     return () => clearInterval(interval)
   }, [aboutMeImages.length])
 
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBgImageIndex((prevIndex) => 
-        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
-      )
-    }, 5000)
-    
-    return () => clearInterval(interval)
-  }, [backgroundImages.length])
-
-
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useCallback((id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
     setIsMenuOpen(false)
-  }
+  }, [])
+
+  // viewport設定を共通化してパフォーマンス向上
+  const viewportConfig = useMemo(() => ({
+    once: true,
+    margin: "-100px"
+  }), [])
 
   if (!mounted) return null
 
   return (
+    <LazyMotion features={domAnimation} strict>
     <div className="min-h-screen bg-background text-foreground">
       
       {/* Header */}
@@ -186,27 +180,18 @@ export default function Portfolio() {
           <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-cyan-600/20 to-transparent rounded-full blur-2xl" />
         </div>
         
-        {/* Parallax Background Images */}
-        <motion.div 
-          className="absolute inset-0 opacity-30 z-0"
-          style={{ y: parallaxY }}
-        >
-          {backgroundImages.map((image, index) => (
-            <motion.div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-2000`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: index === currentBgImageIndex ? 0.4 : 0 }}
-              transition={{ duration: 1.5 }}
-              style={{
-                backgroundImage: `url('${image}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                filter: "saturate(0.5) contrast(1.2)",
-              }}
-            />
-          ))}
-        </motion.div>
+        {/* Static Background Image - パララックス無効化でパフォーマンス向上 */}
+        <div className="absolute inset-0 opacity-20 z-0">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url('${backgroundImages[0]}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: "saturate(0.5) contrast(1.2) blur(2px)",
+            }}
+          />
+        </div>
         
         {/* Floating Particles - Disabled for performance */}
 
@@ -218,12 +203,12 @@ export default function Portfolio() {
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           >
             <Tilt
-              tiltMaxAngleX={15}
-              tiltMaxAngleY={15}
+              tiltMaxAngleX={8}
+              tiltMaxAngleY={8}
               perspective={1000}
-              transitionSpeed={1000}
-              scale={1.05}
-              gyroscope={true}
+              transitionSpeed={1500}
+              scale={1.02}
+              gyroscope={false}
             >
               <div className="relative inline-block">
                 {/* Static Glow Ring */}
@@ -395,17 +380,12 @@ export default function Portfolio() {
                   <div className="relative bg-white dark:bg-gray-900 p-2 rounded-3xl shadow-2xl">
                     <div className="relative w-full h-[600px] md:h-[650px] overflow-hidden rounded-2xl">
                       {aboutMeImages.map((image, index) => (
-                        <motion.div
+                        <div
                           key={index}
-                          className="absolute inset-0"
-                          initial={{ opacity: 0, x: 100 }}
-                          animate={{ 
+                          className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+                          style={{
                             opacity: index === currentImageIndex ? 1 : 0,
-                            x: index === currentImageIndex ? 0 : -100
-                          }}
-                          transition={{ 
-                            duration: 0.5,
-                            ease: "easeInOut"
+                            pointerEvents: index === currentImageIndex ? 'auto' : 'none'
                           }}
                         >
                           <Image
@@ -415,9 +395,10 @@ export default function Portfolio() {
                             height={700}
                             className="w-full h-full object-cover"
                             priority={index === 0}
+                            loading={index === 0 ? "eager" : "lazy"}
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                        </motion.div>
+                        </div>
                       ))}
                       
                       {/* Modern Navigation - 改善されたプログレスバー */}
@@ -896,5 +877,6 @@ export default function Portfolio() {
         </div>
       </motion.footer>
     </div>
+    </LazyMotion>
   )
 }
