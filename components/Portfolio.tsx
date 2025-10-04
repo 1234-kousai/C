@@ -489,7 +489,7 @@ export default function Portfolio() {
                           { text: "慶應生を中心とした", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
                           { text: "デジタル人材育成団体" },
                           { text: "「StuDXIA」", style: "font-black text-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent inline-block mx-1 transform hover:scale-105 transition-transform duration-300" },
-                          { text: "を立ち上げ、上場企業やテック企業と連携してDX/AI教育を推進。それとは別に、大手企業のブランディング・プロモーションを支援し、デザイン・広告作成からWeb開発まで手掛けてきました。" }
+                          { text: "を立ち上げ、上場企業やテック企業と連携してDX/AI教育を推進。それとは別に、美容クリニック・製薬・サプリメントなど、ヘルスケア領域の大手企業を中心にブランディング・プロモーションを支援し、デザイン・広告作成からWeb開発まで手掛けてきました。" }
                         ].map((segment, index) => (
                           <span
                             key={index}
