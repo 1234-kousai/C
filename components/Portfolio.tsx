@@ -531,7 +531,7 @@ export default function Portfolio() {
                         { text: "SNSプロデュース", style: "font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent" },
                         { text: "から" },
                         { text: "システム開発", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
-                        { text: "まで、企業のデジタル戦略を幅広くサポートしています。" }
+                        { text: "まで、デジタル戦略を幅広くサポートしています。" }
                       ].map((segment, index) => (
                         <span
                           key={index}
