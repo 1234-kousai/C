@@ -15,6 +15,11 @@ const config: Config = {
   			montserrat: ['var(--font-montserrat)', 'sans-serif'],
   			playfair: ['var(--font-playfair)', 'serif'],
   		},
+  		backgroundImage: {
+  			'brand-gradient': 'linear-gradient(135deg, #2563eb 0%, #9333ea 50%, #ec4899 100%)',
+  			'brand-gradient-light': 'linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #f472b6 100%)',
+  			'brand-gradient-hover': 'linear-gradient(135deg, #1d4ed8 0%, #7e22ce 50%, #db2777 100%)',
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

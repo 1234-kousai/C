@@ -17,6 +17,7 @@ export default function Portfolio() {
   const [mounted, setMounted] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentBgImageIndex, setCurrentBgImageIndex] = useState(0)
+  const [activeSection, setActiveSection] = useState("")
   
   const { scrollYProgress } = useScroll()
   const parallaxY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
@@ -38,12 +39,26 @@ export default function Portfolio() {
 
   useEffect(() => {
     setMounted(true)
-    const handleScroll = throttle(() => setScrollY(window.scrollY), 100) // 10fps for header only
-    
+    const handleScroll = throttle(() => {
+      setScrollY(window.scrollY)
+
+      // Active section detection
+      const sections = ["about", "sns"]
+      const current = sections.find(id => {
+        const element = document.getElementById(id)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 150 && rect.bottom >= 150
+        }
+        return false
+      })
+      setActiveSection(current || "")
+    }, 100)
+
     window.addEventListener("scroll", handleScroll, { passive: true })
-    
+
     // Particles disabled for performance
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
@@ -93,8 +108,8 @@ export default function Portfolio() {
         }`}
       >
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <motion.div 
-            className="text-xl md:text-2xl font-black bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent cursor-pointer"
+          <motion.div
+            className="text-xl md:text-2xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent cursor-pointer"
             whileHover={{ scale: 1.05, rotate: 2 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -107,15 +122,24 @@ export default function Portfolio() {
               <motion.button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="relative py-2 px-4 text-base font-medium transition-colors hover:text-primary"
+                className={`relative py-2 px-4 text-base font-medium transition-colors ${
+                  activeSection === item ? "text-purple-600 dark:text-purple-400" : "hover:text-primary"
+                }`}
                 whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}
               >
+                {activeSection === item && (
+                  <motion.div
+                    layoutId="activeSection"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-lg"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
                 <span className="relative z-10 capitalize">{item}</span>
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-500/20 rounded-lg"
+                  className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-500/20 rounded-lg"
                   initial={{ opacity: 0, scale: 0.8 }}
-                  whileHover={{ opacity: 1, scale: 1 }}
+                  whileHover={{ opacity: activeSection === item ? 0 : 1, scale: 1 }}
                   transition={{ duration: 0.2 }}
                 />
               </motion.button>
@@ -229,8 +253,8 @@ export default function Portfolio() {
             </Tilt>
           </motion.div>
 
-          <motion.h1 
-            className="text-6xl md:text-8xl lg:text-9xl font-black mb-12 tracking-tight perspective-1000"
+          <motion.h1
+            className="text-5xl md:text-7xl lg:text-8xl font-black mb-12 tracking-tight perspective-1000"
             initial={{ opacity: 0, z: -100 }}
             animate={{ opacity: 1, z: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -313,10 +337,10 @@ export default function Portfolio() {
       </section>
 
       {/* More about me Section */}
-      <section 
+      <section
         ref={aboutRef}
-        id="about" 
-        className="py-32 relative overflow-hidden"
+        id="about"
+        className="py-24 md:py-32 relative overflow-hidden"
       >
         {/* Modern Background */}
         <div className="absolute inset-0">
@@ -396,7 +420,7 @@ export default function Portfolio() {
                         </motion.div>
                       ))}
                       
-                      {/* Modern Navigation */}
+                      {/* Modern Navigation - 改善されたプログレスバー */}
                       <div className="absolute bottom-6 left-0 right-0">
                         <div className="flex justify-center items-center gap-3">
                           {aboutMeImages.map((_, index) => (
@@ -406,17 +430,18 @@ export default function Portfolio() {
                               className="group relative"
                             >
                               <motion.div
-                                className="w-12 h-1 rounded-full overflow-hidden bg-white/30 backdrop-blur-sm"
-                                whileHover={{ scale: 1.2 }}
-                                whileTap={{ scale: 0.9 }}
+                                className="w-16 h-1.5 rounded-full overflow-hidden bg-white/20 backdrop-blur-md border border-white/30"
+                                whileHover={{ scale: 1.15, height: 8 }}
+                                whileTap={{ scale: 0.95 }}
+                                transition={{ duration: 0.2 }}
                               >
                                 <motion.div
-                                  className="h-full bg-white"
+                                  className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
                                   initial={{ width: "0%" }}
-                                  animate={{ 
+                                  animate={{
                                     width: index === currentImageIndex ? "100%" : "0%"
                                   }}
-                                  transition={{ 
+                                  transition={{
                                     duration: index === currentImageIndex ? 3 : 0.3,
                                     ease: "linear"
                                   }}
@@ -456,14 +481,19 @@ export default function Portfolio() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
+                  whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(147, 51, 234, 0.3)" }}
+                  transition={{ duration: 0.3 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
-                  
+
+                  {/* 左アクセントバー */}
+                  <div className="absolute left-0 top-4 bottom-4 w-2 bg-gradient-to-b from-blue-600 via-purple-600 to-pink-600 rounded-l-3xl" />
+
                   <div className="relative bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl border border-white/50 dark:border-gray-700/50 shadow-2xl overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-10" />
-                    
-                    <motion.div 
-                      className="relative p-8 md:p-10"
+
+                    <motion.div
+                      className="relative p-8 md:p-10 pl-10 md:pl-12"
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -498,10 +528,14 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
+                  whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(59, 130, 246, 0.3)" }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-700" />
-                  
-                  <div className="relative bg-gradient-to-br from-gray-50/90 to-white/90 dark:from-gray-900/90 dark:to-gray-800/90 backdrop-blur-lg rounded-3xl p-8 md:p-10 border border-gray-200/50 dark:border-gray-700/50 shadow-xl">
+
+                  <div className="relative bg-gradient-to-br from-gray-50/90 to-white/90 dark:from-gray-900/90 dark:to-gray-800/90 backdrop-blur-lg rounded-3xl p-8 md:p-10 border border-gray-200/50 dark:border-gray-700/50 shadow-xl overflow-hidden">
+                    {/* 上グラデーションバー */}
+                    <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500" />
+
                     <div className="absolute inset-0 opacity-5">
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500" />
                     </div>
@@ -535,11 +569,13 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
+                  whileHover={{ scale: 1.02 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-rose-500/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
-                  
-                  <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-gray-200/30 dark:border-gray-700/30 shadow-xl overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500" />
+                  {/* 外側グローエフェクト - より強く */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
+
+                  <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-purple-200/50 dark:border-purple-700/50 shadow-xl overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500" />
                     
                     <p className="relative text-lg md:text-xl leading-loose text-gray-800 dark:text-gray-200">
                       {[
@@ -570,9 +606,9 @@ export default function Portfolio() {
       </section>
 
       {/* SNS Links Section */}
-      <section 
+      <section
         id="sns"
-        className="py-20 relative overflow-hidden"
+        className="py-24 md:py-32 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -606,108 +642,201 @@ export default function Portfolio() {
               事業や協業のご相談はお気軽にDMください！
             </motion.p>
 
-            <motion.div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            <motion.div
+              className="grid grid-cols-4 gap-6 max-w-5xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              {[
-                { 
-                  href: "https://www.instagram.com/kousai_yamamoto?igsh=ZGs1M200NWY0dXp6&utm_source=qr", 
-                  icon: Instagram, 
-                  label: "Instagram",
-                  gradient: "from-pink-500 to-purple-600"
-                },
-                { 
-                  href: "https://line.me/ti/p/LQZTlwfkC4", 
-                  icon: MessageCircle, 
-                  label: "LINE",
-                  gradient: "from-green-500 to-green-600"
-                },
-                { 
-                  href: "https://www.facebook.com/profile.php?id=100063969728654", 
-                  icon: Facebook, 
-                  label: "Facebook",
-                  gradient: "from-blue-600 to-blue-700"
-                },
-                { 
-                  href: "https://www.linkedin.com/in/%E5%85%AC%E6%89%8D-%E5%B1%B1%E6%9C%AC-39319a358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", 
-                  icon: Linkedin, 
-                  label: "LinkedIn",
-                  gradient: "from-blue-700 to-blue-800"
-                }
-              ].map((social, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 * index, type: "spring" }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+              {/* Instagram - 大きく強調 */}
+              <motion.div
+                className="col-span-4 md:col-span-2 md:row-span-2"
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0, type: "spring" }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Link
+                  href="https://www.instagram.com/kousai_yamamoto?igsh=ZGs1M200NWY0dXp6&utm_source=qr"
+                  target="_blank"
+                  className="group relative block h-full"
                 >
-                  <Link
-                    href={social.href}
-                    target="_blank"
-                    className="group relative block"
-                  >
-                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${social.gradient} p-6 shadow-xl transition-all duration-300 hover:shadow-2xl`}>
-                      <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="relative flex flex-col items-center gap-3">
-                        <social.icon className="h-12 w-12 text-white" />
-                        <span className="text-white font-semibold text-lg">{social.label}</span>
-                      </div>
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                        initial={{ x: "-100%" }}
-                        whileHover={{ x: "100%" }}
-                        transition={{ duration: 0.8 }}
-                      />
+                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] p-12 shadow-2xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(253,29,29,0.6)] h-full flex flex-col items-center justify-center">
+                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative flex flex-col items-center gap-6">
+                      <Instagram className="h-24 w-24 md:h-32 md:w-32 text-white" />
+                      <span className="text-white font-bold text-3xl md:text-4xl">Instagram</span>
+                      <span className="text-white/80 text-sm md:text-base">@kousai_yamamoto</span>
                     </div>
-                  </Link>
-                </motion.div>
-              ))}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "100%" }}
+                      transition={{ duration: 1 }}
+                    />
+                  </div>
+                </Link>
+              </motion.div>
+
+              {/* LINE */}
+              <motion.div
+                className="col-span-2 md:col-span-2"
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1, type: "spring" }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="https://line.me/ti/p/LQZTlwfkC4"
+                  target="_blank"
+                  className="group relative block h-full"
+                >
+                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#00B900] to-[#00B900] p-6 shadow-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,185,0,0.6)] h-full flex flex-col items-center justify-center">
+                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative flex flex-col items-center gap-3">
+                      <MessageCircle className="h-12 w-12 text-white" />
+                      <span className="text-white font-semibold text-lg">LINE</span>
+                    </div>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "100%" }}
+                      transition={{ duration: 0.8 }}
+                    />
+                  </div>
+                </Link>
+              </motion.div>
+
+              {/* Facebook */}
+              <motion.div
+                className="col-span-2 md:col-span-1"
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, type: "spring" }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="https://www.facebook.com/profile.php?id=100063969728654"
+                  target="_blank"
+                  className="group relative block h-full"
+                >
+                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#1877F2] to-[#0C63D4] p-6 shadow-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(24,119,242,0.6)] h-full flex flex-col items-center justify-center">
+                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative flex flex-col items-center gap-3">
+                      <Facebook className="h-12 w-12 text-white" />
+                      <span className="text-white font-semibold text-lg">Facebook</span>
+                    </div>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "100%" }}
+                      transition={{ duration: 0.8 }}
+                    />
+                  </div>
+                </Link>
+              </motion.div>
+
+              {/* LinkedIn */}
+              <motion.div
+                className="col-span-2 md:col-span-1"
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, type: "spring" }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="https://www.linkedin.com/in/%E5%85%AC%E6%89%8D-%E5%B1%B1%E6%9C%AC-39319a358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                  target="_blank"
+                  className="group relative block h-full"
+                >
+                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0A66C2] to-[#004182] p-6 shadow-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(10,102,194,0.6)] h-full flex flex-col items-center justify-center">
+                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative flex flex-col items-center gap-3">
+                      <Linkedin className="h-12 w-12 text-white" />
+                      <span className="text-white font-semibold text-lg">LinkedIn</span>
+                    </div>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "100%" }}
+                      transition={{ duration: 0.8 }}
+                    />
+                  </div>
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Family Section */}
-      <section 
-        className="py-16 relative overflow-hidden"
+      <section
+        className="py-24 md:py-32 relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gray-50 dark:bg-gray-900/20"></div>
+        {/* 統一されたグラデーション背景 */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-purple-50/30 to-pink-50/30 dark:from-gray-900 dark:via-purple-900/10 dark:to-pink-900/10" />
+          {/* ノイズテクスチャ */}
+          <div className="absolute inset-0 opacity-30" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }} />
+        </div>
+
         <div className="container mx-auto px-4 relative z-10">
-          <motion.h3 
-            className="text-2xl md:text-3xl font-semibold text-center mb-8 text-gray-700 dark:text-gray-300"
+          <motion.div
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            余談ですが、家系図です！
-          </motion.h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">余談</p>
+            <h3 className="text-3xl md:text-4xl font-bold relative inline-block">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                家系図です！
+              </span>
+              {/* 下線 */}
+              <motion.div
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"
+                initial={{ width: 0 }}
+                whileInView={{ width: "200px" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              />
+            </h3>
+          </motion.div>
 
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <motion.div 
+              <motion.div
                 className="relative"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="relative overflow-hidden rounded-lg shadow-lg">
-                  <Image
-                    src="/family tree.jpg"
-                    alt="Family Tree"
-                    width={500}
-                    height={400}
-                    className="w-full object-cover"
-                    loading="lazy"
-                  />
+                {/* glass morphism エフェクト追加 */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl" />
+                <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-3xl p-4 shadow-2xl border border-white/50 dark:border-gray-700/50">
+                  <div className="relative overflow-hidden rounded-2xl">
+                    <Image
+                      src="/family tree.jpg"
+                      alt="Family Tree"
+                      width={500}
+                      height={400}
+                      className="w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               </motion.div>
 
@@ -731,39 +860,39 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <motion.footer 
-        className="py-12 relative overflow-hidden border-t border-gray-200/50" 
+      <motion.footer
+        className="py-16 relative overflow-hidden border-t border-purple-200/30 dark:border-purple-800/30"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url('/大理石.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}></div>
-        <div className="absolute inset-0 bg-white/90"></div> 
+        <div className="absolute inset-0">
+          <Image
+            src="/大理石.jpg"
+            alt="background"
+            fill
+            className="object-cover"
+            quality={75}
+          />
+        </div>
+        {/* グラデーションオーバーレイ */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/90 to-purple-50/80 dark:from-gray-900/95 dark:via-gray-900/90 dark:to-purple-900/50"></div> 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center space-y-6">
-
-            <motion.div 
-              className="text-muted-foreground"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <p className="text-lg font-light">
-                &copy; {new Date().getFullYear()} 
-                <span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mx-2">
-                  山本公才 / Kousai Yamamoto
-                </span>
-                All rights reserved.
-              </p>
-            </motion.div>
-          </div>
+          <motion.div
+            className="text-center space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              山本公才 / Kousai Yamamoto
+            </div>
+            <p className="text-base md:text-lg font-light text-gray-600 dark:text-gray-400">
+              &copy; {new Date().getFullYear()} All rights reserved.
+            </p>
+          </motion.div>
         </div>
       </motion.footer>
     </div>
