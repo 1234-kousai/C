@@ -624,136 +624,68 @@ export default function Portfolio() {
             </motion.p>
 
             <motion.div
-              className="grid grid-cols-4 gap-6 max-w-5xl mx-auto"
+              className="grid grid-cols-2 md:grid-cols-4 gap-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              {/* Instagram - 大きく強調 */}
-              <motion.div
-                className="col-span-4 md:col-span-2 md:row-span-2"
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0, type: "spring" }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Link
-                  href="https://www.instagram.com/kousai_yamamoto?igsh=ZGs1M200NWY0dXp6&utm_source=qr"
-                  target="_blank"
-                  className="group relative block h-full"
+              {[
+                {
+                  href: "https://www.instagram.com/kousai_yamamoto?igsh=ZGs1M200NWY0dXp6&utm_source=qr",
+                  icon: Instagram,
+                  label: "Instagram",
+                  gradient: "from-pink-500 to-purple-600"
+                },
+                {
+                  href: "https://line.me/ti/p/LQZTlwfkC4",
+                  icon: MessageCircle,
+                  label: "LINE",
+                  gradient: "from-green-500 to-green-600"
+                },
+                {
+                  href: "https://www.facebook.com/profile.php?id=100063969728654",
+                  icon: Facebook,
+                  label: "Facebook",
+                  gradient: "from-blue-600 to-blue-700"
+                },
+                {
+                  href: "https://www.linkedin.com/in/%E5%85%AC%E6%89%8D-%E5%B1%B1%E6%9C%AC-39319a358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+                  icon: Linkedin,
+                  label: "LinkedIn",
+                  gradient: "from-blue-700 to-blue-800"
+                }
+              ].map((social, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 * index, type: "spring" }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] p-12 shadow-2xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(253,29,29,0.6)] h-full flex flex-col items-center justify-center">
-                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative flex flex-col items-center gap-6">
-                      <Instagram className="h-24 w-24 md:h-32 md:w-32 text-white" />
-                      <span className="text-white font-bold text-3xl md:text-4xl">Instagram</span>
-                      <span className="text-white/80 text-sm md:text-base">@kousai_yamamoto</span>
+                  <Link
+                    href={social.href}
+                    target="_blank"
+                    className="group relative block"
+                  >
+                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${social.gradient} p-6 shadow-xl transition-all duration-300 hover:shadow-2xl`}>
+                      <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="relative flex flex-col items-center gap-3">
+                        <social.icon className="h-12 w-12 text-white" />
+                        <span className="text-white font-semibold text-lg">{social.label}</span>
+                      </div>
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                        initial={{ x: "-100%" }}
+                        whileHover={{ x: "100%" }}
+                        transition={{ duration: 0.8 }}
+                      />
                     </div>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 1 }}
-                    />
-                  </div>
-                </Link>
-              </motion.div>
-
-              {/* LINE */}
-              <motion.div
-                className="col-span-2 md:col-span-2"
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1, type: "spring" }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  href="https://line.me/ti/p/LQZTlwfkC4"
-                  target="_blank"
-                  className="group relative block h-full"
-                >
-                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#00B900] to-[#00B900] p-6 shadow-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,185,0,0.6)] h-full flex flex-col items-center justify-center">
-                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative flex flex-col items-center gap-3">
-                      <MessageCircle className="h-12 w-12 text-white" />
-                      <span className="text-white font-semibold text-lg">LINE</span>
-                    </div>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.8 }}
-                    />
-                  </div>
-                </Link>
-              </motion.div>
-
-              {/* Facebook */}
-              <motion.div
-                className="col-span-2 md:col-span-1"
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, type: "spring" }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  href="https://www.facebook.com/profile.php?id=100063969728654"
-                  target="_blank"
-                  className="group relative block h-full"
-                >
-                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#1877F2] to-[#0C63D4] p-6 shadow-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(24,119,242,0.6)] h-full flex flex-col items-center justify-center">
-                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative flex flex-col items-center gap-3">
-                      <Facebook className="h-12 w-12 text-white" />
-                      <span className="text-white font-semibold text-lg">Facebook</span>
-                    </div>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.8 }}
-                    />
-                  </div>
-                </Link>
-              </motion.div>
-
-              {/* LinkedIn */}
-              <motion.div
-                className="col-span-2 md:col-span-1"
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, type: "spring" }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  href="https://www.linkedin.com/in/%E5%85%AC%E6%89%8D-%E5%B1%B1%E6%9C%AC-39319a358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                  target="_blank"
-                  className="group relative block h-full"
-                >
-                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0A66C2] to-[#004182] p-6 shadow-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(10,102,194,0.6)] h-full flex flex-col items-center justify-center">
-                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative flex flex-col items-center gap-3">
-                      <Linkedin className="h-12 w-12 text-white" />
-                      <span className="text-white font-semibold text-lg">LinkedIn</span>
-                    </div>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.8 }}
-                    />
-                  </div>
-                </Link>
-              </motion.div>
+                  </Link>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>
