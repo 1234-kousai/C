@@ -489,7 +489,7 @@ export default function Portfolio() {
                           { text: "慶應生を中心とした", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
                           { text: "デジタル人材育成団体" },
                           { text: "「StuDXIA」", style: "font-black text-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent inline-block mx-1 transform hover:scale-105 transition-transform duration-300" },
-                          { text: "を立ち上げ、上場企業やテック企業と連携してDX/AI教育を推進。それとは別に、美容クリニック・製薬・サプリメントなど、ヘルスケア領域の大手企業を中心にブランディング・プロモーションを支援し、デザイン・広告作成からWeb開発まで手掛けてきました。" }
+                          { text: "を立ち上げ、上場企業やテック企業と連携してDX/AI教育を推進してきました。" }
                         ].map((segment, index) => (
                           <span
                             key={index}
@@ -524,13 +524,15 @@ export default function Portfolio() {
                     <p className="relative text-lg md:text-xl leading-loose text-gray-800 dark:text-gray-200">
                       {[
                         { text: "現在は、" },
-                        { text: "Web開発", style: "font-bold bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent" },
+                        { text: "美容クリニック・製薬・サプリメントなど、ヘルスケア領域", style: "font-bold bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent" },
+                        { text: "を中心に" },
+                        { text: "Web開発", style: "font-bold bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent" },
                         { text: "と" },
-                        { text: "デジタルマーケティング", style: "font-bold bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent" },
-                        { text: "を中心とした事業を展開しています。" },
-                        { text: "SNSプロデュース", style: "font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent" },
+                        { text: "デジタルマーケティング", style: "font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent" },
+                        { text: "事業を展開。" },
+                        { text: "SNSプロデュース", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
                         { text: "から" },
-                        { text: "システム開発", style: "font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent" },
+                        { text: "システム開発", style: "font-bold bg-gradient-to-r from-rose-600 to-rose-400 bg-clip-text text-transparent" },
                         { text: "まで、デジタル戦略を幅広くサポートしています。" }
                       ].map((segment, index) => (
                         <span
